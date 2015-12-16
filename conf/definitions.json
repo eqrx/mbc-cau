@@ -1,0 +1,25 @@
+{
+  "blackCards": [
+    "black-a",
+    "black-b",
+    "black-c",
+    "black-d"
+  ],
+  "whiteCards": [
+    "white-a",
+    "white-b",
+    "white-c",
+    "white-d",
+    "white-e",
+    "white-f",
+    "white-g",
+    "white-h",
+    "white-i"
+  ],
+  "scoreNames": [
+    "name-a",
+    "name-b",
+    "name-c",
+    "name-d"
+  ]
+}
