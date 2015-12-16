@@ -1,0 +1,7 @@
+{
+  "turnDuration": 1,
+  "definitionsPath": "definitions.json",
+  "scorePath": "score.json",
+  "socketPath": "/run/cau/link.socket",
+  "socketPermissions": 666
+}
