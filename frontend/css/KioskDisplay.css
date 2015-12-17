@@ -1,0 +1,10 @@
+#highscore {
+    max-height: 100vh;
+}
+
+#con{
+    /*background-color: green;*/
+	
+	min-height: 100vh;
+	max-height: 100vh;
+}
