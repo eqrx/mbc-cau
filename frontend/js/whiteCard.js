@@ -39,5 +39,13 @@ var WhiteCard = {
 				
 			}).fadeIn(sCardSet.fadeTime);
         }
-    }
+    },
+    
+    bindVoteButtons: function () { //bind funktion für die Buttons
+        $(".btn").on("click", function() {
+            var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
+            
+            Socket.sendVote(buttonID);
+        });
+    },
 };
