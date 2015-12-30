@@ -30,7 +30,9 @@ var Socket = {
         Socket.bindError();
         Socket.bindScorenames();
         
-        socket.emit("connection", "")
+        Socket.bind();
+        
+        Socket.emitRequest();
     },
     
     bindConnect: function () {
@@ -66,6 +68,14 @@ var Socket = {
     bindScorenames: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onScorenames, function (msg) {
             console.log("Socket: Scorenames");
+            console.log(msg);
+            
+        });
+    },
+    
+    bind: function () { //Socket Bind für die Highscore Liste
+        socket.on("update", function (msg) {
+            console.log("Socket: Update");
             console.log(msg);
             
         });
