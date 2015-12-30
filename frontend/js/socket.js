@@ -79,7 +79,7 @@ var Socket = {
         socket.on(sSocket.onHandout, function (msg) {
             console.log("Socket: Handout");
             console.log(msg);
-            console.log(msg[0]);
+            console.log(msg["hand"][0]);
             console.log(msg["hand"]);
             
             WhiteCard.cardUpdate(msg);
