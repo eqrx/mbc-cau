@@ -37,13 +37,15 @@ var WhiteCard = {
         console.log(card[0]);
         
 		for(var i = 0; i < sWhiteCard.maxPanels; i++) {
-			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, function (card, i) { //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-                console.log(sWhiteCard.text + i);
-                console.log(card[i]);
-				$(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
-				
-			}).fadeIn(sCardSet.fadeTime);
+            //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
+			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sCardSet.fadeTime);
         }
+    },
+    
+    cardUpdateHelper: function (card, i) {
+        console.log(sWhiteCard.text + i);
+        console.log(card[i]);
+        $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
     },
     
     bindVoteButtons: function () { //bind funktion für die Buttons
