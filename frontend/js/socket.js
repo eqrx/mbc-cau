@@ -12,7 +12,7 @@ var Socket = {
         onCardSet: "turn",
         onHighscore: "highscore",
         onError: "illegal",
-        onScorenames: "scorenames",
+        onScorenames: "names",
         
         errorConnect: "connect failed",
         errorMSG: "Server Connection failed",
@@ -50,7 +50,7 @@ var Socket = {
     bindHighscore: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onHighscore, function (msg) {
             console.log("Socket: Highscore");
-            
+            console.log(msg);
             
         });
     },
@@ -66,7 +66,7 @@ var Socket = {
     bindScorenames: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onScorenames, function (msg) {
             console.log("Socket: Scorenames");
-            
+            console.log(msg);
             
         });
     },
