@@ -116,11 +116,4 @@ var Socket = {
             cardSet.push(temp);
         //}   
     },
-    
-    parseHandout: function (msg) {
-        console.log("Socket: Handout");
-    
-        console.log(msg["hand"]);
-        return msg["hand"];
-    },
 };

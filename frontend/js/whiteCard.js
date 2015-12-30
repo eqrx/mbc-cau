@@ -13,13 +13,16 @@ var WhiteCard = {
     init: function() {
         sWhiteCard = this.settings; //this auf die variable prägen
         
-        //this.cardHide();
+        this.cardHide();
+        
+        this.bindVoteButtons();
     },
     
     //Verteckt alle Karten zu beginn
     cardHide: function () {
         for(var i = 0; i < sWhiteCard.maxPanels; i++) {
             $(sWhiteCard.panel + i).hide();
+            (sWhiteCard.text + i).html("");
         }
     },
     
@@ -32,13 +35,11 @@ var WhiteCard = {
     
     //Ändert denn Text auf einer Karte
     cardUpdate: function(card) {
-        console.log("WhiteCard: Update");
-        console.log(card);
-        console.log(card[0]);
+        voteCard = card; //Speichern zum Voten
         
 		for(var i = 0; i < sWhiteCard.maxPanels; i++) {
             //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sCardSet.fadeTime);
+			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, this.cardUpdateHelper(card, i)).fadeIn(sCardSet.fadeTime);
         }
     },
     
@@ -52,7 +53,30 @@ var WhiteCard = {
         $(".btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
             
-            Socket.sendVote(buttonID);
+            this.vote(buttonID);
         });
+    },
+    
+    vote: function (buttonID) {
+        var card;
+        
+        switch(buttonID) {
+        case b0:
+            card = voteCard[0];
+        break;
+        case b1:
+            card = voteCard[1];
+        break;
+        case b2:
+            card = voteCard[2];
+        break;
+        case b3:
+            card = voteCard[3];
+        break;
+        default:
+            console.log("ERROR: Button to Vote convert");
+        }
+        
+        Socket.sendVote(card, playerName);
     },
 };
