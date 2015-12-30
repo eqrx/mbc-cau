@@ -27,7 +27,7 @@ var Socket = {
         sSocket = this.settings; //this auf die variable prägen
         
         //alert(sSocket.address);
-        socket = io.connect(sSocket.address);
+        socket = io();
         
         Socket.bindConnect();
         Socket.bindVoteButtons();
