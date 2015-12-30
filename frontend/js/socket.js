@@ -80,6 +80,11 @@ var Socket = {
             console.log("Socket: Handout");
             console.log(msg["hand"]);
             
+            var temp = msg["hand"];
+            for(var i = 0; i < temp.lenght; i++) {
+                console.log(temp[i]);
+            }
+            
             WhiteCard.cardUpdate(msg["hand"]);
         });
     },
