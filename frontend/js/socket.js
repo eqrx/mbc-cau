@@ -43,7 +43,7 @@ var Socket = {
         socket.on(sSocket.onCardSet, function (msg) {
             console.log("Socket: turn");
             
-            cards = Socket.parseMsg(msg);
+            cards = Socket.parseTurnMsg(msg);
         });
     },
     
@@ -71,15 +71,15 @@ var Socket = {
         });
     },
     
-    emitVote: function (card) { //Sendet Votes zum Server
-        //socket.emit("","");
+    emitVote: function (card, player) { //Sendet Votes zum Server
+        socket.emit(sSocket.emitVote, {"card": card, "player": player});
     },
     
     emitRequest: function () { //Sendet Request des Datensatzes an Server
-        
+        socket.emit(sSocket.emitSetRequest, "");
     },
     
-    parseMsg: function (msg) {
+    parseTurnMsg: function (msg) {
         console.log(msg);
         console.log(msg["card"]);
         blackCard = msg["card"];
@@ -89,6 +89,8 @@ var Socket = {
         
         cardSet = new Array();
         //for (var i = 0; i < msg["choices"].lenght; i++) {
+            console.log("Choices");
+            console.log(msg["choices"]);
             temp = JSON.stringify(msg["choices"], null, 4);
             console.log(temp);
             cardSet.push(temp);
