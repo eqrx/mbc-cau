@@ -77,7 +77,8 @@ var Socket = {
     
     bindHandout: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onHandout, function (msg) {
-           voteCard = Socket.parseHandout(msg);
+            console.log("Socket: Handout");
+            WhiteCard.cardUpdate(msg["hand"]);
         });
     },
     
