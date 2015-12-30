@@ -43,7 +43,7 @@ var Socket = {
         socket.on(sSocket.onCardSet, function (msg) {
             console.log("Socket: turn");
             
-            parseTurnMsg();  
+            cards = Socket.parseMsg();  
         });
     },
     
@@ -79,10 +79,10 @@ var Socket = {
         
     },
     
-    parseTurnMsg: function (msg) {
+    parseMsg: function (msg) {
         console.log(msg);
-        cards = JSON.parse(msg);
-        console.log(cards);
-        console.log(cards.card[0]);
+        erg = JSON.parse(msg);
+        console.log(erg);
+        return erg;        
     }
 };
