@@ -80,7 +80,7 @@ var Socket = {
             console.log("Socket: Handout");
             console.log(msg["hand"]);
             
-            var temp = msg["hand"];
+            var temp = JSON.stringify(msg["choices"], null, 4);
             for(var i = 0; i < temp.lenght; i++) {
                 console.log(temp[i]);
             }
