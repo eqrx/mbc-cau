@@ -13,7 +13,7 @@ var WhiteCard = {
     init: function() {
         sWhiteCard = this.settings; //this auf die variable prägen
         
-        this.cardHide();
+        //this.cardHide();
     },
     
     //Verteckt alle Karten zu beginn

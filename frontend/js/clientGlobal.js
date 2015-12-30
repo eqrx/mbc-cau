@@ -25,10 +25,11 @@ $(function() {
     
 	//alert(voteCard[0]);
 
-    Socket.init();
+    
     CardSet.init();
     WhiteCard.init();
     Highscore.init(cardSet);
+    Socket.init();
 
 	//WhiteCard.cardUpdate(voteCard);
     //WhiteCard.cardShow();
