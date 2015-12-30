@@ -80,12 +80,12 @@ var Socket = {
             console.log("Socket: Handout");
             console.log(msg["hand"]);
             
-            var temp = JSON.stringify(msg["choices"], null, 4);
+            var temp = JSON.parse(msg);
             for(var i = 0; i < temp.lenght; i++) {
                 console.log(temp[i]);
             }
             
-            WhiteCard.cardUpdate(msg["hand"]);
+            WhiteCard.cardUpdate(temp);
         });
     },
     
