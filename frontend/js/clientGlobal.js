@@ -1,6 +1,8 @@
-$(function() {     
-    var cards = new Array();
-	var voteCard = new Array();
+$(function() {
+    var blackCard;
+    var cardSet;
+	var voteCard;
+    var duration;
     var next = new Place(0, 0);
 	
     /*cards.push(new Card("Dwayna", 10));

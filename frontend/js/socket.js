@@ -43,7 +43,7 @@ var Socket = {
         socket.on(sSocket.onCardSet, function (msg) {
             console.log("Socket: turn");
             
-            cards = Socket.parseMsg(msg);  
+            cards = Socket.parseMsg(msg);
         });
     },
     
@@ -81,7 +81,13 @@ var Socket = {
     
     parseMsg: function (msg) {
         console.log(msg);
-        erg = JSON.parse(msg);
+        blackCard = msg["card"];
+        duration = msg["duration"];
+        
+        cardSet = new Array();
+        for (var i = 0; i < msg["choices"].lenght; i++) {
+            cards.push(msg["choices"][i]);
+        }
         console.log(erg);
         return erg;        
     }
