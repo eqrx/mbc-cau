@@ -82,6 +82,9 @@ var Socket = {
             console.log(msg["hand"][0]);
             console.log(msg["hand"]);
             
+            temp = msg["hand"];
+            console.log(temp[0]);
+            
             WhiteCard.cardUpdate(msg);
         });
     },
