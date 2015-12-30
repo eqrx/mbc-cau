@@ -13,6 +13,8 @@ var Socket = {
         onHighscore: "highscore",
         onError: "illegal",
         onScorenames: "names",
+        onHandout: "handout",
+        onUpdate: "update",
         
         errorConnect: "connect failed",
         errorMSG: "Server Connection failed",
@@ -29,8 +31,8 @@ var Socket = {
         Socket.bindHighscore();
         Socket.bindError();
         Socket.bindScorenames();
-        
-        Socket.bind();
+        Socket.bindHandout();
+        Socket.bindUpdateCardSet();
         
         Socket.emitRequest();
     },
@@ -73,8 +75,14 @@ var Socket = {
         });
     },
     
-    bind: function () { //Socket Bind für die Highscore Liste
-        socket.on("handout", function (msg) {
+    bindHandout: function () { //Socket Bind für die Highscore Liste
+        socket.on(sSocket.onHandout, function (msg) {
+           Socket.parseHandout(msg);
+        });
+    },
+    
+    bindUpdateCardSet: function () {
+        socket.on(sSocket.onUpdate, function (msg) {
             console.log("Socket: Update");
             console.log(msg);
             
@@ -99,12 +107,17 @@ var Socket = {
         
         cardSet = new Array();
         //for (var i = 0; i < msg["choices"].lenght; i++) {
-            console.log("Choices");
             console.log(msg["choices"]);
             temp = JSON.stringify(msg["choices"], null, 4);
             console.log(temp);
             cardSet.push(temp);
-        //}
-            
-    }
+        //}   
+    },
+    
+    parseHandout: function (msg) {
+        console.log("Socket: Handout");
+        for (var i = 0; i < msg["hand"].lenght; i++) {
+            console.log(msg["hand"][i]);
+        }
+    },
 };
