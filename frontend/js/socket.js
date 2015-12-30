@@ -70,14 +70,14 @@ var Socket = {
     bindScorenames: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onScorenames, function (msg) {
             console.log("Socket: Scorenames");
-            console.log(msg);
+            console.log(msg["name"]);
             
         });
     },
     
     bindHandout: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onHandout, function (msg) {
-           Socket.parseHandout(msg);
+           //Socket.parseHandout(msg);
         });
     },
     
@@ -117,7 +117,7 @@ var Socket = {
     parseHandout: function (msg) {
         console.log("Socket: Handout");
         for (var i = 0; i < msg["hand"].lenght; i++) {
-            console.log(msg["hand"][i]);
+            console.log(msg["hand"]);
         }
     },
 };
