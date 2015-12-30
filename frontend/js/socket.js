@@ -78,14 +78,10 @@ var Socket = {
     bindHandout: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onHandout, function (msg) {
             console.log("Socket: Handout");
+            console.log(msg);
             console.log(msg["hand"]);
             
-            var temp = JSON.parse(msg);
-            for(var i = 0; i < temp.lenght; i++) {
-                console.log(temp[i]);
-            }
-            
-            WhiteCard.cardUpdate(temp);
+            WhiteCard.cardUpdate(msg);
         });
     },
     
