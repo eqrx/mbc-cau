@@ -88,10 +88,10 @@ var Socket = {
         duration = msg["duration"];
         
         cardSet = new Array();
-        for (var i = 0; i < msg["choices"].lenght; i++) {
+        //for (var i = 0; i < msg["choices"].lenght; i++) {
             cards.push(msg["choices"]);
             console.log(msg["choices"]); 
-        }
+        //}
             
     }
 };
