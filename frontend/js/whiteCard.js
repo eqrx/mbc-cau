@@ -33,6 +33,8 @@ var WhiteCard = {
     //Ändert denn Text auf einer Karte
     cardUpdate: function(card) {
         console.log("WhiteCard: Update");
+        console.log(card);
+        console.log(card[0]);
         
 		for(var i = 0; i < sWhiteCard.maxPanels; i++) {
 			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, function () { //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
