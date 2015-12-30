@@ -3,7 +3,7 @@ $(function() {
 	var voteCard = new Array();
     var next = new Place(0, 0);
 	
-    cards.push(new Card("Dwayna", 10));
+    /*cards.push(new Card("Dwayna", 10));
     cards.push(new Card("Balthazar", 9));
     cards.push(new Card("Melandru", 7));
     cards.push(new Card("Lyssa-LANGER SUPER TEXT ZUM TESTEN", 5));
@@ -19,7 +19,7 @@ $(function() {
 	voteCard.push(cards[0].name);
 	voteCard.push(cards[5].name);
 	voteCard.push(cards[2].name);
-	voteCard.push(cards[3].name);
+	voteCard.push(cards[3].name);*/
     
 	//alert(voteCard[0]);
 

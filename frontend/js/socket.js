@@ -42,8 +42,8 @@ var Socket = {
     bindCardSet: function () {  //Socket bind für Karten Set sendungen der Weißen Karten und der Bereits gespielten karten
         socket.on(sSocket.onCardSet, function (msg) {
             console.log("Socket: turn");
-            console.log(msg);
             
+            parseTurnMsg();  
         });
     },
     
@@ -78,4 +78,11 @@ var Socket = {
     emitRequest: function () { //Sendet Request des Datensatzes an Server
         
     },
+    
+    parseTurnMsg: function (msg) {
+        console.log(msg);
+        cards = JSON.parse(msg);
+        console.log(cards);
+        console.log(cards.card[0]);
+    }
 };
