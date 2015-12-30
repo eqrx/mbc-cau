@@ -35,5 +35,5 @@ $(function() {
     
     //Socket.bindVoteButtons();
     
-    var cardSetTimer = setInterval(function() {CardSet.cardUpdate(cards, next) }, CardSet.settings.updateTime);    
+    var cardSetTimer = setInterval(function() {CardSet.cardUpdate(cardSet, next) }, CardSet.settings.updateTime);    
 });
