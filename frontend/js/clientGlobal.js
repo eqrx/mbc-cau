@@ -1,7 +1,7 @@
 $(function() {
     var blackCard;
-    var cardSet;
-	var voteCard;
+    var cardSet = new Array();
+	var voteCard = new Array();
     var duration;
     var next = new Place(0, 0);
 	

@@ -81,7 +81,10 @@ var Socket = {
     
     parseMsg: function (msg) {
         console.log(msg);
+        console.log(msg["card"]);
         blackCard = msg["card"];
+        
+        console.log(msg["duration"]);
         duration = msg["duration"];
         
         cardSet = new Array();

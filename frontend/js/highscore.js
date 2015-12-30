@@ -28,6 +28,7 @@ var Highscore = {
     },
     
     printHighscore: function (cards, start) {
+        
         rows = this.getRows();
         
         this.deletHighscoreTable();
