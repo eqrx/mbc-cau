@@ -30,7 +30,7 @@ $(function() {
     WhiteCard.init();
     Highscore.init(cardSet);
 
-	WhiteCard.cardUpdate(voteCard);
+	//WhiteCard.cardUpdate(voteCard);
     //WhiteCard.cardShow();
     
     //Socket.bindVoteButtons();
