@@ -74,7 +74,7 @@ var Socket = {
     },
     
     bind: function () { //Socket Bind für die Highscore Liste
-        socket.on("update", function (msg) {
+        socket.on("hand", function (msg) {
             console.log("Socket: Update");
             console.log(msg);
             
