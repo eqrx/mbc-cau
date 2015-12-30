@@ -89,8 +89,9 @@ var Socket = {
         
         cardSet = new Array();
         //for (var i = 0; i < msg["choices"].lenght; i++) {
-            cards.push(msg["choices"]);
-            console.log(msg["choices"]); 
+            temp = JSON.stringify(msg["choices"], null, 4);
+            console.log(temp);
+            cardSet.push(temp);
         //}
             
     }
