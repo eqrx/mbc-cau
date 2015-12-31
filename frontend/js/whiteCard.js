@@ -13,9 +13,9 @@ var WhiteCard = {
     init: function() {
         sWhiteCard = this.settings; //this auf die variable prägen
         
-        this.cardHide();
+        WhiteCard.cardHide();
         
-        this.bindVoteButtons();
+        WhiteCard.bindVoteButtons();
     },
     
     //Verteckt alle Karten zu beginn
@@ -39,7 +39,7 @@ var WhiteCard = {
         
 		for(var i = 0; i < sWhiteCard.maxPanels; i++) {
             //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, this.cardUpdateHelper(card, i)).fadeIn(sCardSet.fadeTime);
+			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sCardSet.fadeTime);
         }
     },
     
@@ -53,7 +53,7 @@ var WhiteCard = {
         $(".btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
             
-            this.vote(buttonID);
+            WhiteCard.vote(buttonID);
         });
     },
     
