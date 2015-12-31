@@ -8,4 +8,9 @@ function Place(nextCard, nextPanel) {
     this.nextPanel = nextPanel;
 }
 
-var VOTE_MSG = '{"update":['+'{ "card":"Card 1","score":"10","name":"Name"}, ]}';
+var blackCard;
+var cardSet = new Array();
+var voteCard = new Array();
+var duration;
+var playerName = "";
+var next = new Place(0, 0);
