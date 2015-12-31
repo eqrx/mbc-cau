@@ -61,16 +61,16 @@ var WhiteCard = {
         var card;
         
         switch(buttonID) {
-        case b0:
+        case "b0":
             card = voteCard[0];
         break;
-        case b1:
+        case "b1":
             card = voteCard[1];
         break;
-        case b2:
+        case "b2":
             card = voteCard[2];
         break;
-        case b3:
+        case "b3":
             card = voteCard[3];
         break;
         default:
