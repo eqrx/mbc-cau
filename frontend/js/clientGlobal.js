@@ -3,7 +3,7 @@ $(function() {
     var cardSet = new Array();
 	var voteCard = new Array();
     var duration;
-    var playerName = "";
+    var playerName = "Max";
     var next = new Place(0, 0);
 	
     /*cards.push(new Card("Dwayna", 10));
