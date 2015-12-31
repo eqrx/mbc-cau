@@ -22,7 +22,7 @@ var WhiteCard = {
     cardHide: function () {
         for(var i = 0; i < sWhiteCard.maxPanels; i++) {
             $(sWhiteCard.panel + i).hide();
-            (sWhiteCard.text + i).html("");
+            $(sWhiteCard.text + i).html("");
         }
     },
     

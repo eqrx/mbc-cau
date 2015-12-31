@@ -93,6 +93,8 @@ var Socket = {
     },
     
     emitVote: function (card, player) { //Sendet Votes zum Server
+        console.log("Socket: emitVote");
+        
         socket.emit(sSocket.emitVote, {"card": card, "player": player});
     },
     
