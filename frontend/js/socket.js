@@ -69,7 +69,7 @@ var Socket = {
         socket.on(sSocket.onScorenames, function (msg) {
             console.log("Socket: Scorenames");
             
-            ScoreName.saveScoreNames(msg);
+            ScoreName.saveScoreNames(msg["names"]);
         });
     },
     
