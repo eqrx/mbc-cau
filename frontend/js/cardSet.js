@@ -61,7 +61,7 @@ var CardSet = {
     saveCardSet: function (msg) {
         setOfCards = new Array();
         
-        console.log(msg[0]);
+        //console.log(msg[0]);
         
         for(var i = 0; i < msg.length; i++) {
             setOfCards.push(new Card(msg[i][0], 10));
