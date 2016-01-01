@@ -54,7 +54,7 @@ var WhiteCard = {
     bindVoteButtons: function () { //bind funktion für die Buttons
         $("#vote .btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
-            
+            console.log(buttonID);
             WhiteCard.vote(buttonID);   
         });
     },
