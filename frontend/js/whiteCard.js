@@ -43,6 +43,7 @@ var WhiteCard = {
         }
     },
     
+    //Hilfs Methode zum verändern des Textes der Weißen Karten
     cardUpdateHelper: function (card, i) {
         console.log(sWhiteCard.text + i);
         console.log(card[i]);
@@ -51,35 +52,36 @@ var WhiteCard = {
     
     //Bindet Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
-        $(".btn").on("click", function() {
+        $("#vote .btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
             
-            console.log(buttonID.indexOf("b") > -1);
-            WhiteCard.vote(buttonID);
+            WhiteCard.vote(buttonID);   
         });
     },
     
     //Helper Funktion um von Gedrückten Button auf die gewählte karte zu schließen
     vote: function (buttonID) {
-        var card;
-        
-        switch(buttonID) {
-        case "b0":
-            card = voteCard[0];
-        break;
-        case "b1":
-            card = voteCard[1];
-        break;
-        case "b2":
-            card = voteCard[2];
-        break;
-        case "b3":
-            card = voteCard[3];
-        break;
-        default:
-            console.log("ERROR: Button to Vote convert");
+        if (buttonID.indexOf("b") > -1) {//Prüft ob es auch der Gewünschte Button ist
+            var card;
+            
+            switch(buttonID) {
+            case "b0":
+                card = voteCard[0];
+            break;
+            case "b1":
+                card = voteCard[1];
+            break;
+            case "b2":
+                card = voteCard[2];
+            break;
+            case "b3":
+                card = voteCard[3];
+            break;
+            default:
+                console.log("ERROR: Button to Vote convert");
+            }
+            
+            Socket.emitVote(card); //Sendet die wahl an Server
         }
-        
-        Socket.emitVote(card);
     },
 };

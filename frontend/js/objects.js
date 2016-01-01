@@ -12,5 +12,4 @@ var blackCard;
 var cardSet = new Array();
 var voteCard = new Array();
 var duration;
-var playerName = "";
 var next = new Place(0, 0);

@@ -1,11 +1,9 @@
 var sSocket;  //Variabel für die Settings
-var socket;  //= io.connect("https://141.22.27.231"); //Socket Variable
+var socket;  //Socket Variable
 
 var Socket = {
 
-    settings: {
-        address: "http://192.168.5.128", //"https://141.22.27.231",  //Addresse auf die sich Verbunden wird
-        
+    settings: {        
         emitVote: "choice",
         emitSetRequest: "request",
         
@@ -72,6 +70,7 @@ var Socket = {
             console.log("Socket: Scorenames");
             console.log(msg["names"]);
             
+            ScoreName.saveScoreNames(msg);
         });
     },
     
@@ -104,18 +103,17 @@ var Socket = {
     
     parseTurnMsg: function (msg) {
         console.log(msg);
-        console.log(msg["card"]);
+        //console.log(msg["card"]);
         blackCard = msg["card"];
         
-        console.log(msg["duration"]);
+        //console.log(msg["duration"]);
         duration = msg["duration"];
         
         cardSet = new Array();
-        //for (var i = 0; i < msg["choices"].lenght; i++) {
-            console.log(msg["choices"]);
-            temp = JSON.stringify(msg["choices"], null, 4);
-            console.log(temp);
-            cardSet.push(temp);
+        //console.log(msg["choices"]);
+        temp = JSON.stringify(msg["choices"], null, 4);
+        //console.log(temp);
+        cardSet.push(temp);
         //}   
     },
 };
