@@ -1,5 +1,5 @@
 var sScoreName;  //Variabel für die Settings
-var playerName = "";
+var playerName;
    
 var ScoreName = {
     settings: {
@@ -8,8 +8,6 @@ var ScoreName = {
     
     init: function() {
         sScoreName = this.settings; //this auf die variable prägen
-        
-        ScoreName.bindVoteButtons(); 
     },
     
     //Bindet Namens wahl Buttons 
@@ -28,15 +26,18 @@ var ScoreName = {
     saveScoreNames: function (msg) {
         console.log(msg);
         
+        $(sScoreName.panel).empty();
         for(var i = 0; i < msg.length; i++) {
             $(sScoreName.panel).append('<button type="button" class="btn btn-default" id=vote-button data-ID="' + msg[i] + '">' + msg[i] + '</button>');
-        } 
+        }
+        
+        ScoreName.bindVoteButtons(); 
     },
     
     //Verteckt alle Karten zu beginn
     showScoreName: function (playerName) {
-        for(var i = 0; i < sWhiteCard.maxPanels; i++) {
-            $(sScoreName.panel + i).html("<h3>" + playerName +"</h3>");
-        }
+        $(sScoreName.panel).empty();
+        
+        $(sScoreName.panel + i).append("<h3>" + playerName +"</h3>");
     },
 };
