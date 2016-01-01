@@ -3,7 +3,7 @@ var playerName = "";
    
 var ScoreName = {
     settings: {
-        panel: "player-names",
+        panel: "#player-names",
     },
     
     init: function() {
