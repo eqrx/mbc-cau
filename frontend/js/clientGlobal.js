@@ -25,6 +25,7 @@ $(function() {
     CardSet.init();
     WhiteCard.init();
     Highscore.init(cardSet);
+    ScoreName.init();
     Socket.init();
 
 	//WhiteCard.cardUpdate(voteCard);
