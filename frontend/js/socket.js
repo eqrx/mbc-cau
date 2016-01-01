@@ -94,7 +94,7 @@ var Socket = {
         console.log("Socket: emitVote");
         console.log(playerName);
         
-        var data = { "card": card, "player": playerName }
+        var data = { "card": card, "player": playerName };
         console.log("Socket: Emit Vote MSG: " + data);
         socket.emit(sSocket.emitVote, data);
     },
