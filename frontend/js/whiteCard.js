@@ -77,6 +77,6 @@ var WhiteCard = {
             console.log("ERROR: Button to Vote convert");
         }
         
-        Socket.sendVote(card);
+        Socket.emitVote(card);
     },
 };
