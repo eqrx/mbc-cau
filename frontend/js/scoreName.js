@@ -18,14 +18,23 @@ var ScoreName = {
             console.log("ScoreName: Button ID = "+ buttonID);
             
             playerName = buttonID;
+            ScoreName.showScoreName(buttonID);
         });
     },
     
+    //Fügt Buttons zur Namens Auswahl hinzu
     saveScoreNames: function (msg) {
         console.log(msg);
         
         for(var i = 0; i < msg.length; i++) {
             $(sScoreName.panel).append('<button type="button" class="btn btn-default" id=vote-button data-ID="' + msg[i] + '">' + msg[i] + '</button>');
+        }
+    },
+    
+    //Verteckt alle Karten zu beginn
+    showScoreName: function (playerName) {
+        for(var i = 0; i < sWhiteCard.maxPanels; i++) {
+            $(sScoreName.panel + i).html("<h3>" + playerName +"</h3>");
         }
     },
 };
