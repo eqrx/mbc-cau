@@ -24,7 +24,7 @@ var ScoreName = {
     saveScoreNames: function (msg) {
         console.log(msg);
         
-        for(var i = 0; i < msg.lenght; i++) {
+        for(var i = 0; i < msg.length; i++) {
             $(sScoreName.panel).append('<button type="button" class="btn btn-default" id=vote-button data-ID="' + msg[i] + '">' + msg[i] + '</button>');
         }
     },
