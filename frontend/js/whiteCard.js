@@ -81,6 +81,8 @@ var WhiteCard = {
                 console.log("ERROR: Button to Vote convert");
             }
             
+            WhiteCard.cardHide();
+            
             Socket.emitVote(card); //Sendet die wahl an Server
         //}
     },

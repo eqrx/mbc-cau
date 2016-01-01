@@ -31,8 +31,6 @@ var Socket = {
         Socket.bindScorenames();
         Socket.bindHandout();
         Socket.bindUpdateCardSet();
-        
-        Socket.emitRequest();
     },
     
     bindConnect: function () {
@@ -93,29 +91,23 @@ var Socket = {
     emitVote: function (card) { //Sendet Votes zum Server
         console.log("Socket: emitVote");
         console.log(playerName);
-        
-        var data = { "name": playerName, "card": card };
-        console.log("Socket: Emit Vote MSG: " + data);
-        socket.emit(sSocket.emitVote, data);
+
+        socket.emit(sSocket.emitVote, { "name": playerName, "card": card });
     },
     
     emitRequest: function () { //Sendet Request des Datensatzes an Server
-        socket.emit(sSocket.emitSetRequest, "");
+        socket.emit(sSocket.emitSetRequest, null);
     },
     
     parseTurnMsg: function (msg) {
         console.log(msg);
-        //console.log(msg["card"]);
-        blackCard = msg["card"];
         
-        //console.log(msg["duration"]);
+        blackCard = msg["card"];
         duration = msg["duration"];
         
         cardSet = new Array();
-        //console.log(msg["choices"]);
-        temp = JSON.stringify(msg["choices"], null, 4);
-        //console.log(temp);
-        cardSet.push(temp);
-        //}   
+        cardSet = (msg["choices"]);
+        
+        Socket.emitRequest();
     },
 };
