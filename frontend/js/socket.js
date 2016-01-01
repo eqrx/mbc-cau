@@ -1,6 +1,10 @@
 var sSocket;  //Variabel für die Settings
 var socket;  //Socket Variable
 
+var blackCard;
+var voteCard = new Array();
+var duration;
+
 var Socket = {
 
     settings: {        
@@ -55,14 +59,6 @@ var Socket = {
         });
     },
     
-    bindError: function () { //Socket Bind für die Highscore Liste
-        socket.on(sSocket.onError, function (msg) {
-            console.log("Socket: Error");
-            
-            
-        });
-    },
-    
     bindScorenames: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onScorenames, function (msg) {
             console.log("Socket: Scorenames");
@@ -85,6 +81,15 @@ var Socket = {
             console.log("Socket: Update");
             console.log(msg);
             
+            CardSet.saveCard(msg);
+        });
+    },
+    
+    bindError: function () { //Socket Bind für die Highscore Liste
+        socket.on(sSocket.onError, function (msg) {
+            console.log("Socket: Error");
+            
+            console.log(msg);
         });
     },
     
@@ -108,6 +113,6 @@ var Socket = {
         cardSet = new Array();
         cardSet = (msg["choices"]);
         
-        Socket.emitRequest();
+        Socket.emitRequest(); //Vote Karten anfordern
     },
 };

@@ -1,5 +1,6 @@
 var sCardSet;  //Variabel für die Settings
-   
+var cardSet;
+
 var CardSet = {        
     settings: {
         fadeTime: 1000,
@@ -13,7 +14,9 @@ var CardSet = {
     init: function() {
         sCardSet = this.settings; //this auf die variable prägen
         
-        this.cardHide();
+        cardSet = new Array();
+        
+        CardSet.cardHide();
     },
     
     //Verteckt alle Karten zu beginn
@@ -43,5 +46,10 @@ var CardSet = {
             
             return next;
         }
-    }
+    },
+    
+    //Object { card: "white-f", score: 1, player: "name-a" }
+    saveCard: function(msg) {
+        
+    },
 };

@@ -8,8 +8,4 @@ function Place(nextCard, nextPanel) {
     this.nextPanel = nextPanel;
 }
 
-var blackCard;
-var cardSet = new Array();
-var voteCard = new Array();
-var duration;
 var next = new Place(0, 0);
