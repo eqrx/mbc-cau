@@ -112,6 +112,7 @@ var Socket = {
         
         CardSet.saveCardSet(msg["choices"]);
         console.log(msg["choices"]);
+        console.log(msg["choices"][0]);
         
         Socket.emitRequest(); //Vote Karten anfordern
     },
