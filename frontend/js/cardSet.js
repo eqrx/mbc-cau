@@ -20,7 +20,7 @@ var CardSet = {
         CardSet.cardHide();
         
         if (timer == true) {
-            cardSetTimer = setInterval(function() { CardSet.cardUpdate(cardSet, next) }, CardSet.settings.updateTime);  
+            cardSetTimer = setInterval(function() { CardSet.cardUpdate(setOfCards, next) }, CardSet.settings.updateTime);  
         }
     },
     

@@ -16,7 +16,7 @@ $(function() {
     
     CardSet.init(true);
     WhiteCard.init();
-    Highscore.init(cardSet);
+    //Highscore.init(cardSet);
     ScoreName.init();
     Socket.init();
     
