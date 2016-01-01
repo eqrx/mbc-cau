@@ -50,7 +50,7 @@ var WhiteCard = {
         $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
     },
     
-    //Bindet Buttons 
+    //Bindet Vote Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
         $("#vote .btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
@@ -61,7 +61,7 @@ var WhiteCard = {
     
     //Helper Funktion um von Gedrückten Button auf die gewählte karte zu schließen
     vote: function (buttonID) {
-        if (buttonID.indexOf("b") > -1) {//Prüft ob es auch der Gewünschte Button ist
+        //if (buttonID.indexOf("b") > -1) {//Prüft ob es auch der Gewünschte Button ist
             var card;
             
             switch(buttonID) {
@@ -82,6 +82,6 @@ var WhiteCard = {
             }
             
             Socket.emitVote(card); //Sendet die wahl an Server
-        }
+        //}
     },
 };
