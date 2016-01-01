@@ -52,4 +52,14 @@ var CardSet = {
     saveCard: function(msg) {
         
     },
+    
+    saveCardSet: function (msg) {
+        CardSet = new Array();
+        
+        console.log(msg[0]);
+        
+        for(var i = 0; i < msg.length; i++) {
+            CardSet.push(new Card(msg[i][0], 10));
+        }
+    },
 };
