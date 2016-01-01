@@ -14,11 +14,11 @@ $(function() {
     cards.push(new Card("Grenth2", 3));
     cards.push(new Card("Kormir2", 1));*/
     
-    CardSet.init();
+    CardSet.init(true);
     WhiteCard.init();
     Highscore.init(cardSet);
     ScoreName.init();
     Socket.init();
     
-    var cardSetTimer = setInterval(function() {CardSet.cardUpdate(cardSet, next) }, CardSet.settings.updateTime);    
+      
 });

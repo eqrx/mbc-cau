@@ -1,5 +1,6 @@
 var sCardSet;  //Variabel für die Settings
 var cardSet;
+var cardSetTimer;
 
 var CardSet = {        
     settings: {
@@ -11,12 +12,16 @@ var CardSet = {
         vote: '#card-vote-',
     },
     
-    init: function() {
+    init: function(timer) {
         sCardSet = this.settings; //this auf die variable prägen
         
         cardSet = new Array();
         
         CardSet.cardHide();
+        
+        if (timer == true) {
+            cardSetTimer = setInterval(function() {CardSet.cardUpdate(cardSet, next) }, CardSet.settings.updateTime);  
+        }
     },
     
     //Verteckt alle Karten zu beginn
