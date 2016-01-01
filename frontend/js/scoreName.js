@@ -8,8 +8,7 @@ var ScoreName = {
     
     init: function() {
         sScoreName = this.settings; //this auf die variable prägen
-        
-        ScoreName.bindVoteButtons();    
+            
     },
     
     //Bindet Namens wahl Buttons 
@@ -31,6 +30,8 @@ var ScoreName = {
         for(var i = 0; i < msg.length; i++) {
             $(sScoreName.panel).append('<button type="button" class="btn btn-default" id=vote-button data-ID="' + msg[i] + '">' + msg[i] + '</button>');
         }
+        
+        ScoreName.bindVoteButtons();
     },
     
     //Verteckt alle Karten zu beginn
