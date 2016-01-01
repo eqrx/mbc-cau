@@ -94,7 +94,9 @@ var Socket = {
         console.log("Socket: emitVote");
         console.log(playerName);
         
-        socket.emit(sSocket.emitVote, {"card": card, "player": playerName});
+        var data = { "card": card, "player": playerName }
+        console.log("Socket: Emit Vote MSG: " + data);
+        socket.emit(sSocket.emitVote, data);
     },
     
     emitRequest: function () { //Sendet Request des Datensatzes an Server
