@@ -7,8 +7,9 @@ var ScoreName = {
     },
     
     init: function() {
-       sScoreName = this.settings; //this auf die variable prägen
+        sScoreName = this.settings; //this auf die variable prägen
         
+        ScoreName.bindVoteButtons();    
     },
     
     //Bindet Namens wahl Buttons 
