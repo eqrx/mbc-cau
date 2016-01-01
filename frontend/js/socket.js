@@ -111,8 +111,10 @@ var Socket = {
         duration = msg["duration"];
         
         CardSet.saveCardSet(msg["choices"]);
-        console.log("1: " + msg["choices"]);
-        console.log("2: " + msg["choices"][0]);
+        console.log("1:");
+        console.log(msg["choices"]);
+        console.log("2:");
+        console.log(msg["choices"][0]);
         
         Socket.emitRequest(); //Vote Karten anfordern
     },
