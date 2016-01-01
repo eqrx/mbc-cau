@@ -38,6 +38,6 @@ var ScoreName = {
     showScoreName: function (playerName) {
         $(sScoreName.panel).empty();
         
-        $(sScoreName.panel + i).append("<h3>" + playerName +"</h3>");
+        $(sScoreName.panel).append("<h3>" + playerName +"</h3>");
     },
 };
