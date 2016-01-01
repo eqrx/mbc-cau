@@ -1,5 +1,5 @@
 var sCardSet;  //Variabel für die Settings
-var cardSet;
+var setOfCards;
 var cardSetTimer;
 
 var CardSet = {        
@@ -15,12 +15,12 @@ var CardSet = {
     init: function(timer) {
         sCardSet = this.settings; //this auf die variable prägen
         
-        cardSet = new Array();
+        setOfCards = new Array();
         
         CardSet.cardHide();
         
         if (timer == true) {
-            cardSetTimer = setInterval(function() {CardSet.cardUpdate(cardSet, next) }, CardSet.settings.updateTime);  
+            cardSetTimer = setInterval(function() { CardSet.cardUpdate(cardSet, next) }, CardSet.settings.updateTime);  
         }
     },
     
@@ -59,12 +59,12 @@ var CardSet = {
     },
     
     saveCardSet: function (msg) {
-        CardSet = new Array();
+        setOfCards = new Array();
         
         console.log(msg[0]);
         
         for(var i = 0; i < msg.length; i++) {
-            CardSet.push(new Card(msg[i][0], 10));
+            setOfCards.push(new Card(msg[i][0], 10));
         }
     },
 };
