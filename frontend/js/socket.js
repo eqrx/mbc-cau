@@ -112,6 +112,7 @@ var Socket = {
         
         cardSet = new Array();
         cardSet = (msg["choices"]);
+        console.log(msg["choices"]);
         
         Socket.emitRequest(); //Vote Karten anfordern
     },
