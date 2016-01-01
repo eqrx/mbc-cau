@@ -49,14 +49,17 @@ var WhiteCard = {
         $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
     },
     
+    //Bindet Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
         $(".btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
             
+            console.log(buttonID.indexOf("b") > -1);
             WhiteCard.vote(buttonID);
         });
     },
     
+    //Helper Funktion um von Gedrückten Button auf die gewählte karte zu schließen
     vote: function (buttonID) {
         var card;
         
