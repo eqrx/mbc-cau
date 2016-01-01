@@ -68,7 +68,6 @@ var Socket = {
     bindScorenames: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onScorenames, function (msg) {
             console.log("Socket: Scorenames");
-            console.log(msg["names"]);
             
             ScoreName.saveScoreNames(msg);
         });
