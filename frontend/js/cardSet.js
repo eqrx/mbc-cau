@@ -79,7 +79,7 @@ var CardSet = {
         console.log("CardsSet: saveCard");
         var isInList = true;
         
-        console.log(settings.length);
+        console.log(setOfCards.length);
         for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
             console.log(setOfCards.toString);
             console.log(setOfCards[i].name);
