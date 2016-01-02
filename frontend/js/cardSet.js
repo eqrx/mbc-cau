@@ -61,10 +61,13 @@ var CardSet = {
     saveCardSet: function (msg) {
         setOfCards = new Array();
         
-        //console.log(msg[0]);
+        for(var name in msg["choices"] ) {
+            console.log(msg["choices"][name]);
+            setOfCards.push(new Card(name, msg["choices"][name]["score"]));
+        }
         
         for(var i = 0; i < msg.length; i++) {
-            setOfCards.push(new Card(msg[i][0], 10));
+            
         }
     },
 };
