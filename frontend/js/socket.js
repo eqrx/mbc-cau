@@ -115,6 +115,11 @@ var Socket = {
         console.log(msg["choices"]);
         console.log("2:");
         console.log(msg["choices"][0]);
+        console.log("3:");
+        console.log(msg.choices[0]);
+        
+        obj = JSON.parse(msg);
+        choices.log(obj);
         
         Socket.emitRequest(); //Vote Karten anfordern
     },
