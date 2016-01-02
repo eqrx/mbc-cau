@@ -69,19 +69,20 @@ var CardSet = {
                     $(sCardSet.text + next.nextPanel).html(cards[next.nextCard].name); //Verändert denn Text der Karte
                     $(sCardSet.vote + next.nextPanel).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
                 }).fadeIn(sCardSet.fadeTime);
-              
+                isInPanel == true;
             }
             
-            next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
-            if( next.nextCard >= cards.length) {
-                next.nextCard = 0;
-            }
-               
-            next.nextPanel++; //Auswahl des Nächsten Panels welches verändert werden soll
-            if(next.nextPanel >= sCardSet.maxPanels) {
-                next.nextPanel = 0;
-            }
-            
+            if (isInPanel == true) {    //Prüfen ob auch eine Karte hinzugefügt wurde
+                next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
+                if( next.nextCard >= cards.length) {
+                    next.nextCard = 0;
+                }
+                   
+                next.nextPanel++; //Auswahl des Nächsten Panels welches verändert werden soll
+                if(next.nextPanel >= sCardSet.maxPanels) {
+                    next.nextPanel = 0;
+                }
+            }            
         }
         return next;
     },
