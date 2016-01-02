@@ -1,7 +1,6 @@
 var sCardSet;  //Variabel für die Settings
 var setOfCards;
 var cardSetTimer;
-var next;
 
 var CardSet = {        
     settings: {
@@ -16,8 +15,9 @@ var CardSet = {
     init: function(timer) {
         sCardSet = this.settings; //this auf die variable prägen
         
+        var next = new CardSet.Place(0, 0);
+        
         setOfCards = new Array();
-        next = new CardSet.Place(0, 0);
         
         CardSet.cardHide();
         
@@ -31,7 +31,7 @@ var CardSet = {
         this.nextPanel = nextPanel;
     },
     
-    Card: function (name, votes) {
+    Card: function (name, votes, onDisplay) {
         this.name = name;
         this.votes = votes;
     },

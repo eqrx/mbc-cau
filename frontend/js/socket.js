@@ -110,7 +110,7 @@ var Socket = {
         blackCard = msg["card"];
         duration = msg["duration"];
         
-        CardSet.saveCardSet(msg["choices"]);
+        CardSet.saveCardSet(msg);
         
         Socket.emitRequest(); //Vote Karten anfordern
     },
