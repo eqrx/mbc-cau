@@ -51,7 +51,7 @@ var CardSet = {
     
     //Ändert denn Text auf einer Karte
     cardUpdate: function(cards, next) {
-        if ((cards.length > 0 && next.count <=  cards.length) || cards.length >= sCardSet.maxPanels) {
+        if ((cards.length > 0 /*&& next.count <=  cards.length) || cards.length >= sCardSet.*maxPanels*/)) {
             console.log("CardsSet: cardUpdate")
             console.log(cards);
             $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () { //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
