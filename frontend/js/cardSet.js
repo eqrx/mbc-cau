@@ -1,6 +1,7 @@
 var sCardSet;  //Variabel für die Settings
 var setOfCards;
 var cardSetTimer;
+var next;
 
 var CardSet = {        
     settings: {
@@ -15,7 +16,7 @@ var CardSet = {
     init: function(timer) {
         sCardSet = this.settings; //this auf die variable prägen
         
-        var next = new CardSet.Place(0, 0);
+        next = new CardSet.Place(0, 0);
         
         setOfCards = new Array();
         
@@ -26,9 +27,10 @@ var CardSet = {
         }
     },
     
-    Place: function (nextCard, nextPanel) {
+    Place: function (nextCard, nextPanel, count) {
         this.nextCard = nextCard;
         this.nextPanel = nextPanel;
+        this.count = count;
     },
     
     Card: function (name, votes, onDisplay) {
@@ -36,21 +38,25 @@ var CardSet = {
         this.votes = votes;
     },
     
-    //Verteckt alle Karten zu beginn
+    //Verteckt alle Karten und löscht inhalt
     cardHide: function () {
         for(var i = 0; i < sCardSet.maxPanels; i++) {
             $(sCardSet.panel + i).hide();
+            $(sCardSet.text + i).html("");
         }
+        
+        next = new CardSet.Place(0, 0);
     },
     
     //Ändert denn Text auf einer Karte
     cardUpdate: function(cards, next) {
-        if (cards.length > 0) {
+        if ((cards.length > 0 && count <  cards.length) || cards.length >= 4) {
             $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () { //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
                 $(sCardSet.text + next.nextPanel).html(cards[next.nextCard].name); //Verändert denn Text der Karte
                 $(sCardSet.vote + next.nextPanel).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
                 
-                 next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
+                next.count++;
+                next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
                 if( next.nextCard >= cards.length) {
                     next.nextCard = 0;
                 }
@@ -73,6 +79,8 @@ var CardSet = {
     //Speichert berreits gespielt Karten ins Array
     saveCardSet: function (msg) {
         console.log("CardSet: saveCardSet");
+        
+        CardSet.cardHide();
         setOfCards = new Array();
         
         for(var name in msg["choices"] ) {
