@@ -79,10 +79,11 @@ var CardSet = {
         console.log("CardsSet: saveCard");
         var isInList = true;
         
+        console.log(settings.length);
         for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
+            console.log(setOfCards.toString);
+            console.log(setOfCards[i].name);
             if (setOfCards[i].name == msg["card"]) {
-                console.log(setOfCards.toString);
-                console.log(setOfCards[i].name);
                 isInList = false;
                 setOfCards[i].vote = msg["score"];
                 i = setOfCards.length;
