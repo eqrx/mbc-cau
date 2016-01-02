@@ -24,7 +24,7 @@ var ScoreName = {
     
     //Fügt Buttons zur Namens Auswahl hinzu
     saveScoreNames: function (msg) {
-        console.log(msg);
+        console.log("ScoreNames: " + msg);
         
         $(sScoreName.panel).empty();
         for(var i = 0; i < msg.length; i++) {

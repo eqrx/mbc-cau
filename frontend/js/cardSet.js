@@ -65,17 +65,18 @@ var CardSet = {
         }
     },
     
-    //Object { card: "white-f", score: 1, player: "name-a" }
+    //Speichert das Update der gespielten Karten ins array
     saveCard: function(msg) {
-        
+        setOfCards.push(new CardSet.Card(msg["card"], msg["score"]));
     },
     
+    //Speichert berreits gespielt Karten ins Array
     saveCardSet: function (msg) {
         console.log("CardSet: saveCardSet");
         setOfCards = new Array();
         
         for(var name in msg["choices"] ) {
-            console.log(msg["choices"][name]);
+            console.log("CardSet: " + msg["choices"][name]);
             setOfCards.push(new CardSet.Card(name, msg["choices"][name]["score"]));
         }
         
