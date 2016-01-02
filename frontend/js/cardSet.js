@@ -33,7 +33,7 @@ var CardSet = {
         this.count = count;
     },
     
-    Card: function (name, votes, onDisplay) {
+    Card: function (name, votes´) {
         this.name = name;
         this.votes = votes;
     },
@@ -50,7 +50,7 @@ var CardSet = {
     
     //Ändert denn Text auf einer Karte
     cardUpdate: function(cards, next) {
-        if ((cards.length > 0 && count <  cards.length) || cards.length >= 4) {
+        if ((cards.length > 0 && next.count <  cards.length) || cards.length >= 4) {
             $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () { //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
                 $(sCardSet.text + next.nextPanel).html(cards[next.nextCard].name); //Verändert denn Text der Karte
                 $(sCardSet.vote + next.nextPanel).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
