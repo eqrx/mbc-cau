@@ -1,6 +1,7 @@
 var sCardSet;  //Variabel für die Settings
 var setOfCards;
 var cardSetTimer;
+var next;
 
 var CardSet = {        
     settings: {
@@ -16,12 +17,23 @@ var CardSet = {
         sCardSet = this.settings; //this auf die variable prägen
         
         setOfCards = new Array();
+        next = new CardSet.Place(0, 0);
         
         CardSet.cardHide();
         
         if (timer == true) {
             cardSetTimer = setInterval(function() { CardSet.cardUpdate(setOfCards, next) }, CardSet.settings.updateTime);  
         }
+    },
+    
+    Place: function (nextCard, nextPanel) {
+        this.nextCard = nextCard;
+        this.nextPanel = nextPanel;
+    },
+    
+    Card: function (name, votes) {
+        this.name = name;
+        this.votes = votes;
     },
     
     //Verteckt alle Karten zu beginn
@@ -59,11 +71,12 @@ var CardSet = {
     },
     
     saveCardSet: function (msg) {
+        console.length("CardSet: saveCardSet");
         setOfCards = new Array();
         
         for(var name in msg["choices"] ) {
             console.log(msg["choices"][name]);
-            setOfCards.push(new Card(name, msg["choices"][name]["score"]));
+            setOfCards.push(new CardSet.Card(name, msg["choices"][name]["score"]));
         }
         
         for(var i = 0; i < msg.length; i++) {
