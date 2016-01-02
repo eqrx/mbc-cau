@@ -66,7 +66,7 @@ var CardSet = {
             console.log("CardsSet: cardUpdate")
             console.log(cards);
             //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-            $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () { next = CardsSet.cardUpdateHelper(cards, next);
+            $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () { next = CardSet.cardUpdateHelper(cards, next);
             }).fadeIn(sCardSet.fadeTime);
         }
         return next;
