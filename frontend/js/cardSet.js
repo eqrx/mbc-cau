@@ -16,7 +16,7 @@ var CardSet = {
     init: function(timer) {
         sCardSet = this.settings; //this auf die variable prägen
         
-        next = new CardSet.Place(0, 0);
+        next = new CardSet.Place(0, 0, 1);
         
         setOfCards = new Array();
         
@@ -45,12 +45,12 @@ var CardSet = {
             $(sCardSet.text + i).html("");
         }
         
-        next = new CardSet.Place(0, 0);
+        next = new CardSet.Place(0, 0, 1);
     },
     
     //Ändert denn Text auf einer Karte
     cardUpdate: function(cards, next) {
-        if ((cards.length > 0 && next.count <  cards.length) || cards.length >= 4) {
+        if ((cards.length > 0 && next.count <=  cards.length) || cards.length >= sCardSet.maxPanels) {
             $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () { //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
                 $(sCardSet.text + next.nextPanel).html(cards[next.nextCard].name); //Verändert denn Text der Karte
                 $(sCardSet.vote + next.nextPanel).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
