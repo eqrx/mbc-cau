@@ -33,7 +33,7 @@ var CardSet = {
         this.count = count;
     },
     
-    Card: function (name, votes´) {
+    Card: function (name, votes) {
         this.name = name;
         this.votes = votes;
     },
