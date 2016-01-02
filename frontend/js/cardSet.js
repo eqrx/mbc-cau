@@ -76,7 +76,22 @@ var CardSet = {
     
     //Speichert das Update der gespielten Karten ins array
     saveCard: function(msg) {
-        setOfCards.push(new CardSet.Card(msg["card"], msg["score"]));
+        console.log("CardsSet: saveCard");
+        var isInList = false;
+        
+        for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
+            if (setOfCards[i].name == msg["card"]) {
+                console.log(setOfCards[i].name);
+                isInList = true;
+                setOfCards[i].vote = msg["score"];
+                i = setOfCards.length;
+            }
+        }
+        
+        if (isInList == false) {
+            setOfCards.push(new CardSet.Card(msg["card"], msg["score"]));
+        } 
+        
     },
     
     //Speichert berreits gespielt Karten ins Array
