@@ -71,7 +71,7 @@ var CardSet = {
     },
     
     saveCardSet: function (msg) {
-        console.length("CardSet: saveCardSet");
+        console.log("CardSet: saveCardSet");
         setOfCards = new Array();
         
         for(var name in msg["choices"] ) {
