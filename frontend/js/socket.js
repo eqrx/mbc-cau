@@ -115,7 +115,7 @@ var Socket = {
         console.log(msg["choices"]);
         console.log("2:");
         for(var name in msg["choices"] ) {
-            console.log(name);
+            console.log(msg["choices"][name]);
         }
         console.log("3:");
         
