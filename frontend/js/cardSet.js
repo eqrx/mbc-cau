@@ -80,8 +80,10 @@ var CardSet = {
         var isInList = true;
         
         console.log(setOfCards.length);
+        console.log(msg["score"]);
         for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
             //console.log(setOfCards[i].name);
+            console.log(setOfCards[i].votes);
             if (setOfCards[i].name == msg["card"]) {
                 isInList = false;
                 setOfCards[i].votes = msg["score"];
