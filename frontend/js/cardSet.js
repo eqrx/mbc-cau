@@ -59,8 +59,8 @@ var CardSet = {
                 count++;
             }
         }
-        console.log("CardsSet: count " + count + " " +$(sCardSet.text + 0).html());
-        if ((cards.length > 0 && cards.length >= count )) {        
+        console.log("CardsSet: count " + count);
+        if ((cards.length > 0 && cards.length > count )) {        
             //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
             $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () {                    
                 $(sCardSet.text + next.nextPanel).html(cards[next.nextCard].name); //Verändert denn Text der Karte
