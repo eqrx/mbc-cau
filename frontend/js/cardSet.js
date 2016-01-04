@@ -1,7 +1,7 @@
 var sCardSet;  //Variabel für die Settings
 var setOfCards;
 var cardSetTimer;
-var next;
+var next = new CardSet.Place(0, 0, 1);;
 
 var CardSet = {        
     settings: {
@@ -15,8 +15,6 @@ var CardSet = {
     
     init: function(timer) {
         sCardSet = this.settings; //this auf die variable prägen
-        
-        next = new CardSet.Place(0, 0, 1);
         
         setOfCards = new Array();
         
@@ -91,21 +89,21 @@ var CardSet = {
     //Speichert das Update der gespielten Karten ins array
     saveCard: function(msg) {
         console.log("CardsSet: saveCard");
-        var isInList = true;
+        var isInList = false;
         
         for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
             if (setOfCards[i].name == msg["card"]) {
-                isInList = false;
+                isInList = true;
                 setOfCards[i].votes = msg["score"];
                 i = setOfCards.length;
             }
         }
         
-        if (isInList == true) {
+        if (isInList == false) {
             setOfCards.push(new CardSet.Card(msg["card"], msg["score"]));
+        } else {
+            CardSet.voteUpdate(msg);
         }
-        
-        CardSet.voteUpdate(msg);
     },
     
     //Speichert berreits gespielt Karten ins Array
@@ -124,6 +122,6 @@ var CardSet = {
             
         }
         
-        next = CardSet.cardUpdate(setOfCards, next)
+        next = CardSet.cardUpdate(setOfCards, next);
     },
 };
