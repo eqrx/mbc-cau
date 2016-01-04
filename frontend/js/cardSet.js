@@ -52,7 +52,8 @@ var CardSet = {
     //Ändert denn Text auf einer Karte
     cardUpdate: function(cards, next) {
         console.log("CardsSet: cardUpdate")
-        var isInPanel = false; 
+        var isInPanel = false;
+        var count = 0;
         
         if ((cards.length > 0 /*&& next.count <=  cards.length) || cards.length >= sCardSet.*maxPanels*/)) {
             for(var i = 0; i < sCardSet.maxPanels; i++) { //Prüfen ob die Karte schon angezeigt wird
@@ -60,6 +61,9 @@ var CardSet = {
                 if(cards[next.nextCard].name == $(sCardSet.text + i).html()) { //Wenn schon vorhanden verändere Vote anzahl
                     $(sCardSet.vote + i).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
                     isInPanel = true;
+                }
+                if ($(sCardSet.text + i).html() != "") { //Prüfen wie viele Karten angezeigt werden
+                    count++;
                 }
             }
         
@@ -69,7 +73,7 @@ var CardSet = {
                     $(sCardSet.text + next.nextPanel).html(cards[next.nextCard].name); //Verändert denn Text der Karte
                     $(sCardSet.vote + next.nextPanel).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
                 }).fadeIn(sCardSet.fadeTime);
-            }
+            //}
             
             //if (isInPanel == true) {    //Prüfen ob auch eine Karte hinzugefügt wurde //TODO:
                 next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
@@ -81,7 +85,7 @@ var CardSet = {
                 if(next.nextPanel >= sCardSet.maxPanels) {
                     next.nextPanel = 0;
                 }
-            //}            
+            }            
         }
         return next;
     },
