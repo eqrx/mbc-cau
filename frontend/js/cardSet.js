@@ -66,12 +66,12 @@ var CardSet = {
             }).fadeIn(sCardSet.fadeTime);
 
             next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
-            if( next.nextCard >= cards.length && cards.length >= sCardSet.maxPanels) {
+            if( next.nextCard >= cards.length && cards.length > sCardSet.maxPanels) {
                 next.nextCard = 0;
             }
                
             next.nextPanel++; //Auswahl des Nächsten Panels welches verändert werden soll
-            if(next.nextPanel >= sCardSet.maxPanels && cards.length >= sCardSet.maxPanels) {
+            if(next.nextPanel >= sCardSet.maxPanels) {
                 next.nextPanel = 0;
             }           
         }
@@ -121,7 +121,5 @@ var CardSet = {
         for(var i = 0; i < msg.length; i++) {
             
         }
-        
-        next = CardSet.cardUpdate(setOfCards, next);
     },
 };
