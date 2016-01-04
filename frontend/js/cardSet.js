@@ -23,7 +23,7 @@ var CardSet = {
         CardSet.cardHide();
         
         if (timer == true) {
-            cardSetTimer = setInterval(function() { CardSet.cardUpdate(setOfCards, next) }, CardSet.settings.updateTime);  
+            cardSetTimer = setInterval(function() { next = CardSet.cardUpdate(setOfCards, next) }, CardSet.settings.updateTime);  
         }
     },
     
@@ -105,7 +105,9 @@ var CardSet = {
         
         if (isInList == true) {
             setOfCards.push(new CardSet.Card(msg["card"], msg["score"]));
-        } 
+        }
+        
+        
         
     },
     
@@ -124,5 +126,7 @@ var CardSet = {
         for(var i = 0; i < msg.length; i++) {
             
         }
+        
+        next = CardSet.cardUpdate(setOfCards, next)
     },
 };
