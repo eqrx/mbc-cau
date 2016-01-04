@@ -1,5 +1,5 @@
 var sCardSet;  //Variabel für die Settings
-var setOfCards;
+var cards;
 var cardSetTimer;
 var next;
 
@@ -18,12 +18,12 @@ var CardSet = {
         
         next = new CardSet.Place(0, 0, 1);
         
-        setOfCards = new Array();
+        cards = new Array();
         
         CardSet.cardHide();
         
         if (timer == true) {
-            cardSetTimer = setInterval(function() { next = CardSet.cardUpdate(setOfCards, next) }, CardSet.settings.updateTime);  
+            cardSetTimer = setInterval(CardSet.cardUpdate(), CardSet.settings.updateTime);  
         }
     },
     
@@ -50,7 +50,7 @@ var CardSet = {
     },
     
     //Ändert denn Text auf einer Karte
-    cardUpdate: function(cards, next) {
+    cardUpdate: function() {
         console.log("CardsSet: cardUpdate")
         var count = 0;
         
@@ -77,7 +77,6 @@ var CardSet = {
                 next.nextPanel = 0;
             }           
         }
-        return next;
     },
     
     voteUpdate: function (msg) {
@@ -93,16 +92,16 @@ var CardSet = {
         console.log("CardsSet: saveCard");
         var isInList = true;
         
-        for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
-            if (setOfCards[i].name == msg["card"]) {
+        for(var i = 0; i < cards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
+            if (cards[i].name == msg["card"]) {
                 isInList = false;
-                setOfCards[i].votes = msg["score"];
-                i = setOfCards.length;
+                cards[i].votes = msg["score"];
+                i = cards.length;
             }
         }
         
         if (isInList == true) {
-            setOfCards.push(new CardSet.Card(msg["card"], msg["score"]));
+            cards.push(new CardSet.Card(msg["card"], msg["score"]));
         }
         
         CardSet.voteUpdate(msg);
@@ -113,17 +112,17 @@ var CardSet = {
         console.log("CardSet: saveCardSet");
         
         CardSet.cardHide();
-        setOfCards = new Array();
+        cards = new Array();
         
         for(var name in msg["choices"] ) {
             console.log("CardSet: " + msg["choices"][name]);
-            setOfCards.push(new CardSet.Card(name, msg["choices"][name]["score"]));
+            cards.push(new CardSet.Card(name, msg["choices"][name]["score"]));
         }
         
         for(var i = 0; i < msg.length; i++) {
             
         }
         
-        next = CardSet.cardUpdate(setOfCards, next)
+        next = CardSet.cardUpdate(cards, next)
     },
 };
