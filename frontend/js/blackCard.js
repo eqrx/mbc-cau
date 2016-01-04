@@ -26,12 +26,11 @@ var BlackCard = {
     },
     
     //Ändert denn Text auf einer Karte
-    cardUpdate: function(card) {        
-		for(var i = 0; i < sWhiteCard.maxPanels; i++) {
-            //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-			$(sBlackCard.panel).fadeOut(sBlackCard.fadeTime, function () {
-                $(sBlackCard.text).html(card); //Verändert denn Text der Karte
-            }).fadeIn(sBlackCard.fadeTime);
-        }
+    cardUpdate: function(card) {
+        console.log("BlackCard: cardUpdate");
+        //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
+        $(sBlackCard.panel).fadeOut(sBlackCard.fadeTime, function () {
+            $(sBlackCard.text).html(card); //Verändert denn Text der Karte
+        }).fadeIn(sBlackCard.fadeTime);
     },
 };
