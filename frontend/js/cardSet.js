@@ -72,7 +72,7 @@ var CardSet = {
             }
                
             next.nextPanel++; //Auswahl des Nächsten Panels welches verändert werden soll
-            if(next.nextPanel >= sCardSet.maxPanels) {
+            if(next.nextPanel >= sCardSet.maxPanels && next.nextCard >= sCardSet.maxPanels) {
                 next.nextPanel = 0;
             }           
         }
