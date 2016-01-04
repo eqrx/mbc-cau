@@ -1,7 +1,7 @@
 var sCardSet;  //Variabel für die Settings
 var setOfCards;
 var cardSetTimer;
-var next = new CardSet.Place(0, 0, 1);;
+var next;
 
 var CardSet = {        
     settings: {
@@ -17,6 +17,7 @@ var CardSet = {
         sCardSet = this.settings; //this auf die variable prägen
         
         setOfCards = new Array();
+        next = new CardSet.Place(0, 0, 1);
         
         CardSet.cardHide();
         
