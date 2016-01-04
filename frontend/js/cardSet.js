@@ -17,7 +17,7 @@ var CardSet = {
         sCardSet = this.settings; //this auf die variable prägen
         
         setOfCards = new Array();
-        next = new CardSet.Place(0, 0, 1);
+        next = new CardSet.Place(0, 0);
         
         CardSet.cardHide();
         
@@ -26,10 +26,9 @@ var CardSet = {
         }
     },
     
-    Place: function (nextCard, nextPanel, count) {
+    Place: function (nextCard, nextPanel) {
         this.nextCard = nextCard;
         this.nextPanel = nextPanel;
-        this.count = count;
     },
     
     Card: function (name, votes) {
@@ -45,7 +44,7 @@ var CardSet = {
             $(sCardSet.vote + i).html("");
         }
         
-        next = new CardSet.Place(0, 0, 1);
+        next = new CardSet.Place(0, 0);
     },
     
     //Ändert denn Text auf einer Karte
@@ -67,12 +66,12 @@ var CardSet = {
             }).fadeIn(sCardSet.fadeTime);
 
             next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
-            if( next.nextCard >= cards.length && next.nextCard >= sCardSet.maxPanels) {
+            if( next.nextCard >= cards.length && cards.length >= sCardSet.maxPanels) {
                 next.nextCard = 0;
             }
                
             next.nextPanel++; //Auswahl des Nächsten Panels welches verändert werden soll
-            if(next.nextPanel >= sCardSet.maxPanels && next.nextCard >= sCardSet.maxPanels) {
+            if(next.nextPanel >= sCardSet.maxPanels && cards.length >= sCardSet.maxPanels) {
                 next.nextPanel = 0;
             }           
         }
