@@ -5,7 +5,7 @@ var BlackCard = {
         fadeTime: 1000,
 
         panel: '#black-card-panel',
-        text: 'black-card-text',
+        text: '#black-card-text',
     },
     
     init: function() {
