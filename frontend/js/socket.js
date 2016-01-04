@@ -1,7 +1,6 @@
 var sSocket;  //Variabel für die Settings
 var socket;  //Socket Variable
 
-var blackCard;
 var voteCard = new Array();
 var duration;
 
@@ -107,7 +106,7 @@ var Socket = {
     parseTurnMsg: function (msg) {
         console.log(msg);
         
-        blackCard = msg["card"];
+        BlackCard.cardUpdate(msg["card"]);
         duration = msg["duration"];
         
         CardSet.saveCardSet(msg);

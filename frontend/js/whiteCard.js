@@ -29,7 +29,7 @@ var WhiteCard = {
     //Blendet alle karten ein
     cardShow: function () {
         for(var i = 0; i < sWhiteCard.maxPanels; i++) {
-            $(sWhiteCard.panel + i).fadeIn(sCardSet.fadeTime);
+            $(sWhiteCard.panel + i).fadeIn(sWhiteCard.fadeTime);
         }
     },
     
@@ -39,7 +39,7 @@ var WhiteCard = {
         
 		for(var i = 0; i < sWhiteCard.maxPanels; i++) {
             //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sCardSet.fadeTime);
+			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sWhiteCard.fadeTime);
         }
     },
     
