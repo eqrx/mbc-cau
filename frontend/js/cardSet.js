@@ -42,7 +42,7 @@ var CardSet = {
     cardHide: function () {
         for(var i = 0; i < sCardSet.maxPanels; i++) {
             $(sCardSet.panel + i).hide();
-            $(sCardSet.text + i).html(null);
+            $(sCardSet.text + i).html("empty");
             $(sCardSet.vote + i).html("");
         }
         
@@ -55,7 +55,7 @@ var CardSet = {
         var count = 0;
         
         for(var i = 0; i < sCardSet.maxPanels; i++) { //Prüfen wie viele Karten angezeigt werden
-            if($(sCardSet.text + i).html() == null) {
+            if($(sCardSet.text + i).html() == "empty") {
                 count++;
             }
         }
