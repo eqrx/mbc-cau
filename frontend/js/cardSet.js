@@ -52,42 +52,40 @@ var CardSet = {
     //Ändert denn Text auf einer Karte
     cardUpdate: function(cards, next) {
         console.log("CardsSet: cardUpdate")
-        var isInPanel = false;
         var count = 0;
         
-        if ((cards.length > 0 /*&& next.count <=  cards.length) || cards.length >= sCardSet.*maxPanels*/)) {
-            for(var i = 0; i < sCardSet.maxPanels; i++) { //Prüfen ob die Karte schon angezeigt wird
-                console.log($(sCardSet.text + i).html());
-                if(cards[next.nextCard].name == $(sCardSet.text + i).html()) { //Wenn schon vorhanden verändere Vote anzahl
-                    $(sCardSet.vote + i).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
-                    isInPanel = true;
-                }
-                if ($(sCardSet.text + i).html() != "") { //Prüfen wie viele Karten angezeigt werden
-                    count++;
-                }
+        for(var i = 0; i < sCardSet.maxPanels; i++) { //Prüfen wie viele Karten angezeigt werden
+            if($(sCardSet.text + i).html() == "") {
+                count++;
             }
+        }
         
-            if(isInPanel == false) {
-                //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-                $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () {                    
-                    $(sCardSet.text + next.nextPanel).html(cards[next.nextCard].name); //Verändert denn Text der Karte
-                    $(sCardSet.vote + next.nextPanel).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
-                }).fadeIn(sCardSet.fadeTime);
-            //}
-            
-            //if (isInPanel == true) {    //Prüfen ob auch eine Karte hinzugefügt wurde //TODO:
-                next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
-                if( next.nextCard >= cards.length) {
-                    next.nextCard = 0;
-                }
-                   
-                next.nextPanel++; //Auswahl des Nächsten Panels welches verändert werden soll
-                if(next.nextPanel >= sCardSet.maxPanels) {
-                    next.nextPanel = 0;
-                }
-            }            
+        if ((cards.length > 0 && count <= cards.length)) {        
+            //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
+            $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () {                    
+                $(sCardSet.text + next.nextPanel).html(cards[next.nextCard].name); //Verändert denn Text der Karte
+                $(sCardSet.vote + next.nextPanel).html("Votes: " + cards[next.nextCard].votes); //Verändert die Votes der Karte
+            }).fadeIn(sCardSet.fadeTime);
+
+            next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
+            if( next.nextCard >= cards.length) {
+                next.nextCard = 0;
+            }
+               
+            next.nextPanel++; //Auswahl des Nächsten Panels welches verändert werden soll
+            if(next.nextPanel >= sCardSet.maxPanels) {
+                next.nextPanel = 0;
+            }           
         }
         return next;
+    },
+    
+    voteUpdate: function (msg) {
+        for(var i = 0; i < sCardSet.maxPanels; i++) { //Prüfen ob die Karte schon angezeigt wird
+            if(msg["card"] == $(sCardSet.text + i).html()) { //Wenn schon vorhanden verändere Vote anzahl
+                $(sCardSet.vote + i).html("Votes: " + msg["score"]); //Verändert die Votes der Karte
+            }
+        }
     },
     
     //Speichert das Update der gespielten Karten ins array
@@ -95,11 +93,7 @@ var CardSet = {
         console.log("CardsSet: saveCard");
         var isInList = true;
         
-        //console.log(setOfCards.length);
-        //console.log(msg["score"]);
         for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
-            //console.log(setOfCards[i].name);
-            //console.log(setOfCards[i].votes);
             if (setOfCards[i].name == msg["card"]) {
                 isInList = false;
                 setOfCards[i].votes = msg["score"];
@@ -111,8 +105,7 @@ var CardSet = {
             setOfCards.push(new CardSet.Card(msg["card"], msg["score"]));
         }
         
-        
-        
+        CardSet.voteUpdate(msg);
     },
     
     //Speichert berreits gespielt Karten ins Array
