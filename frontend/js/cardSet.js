@@ -67,7 +67,7 @@ var CardSet = {
             }).fadeIn(sCardSet.fadeTime);
 
             next.nextCard++; //Auswahl der Nächsten Karte ausgegeben werden soll
-            if( next.nextCard >= cards.length) {
+            if( next.nextCard >= cards.length && next.nextCard >= sCardSet.maxPanels) {
                 next.nextCard = 0;
             }
                
