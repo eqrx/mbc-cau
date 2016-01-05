@@ -4,6 +4,6 @@ $(function() {
     //Highscore.init(cardSet);
     BlackCard.init();
     ScoreName.init();
-    Socket.init();   
+    Socket.init(true);   
       
 });

@@ -23,7 +23,7 @@ var Socket = {
         errorMSG: "Server Connection failed",
     },
     
-    init: function() {
+    init: function(player) {
         console.log("Init Socket!");
         sSocket = this.settings; //this auf die variable prägen
         
@@ -33,9 +33,12 @@ var Socket = {
         Socket.bindCardSet();
         Socket.bindHighscore();
         Socket.bindError();
-        Socket.bindScorenames();
-        Socket.bindHandout();
         Socket.bindUpdateCardSet();
+        
+        if (player == true) {
+            Socket.bindScorenames();
+            Socket.bindHandout();
+        }
     },
     
     //Bind Methoden
