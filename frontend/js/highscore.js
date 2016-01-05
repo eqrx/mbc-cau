@@ -27,8 +27,8 @@ var Highscore = {
         }
     },
     
+    //Erstellt eine Highscore Liste die auf denn Bildschirm angepasst ist
     printHighscore: function (cards, start) {
-        
         rows = this.getRows();
         
         this.deletHighscoreTable();
@@ -46,6 +46,7 @@ var Highscore = {
         return start;
     },
     
+    //Errechnet wie viele Tabellen Zeilen auf denn Bildschirm passen
     getRows: function () {
         var rows = 0;
         
@@ -55,6 +56,7 @@ var Highscore = {
         return rows;
     },
     
+    //Löscht Die Highscore Tabelle
     deletHighscoreTable: function () {
         var table = document.getElementById(sHighscore.tableID);
 

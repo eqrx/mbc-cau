@@ -1,5 +1,5 @@
 var sScoreName;  //Variabel für die Settings
-var playerName;
+var playerName; //Spiechert Spieler Namen
    
 var ScoreName = {
     settings: {
@@ -15,7 +15,6 @@ var ScoreName = {
         console.log("ScoreName: Button Bind");
         $(sScoreName.panel + " .btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
-            //console.log("ScoreName: Button ID = "+ buttonID);
             
             playerName = buttonID;
             ScoreName.showScoreName(buttonID);

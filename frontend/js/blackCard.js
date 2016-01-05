@@ -2,7 +2,7 @@ var sBlackCard;  //Variabel für die Settings
    
 var BlackCard = {        
     settings: {
-        fadeTime: 1000,
+        fadeTime: 1000, //Zeit die ein Fade benötigt
 
         panel: '#black-card-panel',
         text: '#black-card-text',

@@ -5,8 +5,8 @@ var next;
 
 var CardSet = {        
     settings: {
-        fadeTime: 1000,
-        updateTime: 5000,
+        fadeTime: 1000,     //Zeit die ein Fade benötigt
+        updateTime: 5000,   //Intervall Zeit bis zum Austauschen einer Karte in der anzeige für das Karten Set
         maxPanels: 4,
         panel: '#card-panel-',
         text: '#card-text-',
@@ -26,11 +26,13 @@ var CardSet = {
         }
     },
     
+    //Object zum Speichern der Position im Panel und Karten Array
     Place: function (nextCard, nextPanel) {
         this.nextCard = nextCard;
         this.nextPanel = nextPanel;
     },
     
+    //Object zum Speichern einer Karte mit Votes
     Card: function (name, votes) {
         this.name = name;
         this.votes = votes;
@@ -78,6 +80,7 @@ var CardSet = {
         return next;
     },
     
+    //Updatet die Votes einer Karte
     voteUpdate: function (msg) {
         for(var i = 0; i < sCardSet.maxPanels; i++) { //Prüfen ob die Karte schon angezeigt wird
             if(msg["card"] == $(sCardSet.text + i).html()) { //Wenn schon vorhanden verändere Vote anzahl
@@ -92,16 +95,16 @@ var CardSet = {
         var isInList = false;
         
         for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
-            if (setOfCards[i].name == msg["card"]) {
+            if (setOfCards[i].name == msg["card"]) { //Wenn die Karte vorhanden ist neue Votes Speichern
                 isInList = true;
                 setOfCards[i].votes = msg["score"];
                 i = setOfCards.length;
             }
         }
         
-        if (isInList == false) {
+        if (isInList == false) { //Wenn die Karte noch nicht ind er Liste ist Hinzufügen
             setOfCards.push(new CardSet.Card(msg["card"], msg["score"]));
-        } else {
+        } else { //Votes auf dem Display Updaten
             CardSet.voteUpdate(msg);
         }
     },

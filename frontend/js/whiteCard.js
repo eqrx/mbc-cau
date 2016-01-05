@@ -2,12 +2,13 @@ var sWhiteCard;  //Variabel für die Settings
    
 var WhiteCard = {        
     settings: {
-        fadeTime: 1000,
-        updateTime: 5000,
+        fadeTime: 1000, //Zeit die ein Fade dauert
         maxPanels: 4,
-        panel: '#white-card-panel-',
-        text: '#white-card-text-',
-        vote: '#white-card-vote-',
+        panel: "#white-card-panel-",
+        text: "#white-card-text-",
+        vote: "#white-card-vote-",
+        
+        buttonBind: "#vote .btn",
     },
     
     init: function() {
@@ -52,7 +53,7 @@ var WhiteCard = {
     
     //Bindet Vote Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
-        $("#vote .btn").on("click", function() {
+        $(sWhiteCard.buttonBind).on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
             //console.log("WhiteCard: " + buttonID);
             WhiteCard.vote(buttonID);   

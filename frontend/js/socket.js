@@ -1,15 +1,17 @@
 var sSocket;  //Variabel für die Settings
 var socket;  //Socket Variable
 
-var voteCard = new Array();
-var duration;
+var voteCard = new Array(); //Speicher für das Karten Set
+var duration;   //Zeit bis zum ende der Runde
 
 var Socket = {
 
-    settings: {        
+    settings: {
+        //Ausgehende Socket Signale
         emitVote: "choice",
         emitSetRequest: "request",
         
+        //Eingehende Socket Signale
         onCardSet: "turn",
         onHighscore: "highscore",
         onError: "illegal",
@@ -36,7 +38,8 @@ var Socket = {
         Socket.bindUpdateCardSet();
     },
     
-    bindConnect: function () {
+    //Bind Methoden
+    bindConnect: function () { //Wird ausgeführt bei Erfolgreichem connect
         socket.on("connect", function () {  
             console.log("Socket: Connected!");
         });
@@ -55,10 +58,11 @@ var Socket = {
             console.log("Socket: Highscore");
             console.log(msg);
             
+            //TODO
         });
     },
     
-    bindScorenames: function () { //Socket Bind für die Highscore Liste
+    bindScorenames: function () { //Socket Bind für die Names Liste
         socket.on(sSocket.onScorenames, function (msg) {
             console.log("Socket: Scorenames");
             
@@ -66,7 +70,7 @@ var Socket = {
         });
     },
     
-    bindHandout: function () { //Socket Bind für die Highscore Liste
+    bindHandout: function () { //Socket Bind für die Weißen Karten auf die man Voten Kann
         socket.on(sSocket.onHandout, function (msg) {
             console.log("Socket: Handout");
             console.log(msg);
@@ -75,7 +79,7 @@ var Socket = {
         });
     },
     
-    bindUpdateCardSet: function () {
+    bindUpdateCardSet: function () { //Socket Bind auf Die Update Nachrichten für die gespielten Nachrichten
         socket.on(sSocket.onUpdate, function (msg) {
             console.log("Socket: Update");
             console.log(msg);
@@ -84,7 +88,7 @@ var Socket = {
         });
     },
     
-    bindError: function () { //Socket Bind für die Highscore Liste
+    bindError: function () { //Socket Bind für fehler Meldungen von Server
         socket.on(sSocket.onError, function (msg) {
             console.log("Socket: Error");
             
@@ -92,16 +96,17 @@ var Socket = {
         });
     },
     
+    //Emits zum Server
     emitVote: function (card) { //Sendet Votes zum Server
         console.log("Socket: emitVote");
-        //console.log(playerName);
 
         socket.emit(sSocket.emitVote, { "name": playerName, "card": card });
     },
     
-    emitRequest: function () { //Sendet Request des Datensatzes an Server
+    emitRequest: function () { //Sendet Request des Datsensatzes an Server
         socket.emit(sSocket.emitSetRequest, null);
     },
+    
     
     parseTurnMsg: function (msg) {
         console.log(msg);
