@@ -1,6 +1,6 @@
 $(function() {         
     CardSet.init(true);
-    //Highscore.init(cards, true);
+    Highscore.init(true);
     BlackCard.init();
     Socket.init(false);
 });

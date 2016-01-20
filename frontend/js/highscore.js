@@ -16,7 +16,7 @@ var Highscore = {
         rowFooter: "row-footer", //Name der Footer Zeile
     },
     
-    init: function(cards, timer) {
+    init: function(timer) {
         sHighscore = this.settings; //this auf die variable prägen
         
         var start = 0;
