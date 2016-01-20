@@ -48,6 +48,13 @@ var Socket = {
         });
     },
     
+    
+    /* ## Übermittlung Rundeninformationen (Bei neuer Runde und nach Verbindungsaufbau)
+    'turn': {'card': '<Schwarze Karte>',
+        'choices': {'<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},
+                    '<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},}
+        ,'duration': <Verbleibende Rundenzeit>} }
+    */
     bindCardSet: function () {  //Socket bind für Karten Set sendungen der Weißen Karten und der Bereits gespielten karten
         socket.on(sSocket.onCardSet, function (msg) {
             console.log("Socket: turn");
@@ -88,6 +95,7 @@ var Socket = {
             console.log(msg);
             
             CardSet.saveCard(msg);
+            Highscore.updateHighscore(msg);
         });
     },
     
@@ -117,6 +125,7 @@ var Socket = {
         BlackCard.cardUpdate(msg["card"]);
         duration = msg["duration"];
         
+        Highscore.saveHighscore(msg);
         CardSet.saveCardSet(msg);
         
         Socket.emitRequest(); //Vote Karten anfordern

@@ -1,5 +1,6 @@
 var sHighscore;  //Variabel für die Settings
-   
+var highscoreSave;   
+
 var Highscore = {
     settings: {
         score: $("#highscore"), //Name der Highscore Tabelle
@@ -19,23 +20,30 @@ var Highscore = {
         sHighscore = this.settings; //this auf die variable prägen
         
         var start = 0;
+        highscoreSave = new Array();
         
         this.printHighscore(cards, 0);
         
         if (timer == true) {
-            var highscoreSetTimer = setInterval(function() {start = Highscore.printHighscore(cards, start) }, sHighscore.updateTime);
+            var highscoreSetTimer = setInterval(function() {start = Highscore.printHighscore(highscoreSave, start) }, sHighscore.updateTime);
         }
     },
     
+    //Object zum Speichern einer Karte mit Votes
+    Player: function (name, votes) {
+        this.name = name;
+        this.votes = votes;
+    },
+    
     //Erstellt eine Highscore Liste die auf denn Bildschirm angepasst ist
-    printHighscore: function (cards, start) {
+    printHighscore: function (player, start) {
         rows = this.getRows();
         
         this.deletHighscoreTable();
         
         for(var i = 0; i < rows; i++) {
-           if (start < cards.length) {
-                sHighscore.score.append("<tr><td><h4>" + cards[start].name + "</h4></td><td><h4>" + cards[start].votes + "</h4></td></tr>");
+           if (start < player.length) {
+                sHighscore.score.append("<tr><td><h4>" + player[start].name + "</h4></td><td><h4>" + player[start].votes + "</h4></td></tr>");
                 start++;
            } else {
                 start = 0;
@@ -63,5 +71,35 @@ var Highscore = {
         while(table.rows.length > sHighscore.tableStart) {
           table.deleteRow(sHighscore.tableStart);
         }
-    }
+    },
+    
+    //Speichert denn Highscore ins Array
+    saveHighscore: function (msg) {
+        console.log("Highscore: saveHighscore");
+        
+        highscoreSave = new Array();
+        
+        for(var name in msg["choices"] ) {
+            console.log("CardSet: " + msg["choices"][name]["player"]);
+            Highscore.updateHighscore(msg["choices"][name]);
+        }
+    },
+    
+    updateHighscore: function (player) {
+        var isInList = false;
+        
+        for(var i = 0; i < highscoreSave.length; i++) { //Prüfen ob Spieler schon in Liste vorhanden
+            if (highscoreSave[i].name == player["player"]) { //Wenn die Karte vorhanden ist neue Votes Speichern
+                isInList = true;
+                highscoreSave[i].votes++; //Votes hoch zählen
+                i = highscoreSave.length;
+            }
+        }
+        
+        if (isInList == false) { //Wenn die Karte noch nicht ind er Liste ist Hinzufügen
+            highscoreSave.push(new Highscore.Player(player["player"], 1));
+        }
+    },
+    
+    //update': {'card': '<Karteninhalt>', "player": <Spielername>, "score":  <Punktestand der Karte>}
 };

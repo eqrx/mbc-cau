@@ -121,8 +121,8 @@ var CardSet = {
             setOfCards.push(new CardSet.Card(name, msg["choices"][name]["score"]));
         }
         
-        for(var i = 0; i < msg.length; i++) {
+        /*for(var i = 0; i < msg.length; i++) {
             
-        }
+        }*/
     },
 };
