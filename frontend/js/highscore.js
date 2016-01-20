@@ -22,7 +22,7 @@ var Highscore = {
         var start = 0;
         highscoreSave = new Array();
         
-        this.printHighscore(cards, 0);
+        Highscore.printHighscore(highscoreSave, 0);
         
         if (timer == true) {
             var highscoreSetTimer = setInterval(function() {start = Highscore.printHighscore(highscoreSave, start) }, sHighscore.updateTime);
