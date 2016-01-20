@@ -1,3 +1,8 @@
+/* 
+ * Author:  Mike Wuestenberg
+ *
+*/
+
 var sScoreName;  //Variabel für die Settings
 var playerName; //Spiechert Spieler Namen
    

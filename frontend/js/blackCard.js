@@ -1,3 +1,9 @@
+/* 
+ * Author:  Mike Wuestenberg
+ *
+*/
+
+
 var sBlackCard;  //Variabel für die Settings
    
 var BlackCard = {        

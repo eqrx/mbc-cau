@@ -1,3 +1,8 @@
+/* 
+ * Author:  Mike Wuestenberg
+ *
+*/
+
 var sSocket;  //Variabel für die Settings
 var socket;  //Socket Variable
 

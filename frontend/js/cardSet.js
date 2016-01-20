@@ -1,3 +1,9 @@
+/* 
+ * Author:  Mike Wuestenberg
+ *
+*/
+
+
 var sCardSet;  //Variabel für die Settings
 var setOfCards;
 var cardSetTimer;

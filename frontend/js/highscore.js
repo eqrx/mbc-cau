@@ -1,3 +1,8 @@
+/* 
+ * Author:  Mike Wuestenberg
+ *
+*/
+
 var sHighscore;  //Variabel für die Settings
 var highscoreSave;   
 

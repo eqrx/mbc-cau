@@ -1,3 +1,8 @@
+/* 
+ * Author:  Mike Wuestenberg
+ *
+*/
+
 var sWhiteCard;  //Variabel für die Settings
    
 var WhiteCard = {        
