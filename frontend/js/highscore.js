@@ -86,6 +86,7 @@ var Highscore = {
     },
     
     updateHighscore: function (player) {
+         console.log("Highscore: updateHighscore " + player);
         var isInList = false;
         
         for(var i = 0; i < highscoreSave.length; i++) { //Prüfen ob Spieler schon in Liste vorhanden
