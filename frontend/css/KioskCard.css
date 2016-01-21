@@ -1,0 +1,26 @@
+#card-text {
+    /*border: 30px solid blue;*/
+    
+    min-height: 30vh;
+    overflow: hidden;
+    /*background-color: red;*/
+}
+
+#card-word {
+    min-height: 30vh;
+	max-height: 30vh;
+    
+    overflow: hidden;
+    background-color: red;
+}
+
+#card-footer {
+	min-height: 5vh;
+	
+    overflow: hidden;
+    background-color: yellow;
+}
+
+#card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
+    /*border: 10px solid white;*/
+}
