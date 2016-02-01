@@ -49,14 +49,12 @@ footer {
 	max-height: 40vh;
     
     overflow: hidden;
-    background-color: red;
 }
 
 #card-footer {
 	min-height: 5vh;
 	
     overflow: hidden;
-    background-color: yellow;
 }
 
 #mid-row {
@@ -69,7 +67,8 @@ footer {
 }
 
 #black-card-panel {
-    background-color: black;
+    background-color: #5a5a5a;
+    border-color: black;
     color: white;
 }
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
