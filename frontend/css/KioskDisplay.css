@@ -48,7 +48,8 @@ footer {
 
 /*Element styles*/
 #highscore {
-    /*max-height: 100vh;*/
+    min-height: 100vh;
+    max-height: 100vh;
 }
 
 #card-word {
