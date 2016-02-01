@@ -37,8 +37,8 @@ article {
 
 footer {
     position:fixed;
-    left:   0px;
-    bottom: 0px;
+    left:   0vh;
+    bottom: 5vh;
     width:  100vh;
     
     min-height: 5vh;
@@ -50,44 +50,27 @@ footer {
     /*max-height: 100vh;*/
 }
 
-#con{
-
-}
-
-/*#card-text {    
-    min-height: 30vh;
-    overflow: hidden;
-}*/
-
 #card-word {
     min-height: 40vh;
 	max-height: 40vh;
     
     overflow: hidden;
-    
-    padding-top:    20px;
-    padding-left:   20px;
-    padding-right:  20px; 
 }
 
 #card-footer {
 	min-height: 5vh;
 	
     overflow: hidden;
-    
-    padding-left:   20px;
-    padding-right:  20px;
-    padding-bottom: 20px;
 }
 
 #row-mid {
-    /*background-color: #33aaff;*/
+    background-color: #33aaff;
 }
 
-#card-row {
+/*#card-row {
     min-height: 50vh;
 	max-height: 50vh;
-}
+}*/
 
 #black-card-panel {
     min-height: 20vh;
@@ -96,11 +79,6 @@ footer {
     background-color: #050505;
     border-color: black;
     color: white;
-    
-    padding-top:    20px;
-    padding-left:   20px;
-    padding-right:  20px;
-    padding-bottom: 20px;
 }
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
     /*border: 10px solid white;*/
