@@ -26,7 +26,6 @@ footer {
     position:fixed;
     left:   0px;
     bottom: 0px;
-    height: 10vh;
     width:  100vh;
 }
 
@@ -63,8 +62,8 @@ footer {
 #card-row {
     background-color: #33aaff;
     
-    min-height: 60vh;
-	max-height: 60vh;
+    min-height: 50vh;
+	max-height: 50vh;
 }
 
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
