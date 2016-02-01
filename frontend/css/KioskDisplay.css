@@ -49,12 +49,20 @@ footer {
 	max-height: 40vh;
     
     overflow: hidden;
+    
+    padding-top:    10px;
+    padding-left:   10px;
+    padding-right:  10px; 
 }
 
 #card-footer {
 	min-height: 5vh;
 	
     overflow: hidden;
+    
+    padding-left:   10px;
+    padding-right:  10px;
+    padding-bottom: 10px;
 }
 
 #mid-row {
@@ -67,9 +75,17 @@ footer {
 }
 
 #black-card-panel {
+    min-height: 30vh;
+	max-height: 30vh;
+    
     background-color: #5a5a5a;
     border-color: black;
     color: white;
+    
+    padding-top:    10px;
+    padding-left:   10px;
+    padding-right:  10px;
+    padding-bottom: 10px;
 }
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
     /*border: 10px solid white;*/
