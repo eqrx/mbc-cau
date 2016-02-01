@@ -3,6 +3,9 @@ body {
     color: #5a5a5a;
     /*font*/
     font-family: Verdana, Geneva, sans-serif;
+    
+    min-height: 100vh;
+	max-height: 100vh;
 } 
 
 h1 {
@@ -22,11 +25,24 @@ p {
     font-size: 100%;
 }
 
+header {
+    min-height: 10vh;
+	max-height: 10vh;
+}
+
+article {
+    min-height: 80vh;
+	max-height: 80vh;
+}
+
 footer {
     position:fixed;
     left:   0px;
     bottom: 0px;
     width:  100vh;
+    
+    min-height: 10vh;
+	max-height: 10vh;
 }
 
 /*Element styles*/
@@ -35,8 +51,7 @@ footer {
 }
 
 #con{
-	min-height: 100vh;
-	max-height: 100vh;
+
 }
 
 /*#card-text {    
@@ -65,7 +80,7 @@ footer {
     padding-bottom: 20px;
 }
 
-#mid-row {
+#row-mid {
     background-color: #33aaff;
 }
 
