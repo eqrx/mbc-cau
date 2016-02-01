@@ -81,7 +81,7 @@ footer {
 }
 
 #row-mid {
-    background-color: #33aaff;
+    /*background-color: #33aaff;*/
 }
 
 #card-row {
@@ -93,7 +93,7 @@ footer {
     min-height: 20vh;
 	max-height: 20vh;
     
-    background-color: #0a0a0a;
+    background-color: #050505;
     border-color: black;
     color: white;
     
