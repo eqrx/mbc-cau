@@ -47,7 +47,7 @@ footer {
 
 /*Element styles*/
 #highscore {
-    max-height: 100vh;
+    /*max-height: 100vh;*/
 }
 
 #con{
@@ -93,7 +93,7 @@ footer {
     min-height: 20vh;
 	max-height: 20vh;
     
-    background-color: #5a5a5a;
+    background-color: #0a0a0a;
     border-color: black;
     color: white;
     
