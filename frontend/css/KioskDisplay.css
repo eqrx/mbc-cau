@@ -32,13 +32,6 @@ article {
 	max-height: 70vh;
 }
 
-footer {
-    width:  100vh;
-    
-    min-height: 5vh;
-	max-height: 5vh;
-}
-
 /*Element styles*/
 #highscore {
     min-height: 100vh;
