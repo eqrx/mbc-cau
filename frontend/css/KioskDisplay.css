@@ -25,6 +25,19 @@ p {
     font-size: 100%;
 }
 
+footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+}
+
+.panel .panel-primary {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /*Element styles*/
 #highscore {
     max-height: 100vh;
@@ -35,10 +48,10 @@ p {
 	max-height: 100vh;
 }
 
-/*#card-text {    
+#card-text {    
     min-height: 30vh;
     overflow: hidden;
-}*/
+}
 
 #card-word {
     min-height: 30vh;
@@ -56,10 +69,10 @@ p {
 }
 
 #card-row {
-    background-color: black;/*33aaff;*/
+    background-color: #33aaff;
     
-    min-height: 40vh;
-	max-height: 40vh;
+    min-height: 80vh;
+	max-height: 80vh;
 }
 
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
