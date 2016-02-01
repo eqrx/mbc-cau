@@ -1,10 +1,64 @@
+body {
+    background-color: #ffffff;
+    color: #5a5a5a;
+    /*Padding*/
+    padding-top: 30px; /*over header*/
+    padding-bottom: 20px; /*below footer*/
+    /*font*/
+    font-family: Verdana, Geneva, sans-serif;
+} 
+
+h1 {
+    font-weight: bold;
+    font-size: 250%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+h3 {
+    font-size: 150%;
+}
+
+p {
+    font-size: 100%;
+}
+
+/*Element styles*/
 #highscore {
     max-height: 100vh;
 }
 
 #con{
-    /*background-color: green;*/
-	
 	min-height: 100vh;
 	max-height: 100vh;
+}
+
+#card-text {    
+    min-height: 30vh;
+    overflow: hidden;
+}
+
+#card-word {
+    min-height: 30vh;
+	max-height: 30vh;
+    
+    overflow: hidden;
+    background-color: red;
+}
+
+#card-footer {
+	min-height: 5vh;
+	
+    overflow: hidden;
+    background-color: yellow;
+}
+
+#card-row {
+    background-color: 33aaff;
+}
+
+#card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
+    /*border: 10px solid white;*/
 }
