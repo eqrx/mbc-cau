@@ -45,8 +45,8 @@ footer {
 }*/
 
 #card-word {
-    min-height: 30vh;
-	max-height: 30vh;
+    min-height: 40vh;
+	max-height: 40vh;
     
     overflow: hidden;
     background-color: red;
@@ -59,13 +59,19 @@ footer {
     background-color: yellow;
 }
 
-#card-row {
+#mid-row {
     background-color: #33aaff;
-    
+}
+
+#card-row {
     min-height: 50vh;
 	max-height: 50vh;
 }
 
+#black-card-panel {
+    background-color: black;
+    color: white;
+}
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
     /*border: 10px solid white;*/
 }
