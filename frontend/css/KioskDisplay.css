@@ -27,15 +27,10 @@ p {
 
 footer {
     position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-}
-
-#card-panel {
-    margin-left: auto;
-    margin-right: auto;
+    left:   0px;
+    bottom: 0px;
+    height: 10vh;
+    width:  100%;
 }
 
 /*Element styles*/
@@ -48,10 +43,10 @@ footer {
 	max-height: 100vh;
 }
 
-#card-text {    
+/*#card-text {    
     min-height: 30vh;
     overflow: hidden;
-}
+}*/
 
 #card-word {
     min-height: 30vh;
@@ -71,8 +66,8 @@ footer {
 #card-row {
     background-color: #33aaff;
     
-    min-height: 80vh;
-	max-height: 80vh;
+    min-height: 60vh;
+	max-height: 60vh;
 }
 
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
