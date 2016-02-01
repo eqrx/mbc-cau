@@ -41,8 +41,8 @@ footer {
     bottom: 0px;
     width:  100vh;
     
-    min-height: 10vh;
-	max-height: 10vh;
+    min-height: 5vh;
+	max-height: 5vh;
 }
 
 /*Element styles*/
