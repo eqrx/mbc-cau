@@ -35,10 +35,10 @@ p {
 	max-height: 100vh;
 }
 
-#card-text {    
+/*#card-text {    
     min-height: 30vh;
     overflow: hidden;
-}
+}*/
 
 #card-word {
     min-height: 30vh;
@@ -56,7 +56,10 @@ p {
 }
 
 #card-row {
-    background-color: 33aaff;
+    background-color: black;/*33aaff;*/
+    
+    min-height: 40vh;
+	max-height: 40vh;
 }
 
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
