@@ -33,7 +33,7 @@ footer {
     width:100%;
 }
 
-.panel .panel-primary {
+#card-panel {
     margin-left: auto;
     margin-right: auto;
 }
