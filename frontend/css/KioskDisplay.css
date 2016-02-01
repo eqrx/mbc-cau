@@ -50,9 +50,9 @@ footer {
     
     overflow: hidden;
     
-    padding-top:    10px;
-    padding-left:   10px;
-    padding-right:  10px; 
+    padding-top:    20px;
+    padding-left:   20px;
+    padding-right:  20px; 
 }
 
 #card-footer {
@@ -60,9 +60,9 @@ footer {
 	
     overflow: hidden;
     
-    padding-left:   10px;
-    padding-right:  10px;
-    padding-bottom: 10px;
+    padding-left:   20px;
+    padding-right:  20px;
+    padding-bottom: 20px;
 }
 
 #mid-row {
@@ -75,17 +75,17 @@ footer {
 }
 
 #black-card-panel {
-    min-height: 30vh;
-	max-height: 30vh;
+    min-height: 20vh;
+	max-height: 20vh;
     
     background-color: #5a5a5a;
     border-color: black;
     color: white;
     
-    padding-top:    10px;
-    padding-left:   10px;
-    padding-right:  10px;
-    padding-bottom: 10px;
+    padding-top:    20px;
+    padding-left:   20px;
+    padding-right:  20px;
+    padding-bottom: 20px;
 }
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
     /*border: 10px solid white;*/
