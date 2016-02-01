@@ -41,10 +41,6 @@ footer {
 	max-height: 5vh;
 }
 
-.fluid-container {
-    max-height: 95vh;
-}
-
 /*Element styles*/
 #highscore {
     min-height: 100vh;
