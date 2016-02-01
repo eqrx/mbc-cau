@@ -38,11 +38,15 @@ article {
 footer {
     position:fixed;
     left:   0vh;
-    bottom: 5vh;
+    bottom: 0vh;
     width:  100vh;
     
     min-height: 5vh;
 	max-height: 5vh;
+}
+
+.fluid-container {
+    max-height: 95vh;
 }
 
 /*Element styles*/
@@ -67,10 +71,10 @@ footer {
     background-color: #33aaff;
 }
 
-/*#card-row {
+#card-row {
     min-height: 50vh;
 	max-height: 50vh;
-}*/
+}
 
 #black-card-panel {
     min-height: 20vh;
