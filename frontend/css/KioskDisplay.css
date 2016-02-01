@@ -1,9 +1,6 @@
 body {
     background-color: #ffffff;
     color: #5a5a5a;
-    /*Padding*/
-    padding-top: 30px; /*over header*/
-    padding-bottom: 20px; /*below footer*/
     /*font*/
     font-family: Verdana, Geneva, sans-serif;
 } 
@@ -30,7 +27,7 @@ footer {
     left:   0px;
     bottom: 0px;
     height: 10vh;
-    width:  100%;
+    width:  100vh;
 }
 
 /*Element styles*/
