@@ -59,8 +59,8 @@ p {
 }
 
 .card-footer {
-    min-height: 8vh;
-	max-height: 8vh;
+    min-height: 7vh;
+	max-height: 7vh;
 }
 
 .holder-highscore {
