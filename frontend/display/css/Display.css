@@ -58,8 +58,7 @@ p {
 }
 
 .card-footer {
-    position:fixed;
-    bottom: 0;
+    position: bottom;
 }
 
 .holder-highscore {
