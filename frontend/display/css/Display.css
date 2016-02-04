@@ -6,7 +6,7 @@ body {
     
     max-width: 100vw;
     
-    padding: 5px;
+    padding: 5vh;
 } 
 
 h1 {
@@ -74,7 +74,7 @@ p {
     background-color: white;
 }
 
-#row-mid [{    
+#row-mid {    
     border: black;
     background-color: #33aaff;
 }
