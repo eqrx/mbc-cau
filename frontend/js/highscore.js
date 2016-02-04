@@ -109,6 +109,4 @@ var Highscore = {
             highscoreSave.push(new Highscore.Player(player["player"], 1));
         }
     },
-    
-    //update': {'card': '<Karteninhalt>', "player": <Spielername>, "score":  <Punktestand der Karte>}
 };

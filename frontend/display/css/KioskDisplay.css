@@ -72,12 +72,12 @@ article {
     min-height: 5vh;
 	max-height: 5vh;
 }
-/*Element styles*/
-#col-highscore {
+
+.holder-highscore {
     padding: 1vh;
     
-    min-height: 49vh;
-	max-height: 49vh;
+    min-height: 80vh;
+	max-height: 80vh;
     
     background-color: white;
 }
