@@ -38,15 +38,17 @@ article {
     min-height: 24vh;
 	max-height: 24vh;
     
+    border-color: blue;
     background-color: red;
 }
 
 .holder-white {
     margin: 1vh;
     
-    min-height: 24vh;
-	max-height: 24vh;
+    min-height: 49vh;
+	max-height: 49vh;
     
+    border-color: blue;
     background-color: red;
 }
 
@@ -87,6 +89,7 @@ article {
 	max-height: 20vh;
     
     background-color: #080808;
+    
     border-color: black;
     color: white;
 }
