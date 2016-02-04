@@ -4,7 +4,7 @@ body {
     /*font*/
     font-family: Verdana, Geneva, sans-serif;
     
-    max-width: 100%;
+    max-width: 98%;
 } 
 
 h1 {
@@ -76,8 +76,8 @@ article {
 .holder-highscore {
     padding: 1vh;
     
-    min-height: 80vh;
-	max-height: 80vh;
+    min-height: 78vh;
+	max-height: 78vh;
     
     background-color: white;
 }
