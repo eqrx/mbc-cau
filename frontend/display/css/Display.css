@@ -35,8 +35,8 @@ article {
 }
 
 footer {
-    min-height: 80vh;
-	max-height: 80vh;
+    min-height: 10vh;
+	max-height: 10vh;
 }
 
 .holder-black {
