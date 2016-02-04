@@ -4,7 +4,7 @@ body {
     /*font*/
     font-family: Verdana, Geneva, sans-serif;
     
-    max-width:99%;
+    max-width:100%;
 } 
 
 h1 {
@@ -47,8 +47,8 @@ article {
 .holder-white {
     margin: 1vh;
     
-    min-height: 49vh;
-	max-height: 49vh;
+    min-height: 44vh;
+	max-height: 44vh;
     
     border-color: blue;
     background-color: blue;
@@ -57,27 +57,25 @@ article {
 .card-white {
     margin: 2vh;
     
-    min-height: 45vh;
-	max-height: 45vh;
+    min-height: 40vh;
+	max-height: 40vh;
     
     overflow: hidden;
 }
 
 .card-body {
-    min-height: 38vh;
-	max-height: 38vh;
+    min-height: 35vh;
+	max-height: 35vh;
 }
 
 .card-footer {
-    min-height: 5vh;
-	max-height: 5vh;
 }
 
 .holder-highscore {
     padding: 1vh;
     
-    min-height: 78vh;
-	max-height: 78vh;
+    min-height: 73vh;
+	max-height: 73vh;
     
     background-color: white;
 }
