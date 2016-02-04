@@ -3,6 +3,8 @@ body {
     color: #5a5a5a;
     /*font*/
     font-family: Verdana, Geneva, sans-serif;
+    
+    max-width: 100vh;
 } 
 
 h1 {
