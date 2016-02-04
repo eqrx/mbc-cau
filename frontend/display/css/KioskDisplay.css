@@ -4,7 +4,7 @@ body {
     /*font*/
     font-family: Verdana, Geneva, sans-serif;
     
-    max-width: 100vh;
+    max-width: 100%;
 } 
 
 h1 {
@@ -64,11 +64,13 @@ article {
 }
 
 .card-body {
-
+    min-height: 40vh;
+	max-height: 40vh;
 }
 
 .card-footer {
-
+    min-height: 5vh;
+	max-height: 5vh;
 }
 /*Element styles*/
 #highscore {
