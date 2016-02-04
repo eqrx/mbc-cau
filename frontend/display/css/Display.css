@@ -25,13 +25,13 @@ p {
 }
 
 header {
-    min-height: 10vh;
-	max-height: 10vh;
+    min-height: 20vh;
+	max-height: 20vh;
 }
 
 article {
-    min-height: 80vh;
-	max-height: 80vh;
+    min-height: 70vh;
+	max-height: 70vh;
 }
 
 footer {
@@ -52,15 +52,15 @@ footer {
 .holder-white {
     margin: 1vh;
     
-    min-height: 44vh;
-	max-height: 44vh;
+    min-height: 42vh;
+	max-height: 42vh;
     
     border-color: blue;
     background-color: blue;
 }
 
 .card-white {
-    margin: 2vh;
+    margin: 1vh;
     
     min-height: 40vh;
 	max-height: 40vh;
@@ -79,8 +79,8 @@ footer {
 .holder-highscore {
     padding: 1vh;
     
-    min-height: 73vh;
-	max-height: 73vh;
+    min-height: 68vh;
+	max-height: 68vh;
     
     background-color: white;
 }
