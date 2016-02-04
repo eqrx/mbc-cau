@@ -34,6 +34,11 @@ article {
 	max-height: 80vh;
 }
 
+footer {
+    min-height: 80vh;
+	max-height: 80vh;
+}
+
 .holder-black {
     margin: 1vh;
     
