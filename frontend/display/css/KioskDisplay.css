@@ -83,7 +83,11 @@ article {
 }
 
 #row-mid {
+    margin: 1vh;
     padding: 1vh;
+    
+    min-height: 80vh;
+	max-height: 80vh;
     
     border: black;
     background-color: #33aaff;
