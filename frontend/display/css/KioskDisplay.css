@@ -74,12 +74,13 @@ article {
 }
 /*Element styles*/
 #highscore {
+    background-color: white;
 }
 
 #row-mid {
     padding: 1vh;
     
-    border: back;
+    border: black;
     background-color: #33aaff;
 }
 
