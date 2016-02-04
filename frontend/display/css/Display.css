@@ -54,12 +54,13 @@ p {
 }
 
 .card-body {
-
+    min-height: 32vh;
+	max-height: 32vh;
 }
 
 .card-footer {
-    position: relative;
-    bottom: 0;
+    min-height: 8vh;
+	max-height: 8vh;
 }
 
 .holder-highscore {
