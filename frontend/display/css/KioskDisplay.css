@@ -41,7 +41,7 @@ article {
 	max-height: 24vh;
     
     border-color: blue;
-    background-color: red;
+    background-color: blue;
 }
 
 .holder-white {
@@ -51,7 +51,7 @@ article {
 	max-height: 49vh;
     
     border-color: blue;
-    background-color: red;
+    background-color: blue;
 }
 
 .card-white {
@@ -77,6 +77,9 @@ article {
 }
 
 #row-mid {
+    padding: 1vh;
+    
+    border: back;
     background-color: #33aaff;
 }
 
@@ -95,7 +98,4 @@ article {
     
     border-color: black;
     color: white;
-}
-#card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
-    /*border: 10px solid white;*/
 }
