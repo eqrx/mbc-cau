@@ -4,7 +4,7 @@ body {
     /*font*/
     font-family: Verdana, Geneva, sans-serif;
     
-    max-width:99%;
+    max-width:100%;
 } 
 
 h1 {
@@ -58,6 +58,8 @@ p {
 }
 
 .card-footer {
+    position:fixed;
+    bottom:0
 }
 
 .holder-highscore {
