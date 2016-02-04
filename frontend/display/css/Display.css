@@ -34,8 +34,7 @@ article {
 }
 
 footer {
-    min-height: 10vh;
-	max-height: 10vh;
+
 }
 
 .holder-black {
@@ -85,8 +84,7 @@ footer {
 }
 
 #row-mid {
-    margin: 1vh;
-    padding: 1vh;
+    margin: 2vh;
     
     border: black;
     background-color: #33aaff;
