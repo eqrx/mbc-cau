@@ -74,10 +74,10 @@ article {
 }
 /*Element styles*/
 #col-highscore {
-    padding: 49vh;
+    padding: 1vh;
     
-    min-height: 100vh;
-	max-height: 100vh;
+    min-height: 49vh;
+	max-height: 49vh;
     
     background-color: white;
 }
