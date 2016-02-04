@@ -32,8 +32,8 @@ article {
 	max-height: 80vh;
 }
 
-.black-holder {
-    margin: auto;
+.holder-black {
+    margin: 1vh;
     
     min-height: 24vh;
 	max-height: 24vh;
@@ -41,21 +41,31 @@ article {
     background-color: red;
 }
 
-/*Element styles*/
-#highscore {
+.holder-white {
+    margin: 1vh;
+    
+    min-height: 24vh;
+	max-height: 24vh;
+    
+    background-color: red;
 }
 
-#card-word {
-    min-height: 40vh;
-	max-height: 40vh;
+.card-white {
+    min-height: 45vh;
+	max-height: 45vh;
     
     overflow: hidden;
 }
 
-#card-footer {
-	min-height: 5vh;
-	
-    overflow: hidden;
+.card-body {
+
+}
+
+.card-footer {
+
+}
+/*Element styles*/
+#highscore {
 }
 
 #row-mid {
@@ -68,13 +78,13 @@ article {
 }
 
 #black-card-panel {
-    margin: 4vh;
+    margin: 2vh;
     
     min-height: 20vh;
 	max-height: 20vh;
     
-    background-color: #050505;
-    border-color: white;
+    background-color: #080808;
+    border-color: black;
     color: white;
 }
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
