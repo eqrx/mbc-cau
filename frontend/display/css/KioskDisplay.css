@@ -32,7 +32,12 @@ article {
 	max-height: 80vh;
 }
 
-.holder {
+.black-holder {
+    margin: auto;
+    
+    min-height: 24vh;
+	max-height: 24vh;
+    
     background-color: red;
 }
 
@@ -63,11 +68,13 @@ article {
 }
 
 #black-card-panel {
+    margin: 4vh;
+    
     min-height: 20vh;
 	max-height: 20vh;
     
     background-color: #050505;
-    border-color: black;
+    border-color: white;
     color: white;
 }
 #card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
