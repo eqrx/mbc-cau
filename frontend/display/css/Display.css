@@ -4,7 +4,7 @@ body {
     /*font*/
     font-family: Verdana, Geneva, sans-serif;
     
-    max-width:100%;
+    max-width:99%;
 } 
 
 h1 {
@@ -25,8 +25,7 @@ p {
 }
 
 header {
-    min-height: 20vh;
-	max-height: 20vh;
+   
 }
 
 article {
