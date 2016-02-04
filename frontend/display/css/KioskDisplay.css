@@ -32,10 +32,12 @@ article {
 	max-height: 80vh;
 }
 
+.holder {
+    background-color: red;
+}
+
 /*Element styles*/
 #highscore {
-    min-height: 100vh;
-    max-height: 100vh;
 }
 
 #card-word {
