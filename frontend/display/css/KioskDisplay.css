@@ -42,7 +42,7 @@ article {
 }
 
 .holder-white {
-    margin: 1vh;
+    margin: 2vh;
     
     min-height: 24vh;
 	max-height: 24vh;
@@ -51,6 +51,8 @@ article {
 }
 
 .card-white {
+    margin: 2vh;
+    
     min-height: 45vh;
 	max-height: 45vh;
     
@@ -58,7 +60,8 @@ article {
 }
 
 .card-body {
-
+    min-height: 40vh;
+	max-height: 40vh;
 }
 
 .card-footer {
