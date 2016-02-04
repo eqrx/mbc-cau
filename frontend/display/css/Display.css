@@ -24,19 +24,6 @@ p {
     font-size: 100%;
 }
 
-header {
-   
-}
-
-article {
-    min-height: 70vh;
-	max-height: 70vh;
-}
-
-footer {
-
-}
-
 .holder-black {
     margin: 1vh;
     
@@ -63,7 +50,7 @@ footer {
     min-height: 40vh;
 	max-height: 40vh;
     
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .card-body {
@@ -105,4 +92,6 @@ footer {
     
     border-color: black;
     color: white;
+    
+    overflow: scroll;
 }
