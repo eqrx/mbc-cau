@@ -64,8 +64,8 @@ article {
 }
 
 .card-body {
-    min-height: 40vh;
-	max-height: 40vh;
+    min-height: 38vh;
+	max-height: 38vh;
 }
 
 .card-footer {
