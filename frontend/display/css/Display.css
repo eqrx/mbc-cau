@@ -85,6 +85,13 @@ p {
     background-color: white;
 }
 
+#qr-code {
+    min-height: 29vh;
+	max-height: 29vh;
+    
+    width: auto;
+}
+
 #row-mid {    
     border: black;
     background-color: #33aaff;
