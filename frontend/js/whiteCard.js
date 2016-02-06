@@ -87,7 +87,7 @@ var WhiteCard = {
     //Helper Funktion um von Gedrückten Button auf die gewählte karte zu schließen
     vote: function (panelID) {
         if (playerName == "") {
-            alert("Bitte wähle erst einen Namen");
+            alert("Bitte wähle erst einen Namen aus.");
         } else {
             var card;
             
