@@ -86,6 +86,8 @@ p {
 }
 
 #qr-code {
+    padding: 1vh;
+        
     min-height: 27vh;
 	max-height: 27vh;
     
