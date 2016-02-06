@@ -27,6 +27,13 @@ p {
     font-size: 100%;
 }
 
+.holder-qr {
+    margin: 1vh;
+    
+    border-color: blue;
+    background-color: blue;
+}
+
 .holder-black {
     margin: 1vh;
     
