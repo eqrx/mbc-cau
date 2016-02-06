@@ -81,6 +81,12 @@ p {
     width: auto;
 }
 
+#logo {
+	max-height: 20vh;
+    
+    width: auto;
+}
+
 #row-mid {    
     border: black;
     background-color: #33aaff;
