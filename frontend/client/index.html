@@ -76,49 +76,67 @@
                 </div>
             </div>
             
+            
+
+            
             <!--Reihe für die Karten auf die der Spieler Voten kann-->
             <div class="panel panel-primary row-white-cards">
                 <div class="row" id="vote">
-                    <div class="col-xs-3">
-                        <div class="panel panel-primary white-card" id="white-card-panel-0" data-panelID=p0>
-                            <div class="panel-body white-card-body">
-                                <h2 id="white-card-text-0"></h2>
-                            </div>
-                            <div class="panel-footer white-card-footer">
-                                <center><button type="button" class="btn btn-default" id=vote-button data-ID=b0>Vote</button></center>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="panel panel-primary white-card" id="white-card-panel-1" data-panelID=p1>
-                            <div class="panel-body white-card-body">
-                                <h2 id="white-card-text-1"></h2>
-                            </div>
-                            <div class="panel-footer white-card-footer">
-                                <center><button type="button" class="btn btn-default" id=vote-button data-ID=b1>Vote</button></center>
-                            </div>
+                    
+                    <div class="row">
+                        <div class="col-xs-12" id="vote">
+                            <h3>Wähle eine Karte</h3>
                         </div>
                     </div>
-                    <div class="col-xs-3">
-                        <div class="panel panel-primary white-card" id="white-card-panel-2" data-panelID=p2>
-                            <div class="panel-body white-card-body">
-                                <h2 id="white-card-text-2"></h2>
+                    
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="panel panel-primary white-card" id="white-card-panel-0" data-panelID=p0>
+                                <div class="panel-body white-card-body">
+                                    <h2 id="white-card-text-0"></h2>
+                                </div>
+                                <div class="panel-footer white-card-footer">
+                                    <center><button type="button" class="btn btn-default" id=vote-button data-ID=b0>Vote</button></center>
+                                </div>
                             </div>
-                            <div class="panel-footer white-card-footer">
-                                <center><button type="button" class="btn btn-default" id=vote-button data-ID=b2>Vote</button></center>
+                            
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel panel-primary white-card" id="white-card-panel-1" data-panelID=p1>
+                                <div class="panel-body white-card-body">
+                                    <h2 id="white-card-text-1"></h2>
+                                </div>
+                                <div class="panel-footer white-card-footer">
+                                    <center><button type="button" class="btn btn-default" id=vote-button data-ID=b1>Vote</button></center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel panel-primary white-card" id="white-card-panel-2" data-panelID=p2>
+                                <div class="panel-body white-card-body">
+                                    <h2 id="white-card-text-2"></h2>
+                                </div>
+                                <div class="panel-footer white-card-footer">
+                                    <center><button type="button" class="btn btn-default" id=vote-button data-ID=b2>Vote</button></center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="panel panel-primary white-card" id="white-card-panel-3" data-panelID=p3>
+                                <div class="panel-body white-card-body">
+                                    <h2 id="white-card-text-3"></h2>
+                                </div>
+                                <div class="panel-footer white-card-footer">
+                                    <center><button type="button" class="btn btn-default" id=vote-button data-ID=b3>Vote</button></center>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-3">
-                        <div class="panel panel-primary white-card" id="white-card-panel-3" data-panelID=p3>
-                            <div class="panel-body white-card-body">
-                                <h2 id="white-card-text-3"></h2>
-                            </div>
-                            <div class="panel-footer white-card-footer">
-                                <center><button type="button" class="btn btn-default" id=vote-button data-ID=b3>Vote</button></center>
-                            </div>
-                        </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Gespielte Karten</h2>
                     </div>
                 </div>
                 
@@ -178,7 +196,11 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h2>Highscore</h2>
+                </div>
+            </div>
                     
+            <div class="row">
+                <div class="col-xs-12">
                     <table class="table" id="highscore">
                         <tr>
                             <td><h3>Name</h3></td>
