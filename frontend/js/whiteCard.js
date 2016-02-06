@@ -38,11 +38,11 @@ var WhiteCard = {
     
     bindVotePanelOnMouseOver: function () {
         $(sWhiteCard.panelBind).on("mouseover", function() {
-            $(sWhiteCard.panelBind).style.borderColor = 'red';
+            $(sWhiteCard.panelBind).css("border-color", "red");
         });
     
         $(sWhiteCard.panelBind).on("mouseout", function() {
-            $(sWhiteCard.panelBind).style.borderColor = '';
+            $(sWhiteCard.panelBind).css("border-color", "black");
         });
     },
     
