@@ -30,6 +30,9 @@ p {
 .holder-qr {
     margin: 1vh;
     
+    min-height: 29vh;
+	max-height: 29vh;
+    
     border-color: blue;
     background-color: blue;
 }
