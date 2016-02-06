@@ -6,8 +6,8 @@ body {
     
     max-width: 100vw;
     
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
 } 
 
 h1 {
@@ -30,8 +30,8 @@ p {
 .holder-black {
     margin: 1vh;
     
-    min-height: 24vh;
-	max-height: 24vh;
+    min-height: 29vh;
+	max-height: 29vh;
     
     border-color: blue;
     background-color: blue;
@@ -88,8 +88,8 @@ p {
 #black-card-panel {
     margin: 2vh;
     
-    min-height: 20vh;
-	max-height: 20vh;
+    min-height: 25vh;
+	max-height: 25vh;
     
     background-color: #080808;
     
