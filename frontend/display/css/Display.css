@@ -27,10 +27,6 @@ p {
     font-size: 100%;
 }
 
-.footer {
-    max-height: 5vh;
-}
-
 .holder-black {
     margin: 1vh;
     padding: 2vh;
@@ -38,8 +34,8 @@ p {
     min-height: 29vh;
 	max-height: 29vh;
     
-    border-color: blue;
-    background-color: blue;
+    border-color: black;
+    background-color: #204d86;
 }
 
 .holder-white {
@@ -48,8 +44,8 @@ p {
     min-height: 37vh;
 	max-height: 37vh;
     
-    border-color: blue;
-    background-color: blue;
+    border-color: black;
+    background-color: #204d86;
 }
 
 .card-white {
@@ -93,7 +89,7 @@ p {
 
 #row-mid {    
     border: black;
-    background-color: #33aaff;
+    background-color: #b5c4d9;
 }
 
 #black-card-panel {    
