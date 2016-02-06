@@ -50,8 +50,8 @@ p {
 .holder-white {
     margin: 1vh;
     
-    min-height: 42vh;
-	max-height: 42vh;
+    min-height: 37vh;
+	max-height: 37vh;
     
     border-color: blue;
     background-color: blue;
@@ -60,15 +60,15 @@ p {
 .card-white {
     margin: 1vh;
     
-    min-height: 40vh;
-	max-height: 40vh;
+    min-height: 35vh;
+	max-height: 35vh;
     
     overflow: auto;
 }
 
 .card-body {
-    min-height: 32vh;
-	max-height: 32vh;
+    min-height: 27vh;
+	max-height: 27vh;
 }
 
 .card-footer {
@@ -79,8 +79,8 @@ p {
 .holder-highscore {
     padding: 1vh;
     
-    min-height: 73vh;
-	max-height: 73vh;
+    min-height: 68vh;
+	max-height: 68vh;
     
     background-color: white;
 }
