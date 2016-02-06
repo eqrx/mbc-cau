@@ -45,17 +45,21 @@ var WhiteCard = {
     cardUpdate: function(card) {
         voteCard = card; //Speichern zum Voten
         
-		for(var i = 0; i < sWhiteCard.maxPanels; i++) {
-            //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sWhiteCard.fadeTime);
-        }
+        $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
+            for(var i = 0; i < sWhiteCard.maxPanels; i++) {
+                $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
+                
+                //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
+                //$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sWhiteCard.fadeTime);
+            }
+        }).fadeIn(sWhiteCard.fadeTime);
     },
     
     //Hilfs Methode zum verändern des Textes der Weißen Karten
     cardUpdateHelper: function (card, i) {
         //console.log(sWhiteCard.text + i);
         //console.log(card[i]);
-        $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
+        
     },
     
     //Bindet Vote Buttons 
