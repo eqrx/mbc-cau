@@ -39,6 +39,7 @@ p {
 
 .holder-black {
     margin: 1vh;
+    padding: 2vh;
     
     min-height: 29vh;
 	max-height: 29vh;
@@ -84,8 +85,6 @@ p {
 }
 
 #qr-code {
-    padding: 2vh;
-        
     min-height: 27vh;
 	max-height: 27vh;
     
@@ -97,9 +96,7 @@ p {
     background-color: #33aaff;
 }
 
-#black-card-panel {
-    margin: 2vh;
-    
+#black-card-panel {    
     min-height: 25vh;
 	max-height: 25vh;
     
