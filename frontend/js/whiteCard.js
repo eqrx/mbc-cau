@@ -84,6 +84,8 @@ var WhiteCard = {
     vote: function (panelID) {
         var card;
         
+        card = voteCard[panelID];
+        /*
         switch(panelID) {
         case "p0":
             card = voteCard[0];
@@ -99,7 +101,7 @@ var WhiteCard = {
         break;
         default:
             console.log("ERROR: Button to Vote convert");
-        }
+        }*/
         
         //WhiteCard.cardHide();
         $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
