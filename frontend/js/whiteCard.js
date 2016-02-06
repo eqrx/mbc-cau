@@ -14,6 +14,8 @@ var WhiteCard = {
         vote: "#white-card-vote-",
         
         buttonBind: ".white-card",
+        
+        voteRow: "#vote",
     },
     
     init: function() {
@@ -59,35 +61,38 @@ var WhiteCard = {
     //Bindet Vote Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
         $(sWhiteCard.buttonBind).on("click", function() {
-            var buttonID = $(this).attr("data-panelID"); //Erkennt welcher Button gedrückt wurde
-            //console.log("WhiteCard: " + buttonID);
-            WhiteCard.vote(buttonID);   
+            var panelID = $(this).attr("data-panelID"); //Erkennt welche karte gedrückt wurde
+
+            WhiteCard.vote(panelID);   
         });
     },
     
     //Helper Funktion um von Gedrückten Button auf die gewählte karte zu schließen
-    vote: function (buttonID) {
+    vote: function (panelID) {
         var card;
         
-        switch(buttonID) {
-        case "b0":
+        switch(panelID) {
+        case "p0":
             card = voteCard[0];
         break;
-        case "b1":
+        case "p1":
             card = voteCard[1];
         break;
-        case "b2":
+        case "p2":
             card = voteCard[2];
         break;
-        case "b3":
+        case "p3":
             card = voteCard[3];
         break;
         default:
             console.log("ERROR: Button to Vote convert");
         }
         
-        WhiteCard.cardHide();
+        //WhiteCard.cardHide();
+        $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
+            Socket.emitVote(card); //Sendet die wahl an Server
+        });
         
-        Socket.emitVote(card); //Sendet die wahl an Server
+        
     },
 };
