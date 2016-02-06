@@ -40,13 +40,13 @@ var WhiteCard = {
         $(sWhiteCard.panelBind).on("mouseover", function() {
             var panelID = $(this).attr("data-panelID")
             
-            $(sWhiteCard.panelBind).css("border-color", "red");
+            $(sWhiteCard.panel + panelID).css("border-color", "red");
         });
     
-        $(sWhiteCard.panel + panelID).on("mouseout", function() {
+        $(sWhiteCard.panelBind).on("mouseout", function() {
             var panelID = $(this).attr("data-panelID")
             
-            $(sWhiteCard.panelBind).css("border-color", "black");
+            $(sWhiteCard.panel + panelID).css("border-color", "black");
         });
     },
     
