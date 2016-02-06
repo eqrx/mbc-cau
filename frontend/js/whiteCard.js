@@ -35,7 +35,7 @@ var WhiteCard = {
             WhiteCard.vote(panelID);   
         });
     },
-    
+
     bindVotePanelOnMouseOver: function () {
         $(sWhiteCard.panelBind).on("mouseover", function() {
             var panelID = $(this).attr("data-panelID")
@@ -86,15 +86,17 @@ var WhiteCard = {
     
     //Helper Funktion um von Gedrückten Button auf die gewählte karte zu schließen
     vote: function (panelID) {
-        var card;
-        
-        card = voteCard[panelID];
-        
-        //WhiteCard.cardHide();
-        $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
-            Socket.emitVote(card); //Sendet die wahl an Server
-        });
-        
-        
+        if (playerName == "") {
+            alert("Bitte wähle erst einen Namen");
+        } else {
+            var card;
+            
+            card = voteCard[panelID];
+            
+            //WhiteCard.cardHide();
+            $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
+                Socket.emitVote(card); //Sendet die wahl an Server
+            });
+        }
     },
 };

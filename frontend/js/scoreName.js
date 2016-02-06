@@ -4,7 +4,7 @@
 */
 
 var sScoreName;  //Variabel für die Settings
-var playerName; //Spiechert Spieler Namen
+var playerName = ""; //Spiechert Spieler Namen
    
 var ScoreName = {
     settings: {
