@@ -82,10 +82,33 @@ p {
 	max-height: 7vh;
 }
 
-#card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
-    /*border: 10px solid white;*/
+/*
+ * Rahmen Umschließt Weiße karten udn karten auf die man Voten kann
+ */
+.row-white-cards {
+    border: black;
+    background-color: #b5c4d9;
+}
+/*
+ * Die schwarze Karte
+ */
+#black-card-panel {    
+    min-height: 25vh;
+	max-height: 25vh;
+    
+    background-color: #080808;
+    
+    border-color: black;
+    color: white;
+    
+    overflow: auto;
 }
 
-#vote-button {
+/*
+ * Die Logos im footer
+ */
+#logo {
+	max-height: 15vh;
     
+    width: auto;
 }
