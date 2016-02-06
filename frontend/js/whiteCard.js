@@ -38,10 +38,14 @@ var WhiteCard = {
     
     bindVotePanelOnMouseOver: function () {
         $(sWhiteCard.panelBind).on("mouseover", function() {
+            var panelID = $(this).attr("data-panelID")
+            
             $(sWhiteCard.panelBind).css("border-color", "red");
         });
     
-        $(sWhiteCard.panelBind).on("mouseout", function() {
+        $(sWhiteCard.panel + panelID).on("mouseout", function() {
+            var panelID = $(this).attr("data-panelID")
+            
             $(sWhiteCard.panelBind).css("border-color", "black");
         });
     },
@@ -85,23 +89,6 @@ var WhiteCard = {
         var card;
         
         card = voteCard[panelID];
-        /*
-        switch(panelID) {
-        case "p0":
-            card = voteCard[0];
-        break;
-        case "p1":
-            card = voteCard[1];
-        break;
-        case "p2":
-            card = voteCard[2];
-        break;
-        case "p3":
-            card = voteCard[3];
-        break;
-        default:
-            console.log("ERROR: Button to Vote convert");
-        }*/
         
         //WhiteCard.cardHide();
         $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
