@@ -9,7 +9,6 @@ var playerName = ""; //Spiechert Spieler Namen
 var ScoreName = {
     settings: {
         panel: "#player-names",
-        
         panelText: "#player-name-text",
     },
     
@@ -20,13 +19,14 @@ var ScoreName = {
     //Bindet Namens wahl Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
         console.log("ScoreName: Button Bind");
-        $(sScoreName.panel + " .btn").on("click", ScoreName.showScoreName());
+        $(sScoreName.panel + " .btn").on("click", function() {
+            var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
+            
+            playerName = buttonID;
+            ScoreName.showScoreName(buttonID);
+        });
     },
-    
-    chooseName: function() {
 
-    },
-    
     //Fügt Buttons zur Namens Auswahl hinzu
     saveScoreNames: function (msg) {
         console.log("ScoreNames: " + msg);
@@ -41,13 +41,9 @@ var ScoreName = {
     
     //Verteckt alle zu beginn
     showScoreName: function (playerName) {
-        var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
-        
-        playerName = buttonID;
-        
         $(sScoreName.panel).empty();
-        $(sScoreName.panel).append("<h3>" + playerName +"</h3>");
-        
         $(sScoreName.panelText).html("Dein Name ist:");
+        
+        $(sScoreName.panel).append("<h3>" + playerName +"</h3>");
     },
 };
