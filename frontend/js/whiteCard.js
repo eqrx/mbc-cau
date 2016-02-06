@@ -13,7 +13,7 @@ var WhiteCard = {
         text: "#white-card-text-",
         vote: "#white-card-vote-",
         
-        buttonBind: "#vote .btn",
+        buttonBind: ".white-card",
     },
     
     init: function() {
@@ -59,7 +59,7 @@ var WhiteCard = {
     //Bindet Vote Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
         $(sWhiteCard.buttonBind).on("click", function() {
-            var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
+            var buttonID = $(this).attr("data-panelID"); //Erkennt welcher Button gedrückt wurde
             //console.log("WhiteCard: " + buttonID);
             WhiteCard.vote(buttonID);   
         });
