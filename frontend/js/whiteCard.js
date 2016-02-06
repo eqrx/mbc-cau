@@ -13,7 +13,7 @@ var WhiteCard = {
         text: "#white-card-text-",
         vote: "#white-card-vote-",
         
-        buttonBind: ".white-card",
+        panelBind: ".white-card",
         
         voteRow: "#vote",
     },
@@ -29,7 +29,7 @@ var WhiteCard = {
     
     //Bindet Vote Panels
     bindVotePanelOnClick: function () { //bind funktion für die Buttons
-        $(sWhiteCard.buttonBind).on("click", function() {
+        $(sWhiteCard.panelBind).on("click", function() {
             var panelID = $(this).attr("data-panelID"); //Erkennt welche karte gedrückt wurde
 
             WhiteCard.vote(panelID);   
@@ -37,12 +37,12 @@ var WhiteCard = {
     },
     
     bindVotePanelOnMouseOver: function () {
-        $(sWhiteCard.buttonBind).on("mouseover", function() {
-            this.style.bordercolor = 'red';
+        $(sWhiteCard.panelBind).on("mouseover", function() {
+            $(sWhiteCard.panelBind).style.borderColor = 'red';
         });
     
-        $(sWhiteCard.buttonBind).on("mouseout", function() {
-            this.style.bordercolor = '';
+        $(sWhiteCard.panelBind).on("mouseout", function() {
+            $(sWhiteCard.panelBind).style.borderColor = '';
         });
     },
     
