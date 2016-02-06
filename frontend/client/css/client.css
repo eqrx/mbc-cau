@@ -64,19 +64,27 @@ p {
     background-color: #204d86;
 }
 
-.white-card {
-    margin: 1vh;
-    
+/*
+ *  Die weißen Karten
+ */
+.white-card {    
     min-height: 35vh;
 	max-height: 35vh;
     
     overflow: auto;
 }
+
+/*
+ * Der Körper der weißen Karte. 
+ */
 .white-card-body {
     min-height: 27vh;
 	max-height: 27vh;
 }
 
+/*
+ * Der footer der weißen Karte
+ */
 .white-card-footer {
     min-height: 7vh;
 	max-height: 7vh;
@@ -86,6 +94,8 @@ p {
  * Rahmen Umschließt Weiße karten udn karten auf die man Voten kann
  */
 .row-white-cards {
+    padding: 1vh;
+    
     border: black;
     background-color: #b5c4d9;
 }
@@ -109,6 +119,5 @@ p {
  */
 #logo {
 	max-height: 15vh;
-    
     width: auto;
 }
