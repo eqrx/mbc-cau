@@ -1,10 +1,3 @@
-/* 
- * Author:  Mike Wüstenberg
- *
- * Beschreibung:
- * Die CSS datei zu der Display Komponente des Cards Against Universtity Projects
-*/
-
 body {
     background-color: #ffffff;
     color: #5a5a5a;
@@ -63,10 +56,7 @@ p {
     background-color: #204d86;
 }
 
-/*
- *  Die weißen Karten
- */
-.card-white {
+.white-card {
     margin: 1vh;
     
     min-height: 35vh;
@@ -74,71 +64,20 @@ p {
     
     overflow: auto;
 }
-
-/*
- * Der Körper der weißen Karte. 
- */
-.card-body {
+.white-card-body {
     min-height: 27vh;
 	max-height: 27vh;
 }
 
-/*
- * Der footer der weißen Karte
- */
-.card-footer {
+.white-card-footer {
     min-height: 7vh;
 	max-height: 7vh;
 }
 
-/*
- * Rahmen für die Highscore Liste
- */
-.holder-highscore {    
-    min-height: 68vh;
-	max-height: 68vh;
-    
-    background-color: white;
+#card-panel-0, #card-panel-1, #card-panel-2, #card-panel-3 {
+    /*border: 10px solid white;*/
 }
 
-/*
- * Größe des QR codes
- */
-#qr-code {
-    min-height: 25vh;
-	max-height: 25vh;
+#vote-button {
     
-    width: auto;
-}
-
-/*
- * Die Logos im footer
- */
-#logo {
-	max-height: 15vh;
-    
-    width: auto;
-}
-
-/*
- * Die Zeile welche die Karten und Highscore Liste umschließt
- */
-#row-mid {    
-    border: black;
-    background-color: #b5c4d9;
-}
-
-/*
- * Die schwarze Karte
- */
-#black-card-panel {    
-    min-height: 25vh;
-	max-height: 25vh;
-    
-    background-color: #080808;
-    
-    border-color: black;
-    color: white;
-    
-    overflow: auto;
 }
