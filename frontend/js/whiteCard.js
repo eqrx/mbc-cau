@@ -24,6 +24,7 @@ var WhiteCard = {
         $(sWhiteCard.voteRow).hide();
         
         WhiteCard.bindVotePanelOnClick();
+        WhiteCard.bindVotePanelOnMouseOver();
     },
     
     //Bindet Vote Panels
