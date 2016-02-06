@@ -27,16 +27,6 @@ p {
     font-size: 100%;
 }
 
-.holder-qr {
-    margin: 1vh;
-    
-    min-height: 29vh;
-	max-height: 29vh;
-    
-    border-color: blue;
-    background-color: blue;
-}
-
 .holder-black {
     margin: 1vh;
     padding: 2vh;
@@ -85,8 +75,8 @@ p {
 }
 
 #qr-code {
-    min-height: 27vh;
-	max-height: 27vh;
+    min-height: 25vh;
+	max-height: 25vh;
     
     width: auto;
 }
