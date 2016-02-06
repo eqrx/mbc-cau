@@ -21,7 +21,7 @@ var WhiteCard = {
     init: function() {
         sWhiteCard = this.settings; //this auf die variable prägen
         
-        WhiteCard.cardHide();
+        $(sWhiteCard.voteRow).hide();
         
         WhiteCard.bindVoteButtons();
     },
@@ -57,9 +57,7 @@ var WhiteCard = {
     
     //Hilfs Methode zum verändern des Textes der Weißen Karten
     cardUpdateHelper: function (card, i) {
-        //console.log(sWhiteCard.text + i);
-        //console.log(card[i]);
-        
+         $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
     },
     
     //Bindet Vote Buttons 
