@@ -23,7 +23,26 @@ var WhiteCard = {
         
         $(sWhiteCard.voteRow).hide();
         
-        WhiteCard.bindVoteButtons();
+        WhiteCard.bindVotePanelOnClick();
+    },
+    
+    //Bindet Vote Panels
+    bindVotePanelOnClick: function () { //bind funktion für die Buttons
+        $(sWhiteCard.buttonBind).on("click", function() {
+            var panelID = $(this).attr("data-panelID"); //Erkennt welche karte gedrückt wurde
+
+            WhiteCard.vote(panelID);   
+        });
+    },
+    
+    bindVotePanelOnMouseOver: function () {
+        $(sWhiteCard.buttonBind).on("mouseover", function() {
+            this.style.bordercolor = 'red';
+        });
+    
+        $(sWhiteCard.buttonBind).on("mouseout", function() {
+            this.style.bordercolor = '';
+        });
     },
     
     //Verteckt alle Karten zu beginn
@@ -58,15 +77,6 @@ var WhiteCard = {
     //Hilfs Methode zum verändern des Textes der Weißen Karten
     cardUpdateHelper: function (card, i) {
          $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
-    },
-    
-    //Bindet Vote Buttons 
-    bindVoteButtons: function () { //bind funktion für die Buttons
-        $(sWhiteCard.buttonBind).on("click", function() {
-            var panelID = $(this).attr("data-panelID"); //Erkennt welche karte gedrückt wurde
-
-            WhiteCard.vote(panelID);   
-        });
     },
     
     //Helper Funktion um von Gedrückten Button auf die gewählte karte zu schließen
