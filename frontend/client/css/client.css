@@ -76,6 +76,22 @@ p {
 }
 
 /*
+ * Der Körper der weißen Karte. 
+ */
+.white-card-body {
+    min-height: 27vh;
+	max-height: 27vh;
+}
+
+/*
+ * Der footer der weißen Karte
+ */
+.white-card-footer {
+    min-height: 7vh;
+	max-height: 7vh;
+}
+
+/*
  * Rahmen Umschließt Weiße karten udn karten auf die man Voten kann
  */
 .row-white-cards {
