@@ -27,6 +27,10 @@ p {
     font-size: 100%;
 }
 
+footer {
+    max-height: 15vh;
+}
+
 .holder-black {
     margin: 1vh;
     padding: 2vh;
