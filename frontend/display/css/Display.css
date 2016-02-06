@@ -76,9 +76,7 @@ p {
 	max-height: 7vh;
 }
 
-.holder-highscore {
-    padding: 1vh;
-    
+.holder-highscore {    
     min-height: 68vh;
 	max-height: 68vh;
     
@@ -86,7 +84,7 @@ p {
 }
 
 #qr-code {
-    padding: 1vh;
+    padding: 2vh;
         
     min-height: 27vh;
 	max-height: 27vh;
@@ -97,9 +95,6 @@ p {
 #row-mid {    
     border: black;
     background-color: #33aaff;
-}
-
-#card-row {
 }
 
 #black-card-panel {
