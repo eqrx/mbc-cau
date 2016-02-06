@@ -79,15 +79,15 @@ p {
 .holder-highscore {
     padding: 1vh;
     
-    min-height: 68vh;
-	max-height: 68vh;
+    min-height: 73vh;
+	max-height: 73vh;
     
     background-color: white;
 }
 
 #qr-code {
-    min-height: 29vh;
-	max-height: 29vh;
+    min-height: 27vh;
+	max-height: 27vh;
     
     width: auto;
 }
