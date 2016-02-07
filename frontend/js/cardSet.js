@@ -86,7 +86,6 @@ var CardSet = {
      * 
      */
     cardUpdate: function(cards, next) {
-        console.log("CardsSet: cardUpdate")
         var count = 0;
         
         for(var i = 0; i < sCardSet.maxPanels; i++) { //Prüfen wie viele Karten angezeigt werden
@@ -94,7 +93,7 @@ var CardSet = {
                 count++;
             }
         }
-        console.log("CardsSet: count " + count);
+        //console.log("CardsSet: count " + count);
         if ((cards.length > 0 && cards.length > count )) {        
             //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
             $(sCardSet.panel + next.nextPanel).fadeOut(sCardSet.fadeTime, function () {                    
@@ -137,7 +136,7 @@ var CardSet = {
      * msg: Die Nachricht mit der gespielten Karten von der socket schnittstelle
      */
     saveCard: function(msg) {
-        console.log("CardsSet: saveCard");
+        //console.log("CardsSet: saveCard");
         var isInList = false;
         
         for(var i = 0; i < setOfCards.length; i++) { //Prüfen ob Carde schon in Liste vorhanden
@@ -162,13 +161,13 @@ var CardSet = {
      * msg: Die Nachricht mit der allen gespielten Karten von der socket schnittstelle
      */
     saveCardSet: function (msg) {
-        console.log("CardSet: saveCardSet");
+        //console.log("CardSet: saveCardSet");
         
         CardSet.cardHide();
         setOfCards = new Array();
         
         for(var name in msg["choices"] ) {
-            console.log("CardSet: " + msg["choices"][name]);
+            //console.log("CardSet: " + msg["choices"][name]);
             setOfCards.push(new CardSet.Card(name, msg["choices"][name]["score"]));
         }
     },

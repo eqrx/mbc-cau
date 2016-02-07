@@ -114,7 +114,7 @@ var Highscore = {
         highscoreSave = new Array();
         
         for(var name in msg["choices"] ) {
-            console.log("CardSet: " + msg["choices"][name]["player"]);
+            //console.log("CardSet: " + msg["choices"][name]["player"]);
             Highscore.updateHighscore(msg["choices"][name]);
         }
     },

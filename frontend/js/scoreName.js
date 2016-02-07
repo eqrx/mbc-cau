@@ -26,7 +26,7 @@ var ScoreName = {
     
     //Bindet Namens wahl Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
-        console.log("ScoreName: Button Bind");
+        //console.log("ScoreName: Button Bind");
         $(sScoreName.panel + " .btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
             

@@ -45,7 +45,6 @@ var BlackCard = {
     
     //Ändert denn Text auf einer Karte
     cardUpdate: function(card) {
-        console.log("BlackCard: cardUpdate");
         //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
         $(sBlackCard.panel).fadeOut(sBlackCard.fadeTime, function () {
             $(sBlackCard.text).html(card); //Verändert denn Text der Karte

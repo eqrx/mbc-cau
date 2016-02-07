@@ -53,7 +53,7 @@ var Socket = {
      * player: Auswahl zwischen Kiosk oder Client System
      */
     init: function(player) {
-        console.log("Init Socket!");
+        //console.log("Init Socket!");
         sSocket = this.settings; //this auf die variable prägen
         
         socket = io();
@@ -86,7 +86,7 @@ var Socket = {
     */
     bindCardSet: function () {  //Socket bind für Karten Set sendungen der Weißen Karten und der Bereits gespielten karten
         socket.on(sSocket.onCardSet, function (msg) {
-            console.log("Socket: turn");
+            //console.log("Socket: turn");
             
             cards = Socket.parseTurnMsg(msg);
         });
@@ -94,8 +94,8 @@ var Socket = {
     
     bindHighscore: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onHighscore, function (msg) {
-            console.log("Socket: Highscore");
-            console.log(msg);
+            //console.log("Socket: Highscore");
+            //console.log(msg);
             
             //TODO
         });
@@ -103,7 +103,7 @@ var Socket = {
     
     bindScorenames: function () { //Socket Bind für die Names Liste
         socket.on(sSocket.onScorenames, function (msg) {
-            console.log("Socket: Scorenames");
+            //console.log("Socket: Scorenames");
             
             ScoreName.saveScoreNames(msg["names"]);
         });
@@ -111,7 +111,7 @@ var Socket = {
     
     bindHandout: function () { //Socket Bind für die Weißen Karten auf die man Voten Kann
         socket.on(sSocket.onHandout, function (msg) {
-            console.log("Socket: Handout");
+            //console.log("Socket: Handout");
             console.log(msg);
             
             WhiteCard.cardUpdate(msg["hand"]);
@@ -120,7 +120,7 @@ var Socket = {
     
     bindUpdateCardSet: function () { //Socket Bind auf Die Update Nachrichten für die gespielten Nachrichten
         socket.on(sSocket.onUpdate, function (msg) {
-            console.log("Socket: Update");
+            //console.log("Socket: Update");
             console.log(msg);
             
             CardSet.saveCard(msg);
@@ -139,7 +139,7 @@ var Socket = {
     
     //Emits zum Server
     emitVote: function (card) { //Sendet Votes zum Server
-        console.log("Socket: emitVote");
+        //console.log("Socket: emitVote");
 
         socket.emit(sSocket.emitVote, { "name": playerName, "card": card });
     },
