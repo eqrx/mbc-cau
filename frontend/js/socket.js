@@ -1,5 +1,23 @@
 /* 
- * Author:  Mike Wuestenberg
+ * Author:  Mike Wüstenberg
+ *
+ * Beschreibung
+ * Modul Welches zuständig für die Socket verbindeungen ist.
+ * !!! Greift auf Methoden der anderen Module zu !!!
+ *
+ * Mehtoden:
+ * init();
+ * bindConnect();
+ * bindCardSet();
+ * bindHighscore();
+ * bindScorenames();
+ * bindHandout();
+ * bindHandout();
+ * bindUpdateCardSet();
+ * bindUpdateCardSet();
+ * bindError();
+ * emitVote(card);
+ * parseTurnMsg(msg)
  *
 */
 
@@ -28,6 +46,12 @@ var Socket = {
         errorMSG: "Server Connection failed",
     },
     
+    /* Beschreibung:
+     * Erstellt die socket Verbindung und binds auf Events.
+     *
+     * Parameter:
+     * player: Auswahl zwischen Kiosk oder Client System
+     */
     init: function(player) {
         console.log("Init Socket!");
         sSocket = this.settings; //this auf die variable prägen
@@ -107,6 +131,7 @@ var Socket = {
     bindError: function () { //Socket Bind für fehler Meldungen von Server
         socket.on(sSocket.onError, function (msg) {
             console.log("Socket: Error");
+            alert("Es ist ein fehler aufgetreten")
             
             console.log(msg);
         });

@@ -3,11 +3,14 @@
  * Author:  Mike Wüstenberg
  *
  * Beschreibung:
- * 
+ * Client zum Spiel hier ist die auswahl eines Namens und das Voten auf die Karten Möglich
  *
  * Abhängigkeiten:
  * Es wurden zur erstellen das html, CSS und Javascript Framwork Bootstrap benutzt und
  * die Javascript Bibliothekn JQuery und socket.io
+ *
+ * Kommentar:
+ * Alte Version ohne das MBC-CorporateDesign
 */
 -->
 

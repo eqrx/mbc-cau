@@ -1,6 +1,18 @@
 /* 
- * Author:  Mike Wuestenberg
+ * Author:  Mike Wüstenberg
  *
+ * Beschreibung:
+ * Modul zuständig für die weißen Karten auf die man Voten kann.
+ *
+ * Methoden:
+ * init();
+ * bindVotePanelOnClick();
+ * bindVotePanelOnMouseOver();
+ * cardHide();
+ * cardShow();
+ * cardUpdate(card);
+ * cardUpdateHelper();
+ * vote(panelID);
 */
 
 var sWhiteCard;  //Variabel für die Settings
@@ -72,9 +84,6 @@ var WhiteCard = {
         $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
             for(var i = 0; i < sWhiteCard.maxPanels; i++) {
                 $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
-                
-                //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-                //$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sWhiteCard.fadeTime);
             }
         }).fadeIn(sWhiteCard.fadeTime);
     },

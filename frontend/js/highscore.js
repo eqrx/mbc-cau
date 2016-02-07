@@ -1,6 +1,20 @@
 /* 
- * Author:  Mike Wuestenberg
+ * Author:  Mike Wüstenberg
  *
+ * Beschreibung:
+ * Modul welches für die Highscore liste zuständig ist. Aufgaben sind z.b. anzeigen neuer Highscore einträge
+ * und errechnen wie viele einträge auf denn Bildschirm passen.
+ *
+ * Objekte:
+ * Player(name, votes);
+ * 
+ * Methoden:
+ * init(timer);
+ * printHighscore(player, start);
+ * getRows();
+ * deletHighscoreTable();
+ * saveHighscore(msg);
+ * updateHighscore(player);
 */
 
 var sHighscore;  //Variabel für die Settings
@@ -21,6 +35,12 @@ var Highscore = {
         rowFooter: "row-footer", //Name der Footer Zeile
     },
     
+    /* Beschreibung:
+     * Init funktion erstellt neues array für die Highscore liste und starte denn Timer
+     *
+     * Parameter:
+     * timer: Wenn "true" wird der Timer gestartet
+     */
     init: function(timer) {
         sHighscore = this.settings; //this auf die variable prägen
         
@@ -40,7 +60,13 @@ var Highscore = {
         this.votes = votes;
     },
     
-    //Erstellt eine Highscore Liste die auf denn Bildschirm angepasst ist
+    /* Beschreibung:
+     * Erstellt eine Highscore Liste die auf denn Bildschirm angepasst ist
+     *
+     * Parameter:
+     * player: Highscore liste mit spielern und Votes
+     * start: start position in der Higscore Liste
+     */
     printHighscore: function (player, start) {
         rows = this.getRows();
         
@@ -78,10 +104,13 @@ var Highscore = {
         }
     },
     
-    //Speichert denn Highscore ins Array
-    saveHighscore: function (msg) {
-        console.log("Highscore: saveHighscore");
-        
+    /* Beschreibung:
+     * Speichert denn Highscore ins Array
+     *
+     * Parameter:
+     * msg: Nachricht von der Socket schnittstelle mit neuen Daten für die Hogscore liste
+     */
+    saveHighscore: function (msg) {        
         highscoreSave = new Array();
         
         for(var name in msg["choices"] ) {
@@ -90,11 +119,13 @@ var Highscore = {
         }
     },
     
-    updateHighscore: function (player) {
-         console.log("Highscore: updateHighscore ");
-         console.log(player);
-         console.log(player["player"]);
-         
+    /* Beschreibung
+     * Aktualisiert die Higscore liste in dem sie Local eingehende Nachrichten auf spieler Überprüft
+     *
+     * Parameter:
+     * player: Der spieler welcher die Letzte Karte gevotet hat
+     */
+    updateHighscore: function (player) {         
         var isInList = false;
         
         for(var i = 0; i < highscoreSave.length; i++) { //Prüfen ob Spieler schon in Liste vorhanden

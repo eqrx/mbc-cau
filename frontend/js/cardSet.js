@@ -1,6 +1,21 @@
 /* 
- * Author:  Mike Wuestenberg
+ * Author:  Mike Wüstenberg
  *
+ * Beschreibung:
+ * das Modul CardSet ist für das anzeigen bereits gespielter Karten zuständig
+ * dazu gehört das ein- und ausblenden aber auch das Speichern der daten in ein Array
+ *
+ * Objekte:
+ * Place(nextcard, nextPanel); //Speichert die nächste Karte und anzeige Position
+ * Card(name, votes); //Speichert Name und Votes einer Karte
+ *
+ * Methoden;
+ * init(timer);
+ * cardHide();
+ * cardUpdate(cards, next);
+ * voteUpdate(msg);
+ * saveCard(msg);
+ * saveCardSet(msg);
 */
 
 
@@ -19,6 +34,13 @@ var CardSet = {
         vote: '#card-vote-',
     },
     
+    /* Beschreibung:
+     * Die Init funktion erzeugt ein neues Array zum Speichern des Kartens Sets und der
+     * nächsten Anzeige Position. Außerdem versteckt es alle Karten zu beginn und starten denn Timer
+     *
+     * Parameter:
+     * timer: Wenn "true" wird der Timer gestartet
+     */
     init: function(timer) {
         sCardSet = this.settings; //this auf die variable prägen
         
@@ -55,7 +77,14 @@ var CardSet = {
         next = new CardSet.Place(0, 0);
     },
     
-    //Ändert denn Text auf einer Karte
+    /* Beschreibung:
+     * Methode zum updaten der angezeigten Karten auf dem Display
+     *
+     * Parameter:
+     * cards: Die Karten die gespielt wurden;
+     * next: Die nächste Anzeige position und die nächste Karte die angezeigt werden soll
+     * 
+     */
     cardUpdate: function(cards, next) {
         console.log("CardsSet: cardUpdate")
         var count = 0;
@@ -86,7 +115,12 @@ var CardSet = {
         return next;
     },
     
-    //Updatet die Votes einer Karte
+    /* Beschreibung:
+     * Updatet die Votes einer Karte
+     *
+     * Parameter:
+     * msg: die Nachricht von der Socket schnitstelle mit denn Votes
+     */
     voteUpdate: function (msg) {
         for(var i = 0; i < sCardSet.maxPanels; i++) { //Prüfen ob die Karte schon angezeigt wird
             if(msg["card"] == $(sCardSet.text + i).html()) { //Wenn schon vorhanden verändere Vote anzahl
@@ -95,7 +129,13 @@ var CardSet = {
         }
     },
     
-    //Speichert das Update der gespielten Karten ins array
+    /* Beschreibung:
+     * Speichert die neu gespielte Karte in ein Array überprüft dabei ob eine
+     * Karte mit selbem Namen berreits im Array vorhanden ist
+     *
+     * Parameter:
+     * msg: Die Nachricht mit der gespielten Karten von der socket schnittstelle
+     */
     saveCard: function(msg) {
         console.log("CardsSet: saveCard");
         var isInList = false;
@@ -115,7 +155,12 @@ var CardSet = {
         }
     },
     
-    //Speichert berreits gespielt Karten ins Array
+    /* Beschreibung:
+     * Speichert die gespielte Karte in ein Array.
+     *
+     * Parameter:
+     * msg: Die Nachricht mit der allen gespielten Karten von der socket schnittstelle
+     */
     saveCardSet: function (msg) {
         console.log("CardSet: saveCardSet");
         
@@ -126,9 +171,5 @@ var CardSet = {
             console.log("CardSet: " + msg["choices"][name]);
             setOfCards.push(new CardSet.Card(name, msg["choices"][name]["score"]));
         }
-        
-        /*for(var i = 0; i < msg.length; i++) {
-            
-        }*/
     },
 };

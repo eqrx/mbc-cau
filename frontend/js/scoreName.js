@@ -1,6 +1,14 @@
 /* 
  * Author:  Mike Wuestenberg
  *
+ * Beschreibung:
+ * Modul welches zuständig für die Auswahl eines Spieler namens ist, und Anzeigen der Spielernamen die zur verfügung stehen
+ *
+ * Methoden:
+ * init();
+ * bindVoteButtons();
+ * saveScoreNames(msg);
+ * showScoreName(playerName);
 */
 
 var sScoreName;  //Variabel für die Settings
@@ -27,9 +35,13 @@ var ScoreName = {
         });
     },
 
-    //Fügt Buttons zur Namens Auswahl hinzu
+    /* Beschreibung:
+     * Zeigt die auswählbaren Spielernamen an und die dazugehörigen Buttons
+     *
+     * Parameter:
+     * msg: Nachricht mit denn Spielernamen vond er Socket schnittstelle
+     */
     saveScoreNames: function (msg) {
-        console.log("ScoreNames: " + msg);
         
         $(sScoreName.panel).empty();
         for(var i = 0; i < msg.length; i++) {
@@ -39,7 +51,12 @@ var ScoreName = {
         ScoreName.bindVoteButtons(); 
     },
     
-    //Verteckt alle zu beginn
+    /* Beschreibung:
+     * Versteckt nach auswahl eines Namens die Auswahl und Zeigt denn eigenen Namen dafür an
+     *
+     * Parameter:
+     * playerName: Der Spielername
+     */
     showScoreName: function (playerName) {
         $(sScoreName.panel).empty();
         $(sScoreName.panelText).html("Dein Name ist:");

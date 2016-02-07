@@ -1,6 +1,15 @@
 /* 
- * Author:  Mike Wuestenberg
+ * Author:  Mike Wüstenberg
  *
+ * Beschreibung;
+ * Dieses Modul ist für die schwarze Karte zuständig. Funktionen sind das
+ * ein- und ausblenden der karte so wie das Updaten des Text der Karte.
+ *
+ * Methoden:
+ * init();
+ * cardHide();
+ * cardShow();
+ * cardUpdate();
 */
 
 
@@ -14,6 +23,9 @@ var BlackCard = {
         text: '#black-card-text',
     },
     
+    /* Beschreibung:
+     * Versteckt die schwarze Karte
+     */
     init: function() {
         sBlackCard = this.settings; //this auf die variable prägen
         
