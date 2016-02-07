@@ -150,7 +150,7 @@ var Socket = {
     
     
     parseTurnMsg: function (msg) {
-        console.log(msg);
+        //console.log(msg);
         
         BlackCard.cardUpdate(msg["card"]);
         duration = msg["duration"];
