@@ -112,7 +112,7 @@ var Socket = {
     bindHandout: function () { //Socket Bind für die Weißen Karten auf die man Voten Kann
         socket.on(sSocket.onHandout, function (msg) {
             //console.log("Socket: Handout");
-            console.log(msg);
+            //console.log(msg);
             
             WhiteCard.cardUpdate(msg["hand"]);
         });
