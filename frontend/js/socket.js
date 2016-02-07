@@ -121,7 +121,7 @@ var Socket = {
     bindUpdateCardSet: function () { //Socket Bind auf Die Update Nachrichten für die gespielten Nachrichten
         socket.on(sSocket.onUpdate, function (msg) {
             //console.log("Socket: Update");
-            console.log(msg);
+            //console.log(msg);
             
             CardSet.saveCard(msg);
             Highscore.updateHighscore(msg);
