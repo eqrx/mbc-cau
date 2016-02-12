@@ -13,3 +13,6 @@ Everything else is licensed as GNU Affero General Public Licence Version 3.0. Se
 - argv: Command line parsing
 - shuffle-array: Randomizing order of lists
 - path-is-absolute: Workaround for older systems
+
+## Authors:
+- backend/ was contributed by Alexander Sowitzki 
