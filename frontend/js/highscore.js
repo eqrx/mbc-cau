@@ -122,11 +122,11 @@ var Highscore = {
         highscoreSave = new Array();
         
         Socket.debugMsg(msg["highscore"]);
-        Socket.debugMsg(msg["highscore"]["name"]);
         
         for(var name in msg["highscore"] ) {
+            Socket.debugMsg(name);
             //console.log("CardSet: " + msg["choices"][name]["player"]);
-            highscoreSave.push(msg["highscore"]["name"],1);
+            highscoreSave.push(msg[name],1);
         }
     },
     
