@@ -8,7 +8,7 @@
 $(function() {    
     CardSet.init(true);
     WhiteCard.init();
-    Highscore.init(true);
+    Highscore.init(false);
     BlackCard.init();
     ScoreName.init();
     Socket.init(true);   
