@@ -125,7 +125,7 @@ var Highscore = {
         
         for(var name in msg["highscore"] ) {
             //console.log("CardSet: " + msg["choices"][name]["player"]);
-            highscoreSave.push(msg["highscore"][name],msg["highscore"][score]);
+            highscoreSave.push(msg["highscore"]["name"],msg["highscore"][name]);
         }
     },
     
