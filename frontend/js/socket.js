@@ -18,7 +18,7 @@
  * bindError();
  * emitVote(card);
  * parseTurnMsg(msg)
- *
+ * debugMSG();
 */
 
 var sSocket;  //Variabel für die Settings
@@ -85,6 +85,11 @@ var Socket = {
         });
     },
     
+    bindConnect: function () { //Wird ausgeführt bei einem disconnect
+        socket.on('disconnect', function() {
+            console.log('Socket: Got disconnect!');
+        });
+     },
     
     /* ## Übermittlung Rundeninformationen (Bei neuer Runde und nach Verbindungsaufbau)
      *'turn': {'card': '<Schwarze Karte>',
