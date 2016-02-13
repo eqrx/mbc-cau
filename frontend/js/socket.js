@@ -95,7 +95,6 @@ var Socket = {
     bindCardSet: function () {  //Socket bind für Karten Set sendungen der Weißen Karten und der Bereits gespielten karten
         socket.on(sSocket.onCardSet, function (msg) {
             Socket.debugMsg("Socket: turn");
-            Socket.debugMsg(msg.highscore);
             
             cards = Socket.parseTurnMsg(msg);
         });
