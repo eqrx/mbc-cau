@@ -113,7 +113,10 @@ var Highscore = {
     getRows: function () {
         var rows = 0;
         
-        var height = $(".holder-highscore").innerHeight() - $(sHighscore.rowHead).outerHeight() - $(sHighscore.trHead).outerHeight() - $(sHighscore.rowFooter).outerHeight();                
+        var size = $("h4").css("font-size");
+        sHighscore.debugMsg(size);
+        
+        var height = $(".holder-highscore").innerHeight();// - $(sHighscore.rowHead).outerHeight() - $(sHighscore.trHead).outerHeight() - $(sHighscore.rowFooter).outerHeight();                
         rows = Math.floor(height / sHighscore.rowPixl);
 
         return rows;
