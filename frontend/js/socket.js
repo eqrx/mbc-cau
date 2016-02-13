@@ -132,7 +132,7 @@ var Socket = {
             //console.log(msg);
             
             CardSet.saveCard(msg);
-            Highscore.updateHighscore(msg);
+           // Highscore.updateHighscore(msg);
         });
     },
     
