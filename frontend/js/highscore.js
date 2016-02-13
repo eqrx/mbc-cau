@@ -114,7 +114,7 @@ var Highscore = {
         var rows = 0;
         
         var size = $("h4").css("font-size");
-        sHighscore.debugMsg(size);
+        Highscore.debugMsg(size);
         
         var height = $(".holder-highscore").innerHeight();// - $(sHighscore.rowHead).outerHeight() - $(sHighscore.trHead).outerHeight() - $(sHighscore.rowFooter).outerHeight();                
         rows = Math.floor(height / sHighscore.rowPixl);
