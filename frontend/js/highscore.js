@@ -113,9 +113,6 @@ var Highscore = {
     getRows: function () {
         var rows = 0;
         
-        var size = $("h4").css("font-size");
-        Highscore.debugMsg(size);
-        
         var height = $(".holder-highscore").innerHeight();// - $(sHighscore.rowHead).outerHeight() - $(sHighscore.trHead).outerHeight() - $(sHighscore.rowFooter).outerHeight();                
         rows = Math.floor(height / sHighscore.rowPixl);
 
@@ -146,6 +143,8 @@ var Highscore = {
             //Socket.debugMsg(name + "|" + msg["highscore"][name]);
             sHighscore.highscoreSave.push(new Highscore.Player(name,msg["highscore"][name]));
         }
+        
+        sHighscore.highscoreSave.sort(function(a, b){return b-a});
         
         Highscore.printHighscore(sHighscore.highscoreSave, 0);
     },
