@@ -63,7 +63,7 @@ var Highscore = {
     },
     
     debugMsg: function (msg) {
-        if (sSocket.debugMsg == true) {
+        if (sHighscore.debugMsg == true) {
             console.log(msg);
         }
     },
