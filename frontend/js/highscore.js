@@ -98,7 +98,7 @@ var Highscore = {
                } 
             }
         } else {
-            for(var i = 0; i < maxHighscoreEntries; i++) {
+            for(var i = 0; i < sHighscore.maxHighscoreEntries; i++) {
                 sHighscore.score.append("<tr><td><h4>" + player[start].name + "</h4></td><td><h4>" + player[start].votes + "</h4></td></tr>");
                 start = 0;
             }
