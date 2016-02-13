@@ -44,6 +44,8 @@ var Socket = {
         
         errorConnect: "connect failed",
         errorMSG: "Server Connection failed",
+        
+        debugMsg: true,
     },
     
     /* Beschreibung:
@@ -70,6 +72,12 @@ var Socket = {
         }
     },
     
+    debugMsg: function (msg) {
+        if (sSocket.debugMsg == true) {
+            console.log(msg);
+        }
+    },
+    
     //Bind Methoden
     bindConnect: function () { //Wird ausgeführt bei Erfolgreichem connect
         socket.on("connect", function () {  
@@ -79,14 +87,15 @@ var Socket = {
     
     
     /* ## Übermittlung Rundeninformationen (Bei neuer Runde und nach Verbindungsaufbau)
-    'turn': {'card': '<Schwarze Karte>',
-        'choices': {'<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},
-                    '<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},}
-        ,'duration': <Verbleibende Rundenzeit>} }
-    */
+     *'turn': {'card': '<Schwarze Karte>',
+     *   'choices': {'<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},
+     *               '<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},}
+     *   ,'duration': <Verbleibende Rundenzeit>} }
+     */
     bindCardSet: function () {  //Socket bind für Karten Set sendungen der Weißen Karten und der Bereits gespielten karten
         socket.on(sSocket.onCardSet, function (msg) {
-            //console.log("Socket: turn");
+            Socket.debugMsg("Socket: turn");
+            Socket.debugMsg(msg);
             
             cards = Socket.parseTurnMsg(msg);
         });
