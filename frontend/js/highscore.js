@@ -99,8 +99,11 @@ var Highscore = {
             }
         } else {
             for(var i = 0; i < sHighscore.maxHighscoreEntries; i++) {
-                sHighscore.score.append("<tr><td><h4>" + player[start].name + "</h4></td><td><h4>" + player[start].votes + "</h4></td></tr>");
-                start = 0;
+                if (i < player.length) {
+                    sHighscore.score.append("<tr><td><h4>" + player[i].name + "</h4></td><td><h4>" + player[i].votes + "</h4></td></tr>");
+                 } else {
+                    i = sHighscore.maxHighscoreEntries;
+                 }
             }
         }
         return start;
