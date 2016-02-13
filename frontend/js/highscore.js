@@ -144,7 +144,7 @@ var Highscore = {
             sHighscore.highscoreSave.push(new Highscore.Player(name,msg["highscore"][name]));
         }
         
-        sHighscore.highscoreSave.sort(function(a, b){return b-a});
+        sHighscore.highscoreSave.sort(function(a, b){return b.votes-a.votes});
         
         Highscore.printHighscore(sHighscore.highscoreSave, 0);
     },
