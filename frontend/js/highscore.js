@@ -33,6 +33,8 @@ var Highscore = {
         rowHead: "#row-head",   //Name der Überschrift Zeile
         trHead: "#tr-head-row", //Name der ersten Tabellen Zeile
         rowFooter: "row-footer", //Name der Footer Zeile
+        
+        debugMsg: true,
     },
     
     /* Beschreibung:
@@ -51,6 +53,12 @@ var Highscore = {
         
         if (timer == true) {
             var highscoreSetTimer = setInterval(function() {start = Highscore.printHighscore(highscoreSave, start) }, sHighscore.updateTime);
+        }
+    },
+    
+    debugMsg: function (msg) {
+        if (sSocket.debugMsg == true) {
+            console.log(msg);
         }
     },
     
@@ -113,9 +121,11 @@ var Highscore = {
     saveHighscore: function (msg) {        
         highscoreSave = new Array();
         
-        for(var name in msg["choices"] ) {
+        Socket.debugMsg(msg.highscore);
+        
+        for(var name in msg["highscore"] ) {
             //console.log("CardSet: " + msg["choices"][name]["player"]);
-            Highscore.updateHighscore(msg["choices"][name]);
+            highscoreSave.push(msg["highscore"][name],msg["highscore"][score]);
         }
     },
     
