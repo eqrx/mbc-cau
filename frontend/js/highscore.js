@@ -124,9 +124,9 @@ var Highscore = {
         Socket.debugMsg(msg["highscore"]);
         
         for(var name in msg["highscore"] ) {
-            Socket.debugMsg(name);
+            Socket.debugMsg(name + "|" + msg["highscore"]["name"]);
             //console.log("CardSet: " + msg["choices"][name]["player"]);
-            highscoreSave.push(msg[name],1);
+            highscoreSave.push(msg[name],msg["highscore"]["name"]);
         }
     },
     
