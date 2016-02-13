@@ -35,6 +35,8 @@ var Highscore = {
         rowFooter: "row-footer", //Name der Footer Zeile
         
         debugMsg: true,
+        
+        timer: true,
     },
     
     /* Beschreibung:
@@ -53,6 +55,9 @@ var Highscore = {
         
         if (timer == true) {
             var highscoreSetTimer = setInterval(function() {start = Highscore.printHighscore(highscoreSave, start) }, sHighscore.updateTime);
+        } else {
+            sHighscore.timer = false;
+            Highscore.debugMsg(sHighscore.timer);
         }
     },
     
@@ -80,6 +85,7 @@ var Highscore = {
         
         this.deletHighscoreTable();
         
+        
         for(var i = 0; i < rows; i++) {
            if (start < player.length) {
                 sHighscore.score.append("<tr><td><h4>" + player[start].name + "</h4></td><td><h4>" + player[start].votes + "</h4></td></tr>");
@@ -97,7 +103,7 @@ var Highscore = {
     getRows: function () {
         var rows = 0;
         
-        var height = $(window).innerHeight() - $(sHighscore.rowHead).outerHeight() - $(sHighscore.trHead).outerHeight() - $(sHighscore.rowFooter).outerHeight();                
+        var height = $(".holder-highscore").innerHeight() - $(sHighscore.rowHead).outerHeight() - $(sHighscore.trHead).outerHeight() - $(sHighscore.rowFooter).outerHeight();                
         rows = Math.floor(height / sHighscore.rowPixl);
 
         return rows;
