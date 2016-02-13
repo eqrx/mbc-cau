@@ -56,6 +56,7 @@ var Highscore = {
         if (timer == true) {
             var highscoreSetTimer = setInterval(function() {start = Highscore.printHighscore(highscoreSave, start) }, sHighscore.updateTime);
         } else {
+            Highscore.debugMsg("Timer false");
             sHighscore.timer = false;
             Highscore.debugMsg(sHighscore.timer);
         }
