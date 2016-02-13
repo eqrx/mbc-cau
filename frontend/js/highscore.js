@@ -125,7 +125,7 @@ var Highscore = {
         
         for(var name in msg["highscore"] ) {
             //Socket.debugMsg(name + "|" + msg["highscore"][name]);
-            highscoreSave.push(new Highscore.Player(msg[name],msg["highscore"][name]));
+            highscoreSave.push(new Highscore.Player(name,msg["highscore"][name]));
         }
         
         Highscore.printHighscore(highscoreSave, 0);
