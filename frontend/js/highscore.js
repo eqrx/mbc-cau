@@ -1,13 +1,28 @@
 /* 
- * Author:  Mike Wuestenberg
+ * Author:  Mike Wüstenberg
  *
+ * Beschreibung:
+ * Modul welches für die Highscore liste zuständig ist. Aufgaben sind z.b. anzeigen neuer Highscore einträge
+ * und errechnen wie viele einträge auf denn Bildschirm passen.
+ *
+ * Objekte:
+ * Player(name, votes);
+ * 
+ * Methoden:
+ * init(timer);
+ * printHighscore(player, start);
+ * getRows();
+ * deletHighscoreTable();
+ * saveHighscore(msg);
+ * updateHighscore(player);
 */
 
-var sHighscore;  //Variabel für die Settings
-var highscoreSave;   
+var sHighscore;  //Variabel für die Settings 
 
 var Highscore = {
     settings: {
+        highscoreSave: null, 
+        
         score: $("#highscore"), //Name der Highscore Tabelle
         rowPixl: 60, //Höhe eines Eintrags der Highscore Tabelle
         
@@ -19,18 +34,38 @@ var Highscore = {
         rowHead: "#row-head",   //Name der Überschrift Zeile
         trHead: "#tr-head-row", //Name der ersten Tabellen Zeile
         rowFooter: "row-footer", //Name der Footer Zeile
+        
+        maxHighscoreEntries: 100,
+        
+        debugMsg: true,
+        
+        timer: true,
     },
     
+    /* Beschreibung:
+     * Init funktion erstellt neues array für die Highscore liste und starte denn Timer
+     *
+     * Parameter:
+     * timer: Wenn "true" wird der Timer gestartet
+     */
     init: function(timer) {
         sHighscore = this.settings; //this auf die variable prägen
         
         var start = 0;
-        highscoreSave = new Array();
+        sHighscore.highscoreSave = new Array();
         
-        Highscore.printHighscore(highscoreSave, 0);
+        Highscore.printHighscore(sHighscore.highscoreSave, 0);
         
         if (timer == true) {
-            var highscoreSetTimer = setInterval(function() {start = Highscore.printHighscore(highscoreSave, start) }, sHighscore.updateTime);
+            var highscoreSetTimer = setInterval(function() {start = Highscore.printHighscore(sHighscore.highscoreSave, start) }, sHighscore.updateTime);
+        } else {
+            sHighscore.timer = false;
+        }
+    },
+    
+    debugMsg: function (msg) {
+        if (sHighscore.debugMsg == true) {
+            console.log(msg);
         }
     },
     
@@ -40,22 +75,37 @@ var Highscore = {
         this.votes = votes;
     },
     
-    //Erstellt eine Highscore Liste die auf denn Bildschirm angepasst ist
+    /* Beschreibung:
+     * Erstellt eine Highscore Liste die auf denn Bildschirm angepasst ist
+     *
+     * Parameter:
+     * player: Highscore liste mit spielern und Votes
+     * start: start position in der Higscore Liste
+     */
     printHighscore: function (player, start) {
         rows = this.getRows();
         
         this.deletHighscoreTable();
         
-        for(var i = 0; i < rows; i++) {
-           if (start < player.length) {
-                sHighscore.score.append("<tr><td><h4>" + player[start].name + "</h4></td><td><h4>" + player[start].votes + "</h4></td></tr>");
-                start++;
-           } else {
-                start = 0;
-                i = rows;
-           } 
+        if (sHighscore.timer == true) {
+            for(var i = 0; i < rows; i++) {
+               if (start < player.length) {
+                    sHighscore.score.append("<tr><td><h4>" + player[start].name + "</h4></td><td><h4>" + player[start].votes + "</h4></td></tr>");
+                    start++;
+               } else {
+                    start = 0;
+                    i = rows;
+               } 
+            }
+        } else {
+            for(var i = 0; i < sHighscore.maxHighscoreEntries; i++) {
+                if (i < player.length) {
+                    sHighscore.score.append("<tr><td><h4>" + player[i].name + "</h4></td><td><h4>" + player[i].votes + "</h4></td></tr>");
+                 } else {
+                    i = sHighscore.maxHighscoreEntries;
+                 }
+            }
         }
-        
         return start;
     },
     
@@ -63,7 +113,7 @@ var Highscore = {
     getRows: function () {
         var rows = 0;
         
-        var height = $(window).innerHeight() - $(sHighscore.rowHead).outerHeight() - $(sHighscore.trHead).outerHeight() - $(sHighscore.rowFooter).outerHeight();                
+        var height = $(".holder-highscore").innerHeight();// - $(sHighscore.rowHead).outerHeight() - $(sHighscore.trHead).outerHeight() - $(sHighscore.rowFooter).outerHeight();                
         rows = Math.floor(height / sHighscore.rowPixl);
 
         return rows;
@@ -78,37 +128,46 @@ var Highscore = {
         }
     },
     
-    //Speichert denn Highscore ins Array
-    saveHighscore: function (msg) {
-        console.log("Highscore: saveHighscore");
+    /* Beschreibung:
+     * Speichert denn Highscore ins Array
+     *
+     * Parameter:
+     * msg: Nachricht von der Socket schnittstelle mit neuen Daten für die Hogscore liste
+     */
+    saveHighscore: function (msg) {        
+        sHighscore.highscoreSave = new Array();
         
-        highscoreSave = new Array();
+        Socket.debugMsg(msg["highscore"]);
         
-        for(var name in msg["choices"] ) {
-            console.log("CardSet: " + msg["choices"][name]["player"]);
-            Highscore.updateHighscore(msg["choices"][name]);
+        for(var name in msg["highscore"] ) {
+            //Socket.debugMsg(name + "|" + msg["highscore"][name]);
+            sHighscore.highscoreSave.push(new Highscore.Player(name,msg["highscore"][name]));
         }
+        
+        sHighscore.highscoreSave.sort(function(a, b){return b.votes-a.votes});
+        
+        Highscore.printHighscore(sHighscore.highscoreSave, 0);
     },
     
-    updateHighscore: function (player) {
-         console.log("Highscore: updateHighscore ");
-         console.log(player);
-         console.log(player["player"]);
-         
+    /* Beschreibung
+     * Aktualisiert die Higscore liste in dem sie Local eingehende Nachrichten auf spieler Überprüft
+     *
+     * Parameter:
+     * player: Der spieler welcher die Letzte Karte gevotet hat
+     */
+    updateHighscore: function (player) {         
         var isInList = false;
         
-        for(var i = 0; i < highscoreSave.length; i++) { //Prüfen ob Spieler schon in Liste vorhanden
-            if (highscoreSave[i].name == player["player"]) { //Wenn die Karte vorhanden ist neue Votes Speichern
+        for(var i = 0; i < sHighscore.highscoreSave.length; i++) { //Prüfen ob Spieler schon in Liste vorhanden
+            if (sHighscore.highscoreSave[i].name == player["player"]) { //Wenn die Karte vorhanden ist neue Votes Speichern
                 isInList = true;
-                highscoreSave[i].votes++; //Votes hoch zählen
-                i = highscoreSave.length;
+                sHighscore.highscoreSave[i].votes++; //Votes hoch zählen
+                i = sHighscore.highscoreSave.length;
             }
         }
         
         if (isInList == false) { //Wenn die Karte noch nicht ind er Liste ist Hinzufügen
-            highscoreSave.push(new Highscore.Player(player["player"], 1));
+            sHighscore.highscoreSave.push(new Highscore.Player(player["player"], 1));
         }
     },
-    
-    //update': {'card': '<Karteninhalt>', "player": <Spielername>, "score":  <Punktestand der Karte>}
 };
