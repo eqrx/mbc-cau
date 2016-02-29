@@ -1,6 +1,24 @@
 /* 
- * Author:  Mike Wuestenberg
+ * Author:  Mike Wüstenberg
  *
+ * Beschreibung
+ * Modul Welches zuständig für die Socket verbindeungen ist.
+ * !!! Greift auf Methoden der anderen Module zu !!!
+ *
+ * Mehtoden:
+ * init();
+ * bindConnect();
+ * bindCardSet();
+ * bindHighscore();
+ * bindScorenames();
+ * bindHandout();
+ * bindHandout();
+ * bindUpdateCardSet();
+ * bindUpdateCardSet();
+ * bindError();
+ * emitVote(card);
+ * parseTurnMsg(msg)
+ * debugMSG();
 */
 
 var sSocket;  //Variabel für die Settings
@@ -26,10 +44,18 @@ var Socket = {
         
         errorConnect: "connect failed",
         errorMSG: "Server Connection failed",
+        
+        debugMsg: true,
     },
     
+    /* Beschreibung:
+     * Erstellt die socket Verbindung und binds auf Events.
+     *
+     * Parameter:
+     * player: Auswahl zwischen Kiosk oder Client System
+     */
     init: function(player) {
-        console.log("Init Socket!");
+        //console.log("Init Socket!");
         sSocket = this.settings; //this auf die variable prägen
         
         socket = io();
@@ -46,6 +72,12 @@ var Socket = {
         }
     },
     
+    debugMsg: function (msg) {
+        if (sSocket.debugMsg == true) {
+            console.log(msg);
+        }
+    },
+    
     //Bind Methoden
     bindConnect: function () { //Wird ausgeführt bei Erfolgreichem connect
         socket.on("connect", function () {  
@@ -53,16 +85,21 @@ var Socket = {
         });
     },
     
+    bindConnect: function () { //Wird ausgeführt bei einem disconnect
+        socket.on('disconnect', function() {
+            console.log('Socket: Got disconnect!');
+        });
+     },
     
     /* ## Übermittlung Rundeninformationen (Bei neuer Runde und nach Verbindungsaufbau)
-    'turn': {'card': '<Schwarze Karte>',
-        'choices': {'<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},
-                    '<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},}
-        ,'duration': <Verbleibende Rundenzeit>} }
-    */
+     *'turn': {'card': '<Schwarze Karte>',
+     *   'choices': {'<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},
+     *               '<Karteninhalt>': {'player': <Spielername>, 'score': <Punktestand der Karte>},}
+     *   ,'duration': <Verbleibende Rundenzeit>} }
+     */
     bindCardSet: function () {  //Socket bind für Karten Set sendungen der Weißen Karten und der Bereits gespielten karten
         socket.on(sSocket.onCardSet, function (msg) {
-            console.log("Socket: turn");
+            Socket.debugMsg("Socket: turn");
             
             cards = Socket.parseTurnMsg(msg);
         });
@@ -70,8 +107,8 @@ var Socket = {
     
     bindHighscore: function () { //Socket Bind für die Highscore Liste
         socket.on(sSocket.onHighscore, function (msg) {
-            console.log("Socket: Highscore");
-            console.log(msg);
+            //console.log("Socket: Highscore");
+            //console.log(msg);
             
             //TODO
         });
@@ -79,7 +116,7 @@ var Socket = {
     
     bindScorenames: function () { //Socket Bind für die Names Liste
         socket.on(sSocket.onScorenames, function (msg) {
-            console.log("Socket: Scorenames");
+            //console.log("Socket: Scorenames");
             
             ScoreName.saveScoreNames(msg["names"]);
         });
@@ -87,8 +124,8 @@ var Socket = {
     
     bindHandout: function () { //Socket Bind für die Weißen Karten auf die man Voten Kann
         socket.on(sSocket.onHandout, function (msg) {
-            console.log("Socket: Handout");
-            console.log(msg);
+            //console.log("Socket: Handout");
+            //console.log(msg);
             
             WhiteCard.cardUpdate(msg["hand"]);
         });
@@ -96,17 +133,18 @@ var Socket = {
     
     bindUpdateCardSet: function () { //Socket Bind auf Die Update Nachrichten für die gespielten Nachrichten
         socket.on(sSocket.onUpdate, function (msg) {
-            console.log("Socket: Update");
-            console.log(msg);
+            //console.log("Socket: Update");
+            //console.log(msg);
             
             CardSet.saveCard(msg);
-            Highscore.updateHighscore(msg);
+           // Highscore.updateHighscore(msg);
         });
     },
     
     bindError: function () { //Socket Bind für fehler Meldungen von Server
         socket.on(sSocket.onError, function (msg) {
             console.log("Socket: Error");
+            alert("Es ist ein fehler aufgetreten")
             
             console.log(msg);
         });
@@ -114,7 +152,7 @@ var Socket = {
     
     //Emits zum Server
     emitVote: function (card) { //Sendet Votes zum Server
-        console.log("Socket: emitVote");
+        //console.log("Socket: emitVote");
 
         socket.emit(sSocket.emitVote, { "name": playerName, "card": card });
     },
@@ -125,7 +163,7 @@ var Socket = {
     
     
     parseTurnMsg: function (msg) {
-        console.log(msg);
+        //console.log(msg);
         
         BlackCard.cardUpdate(msg["card"]);
         duration = msg["duration"];

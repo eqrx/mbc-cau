@@ -1,0 +1,153 @@
+<!--
+/* 
+ * Author:  Mike Wüstenberg
+ *
+ * Beschreibung:
+ * Die index.html für die Display Komponente des Card Against University Projects
+ * Auf der Seite werden neben einer Überschrift und des footer
+ * ein QR-Code, eine schwarze Karte, vier weiße Karten und eine Highscore liste angezeigt.
+ *
+ * Abhängigkeiten:
+ * Es wurden zur erstellen das html, CSS und Javascript Framwork Bootstrap benutzt und
+ * die Javascript Bibliothekn JQuery und socket.io
+*/
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Cards Against University</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css"/>
+
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="css/display.css">        
+    </head>
+
+    <body>		
+        <div class="fluid-container">
+			<div class="row" id="row-head"> <!-- Obere Zeile für die Überschrift -->
+				<div class="col-sm-12">
+					<h1><center>Cards Against University</center></h1>
+				</div>
+			</div>
+		
+			<div class="row"> <!-- Mittlere Zeile -->
+				<div class="panel panel-primary" id="row-mid">
+					<div class="panel-body">
+						<div class="col-xs-8" id="col-card"> <!--Spalte für die Karten -->
+							<div class="row"><!-- Zeile für die schwarze Karte-->
+								<div class="col-xs-4">
+									<div class="panel holder-black">
+										<center><img id="qr-code" src="../img/client_qr.jpg" alt="QR-Code" /></center>
+									</div> <!-- panel -->
+								</div> <!-- col -->
+								<div class="col-xs-8">
+									<div class="panel holder-black">
+										<div class="panel panel-primary" id="black-card-panel">
+											<div class="panel-body">
+												<h2 id="black-card-text"></h2>
+											</div> <!-- panel -->
+										</div> <!-- panel -->
+									</div> <!-- panel -->
+								</div> <!-- col -->
+							</div> <!-- row -->
+						 
+							<div class="row" id=card-row> <!-- Zeile für die Weißen Karten-->
+								<div class="col-xs-3">
+									<div class="panel panel-primary holder-white">
+										<div class="panel card-white" id="card-panel-0">
+											<div class="panel-body card-body">
+												<h2 id="card-text-0"></h2>
+											</div>
+											<div class="footer panel-footer card-footer">
+												<h3 id="card-vote-0"></h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<div class="panel panel-primary holder-white">
+										<div class="panel card-white" id="card-panel-1">
+											<div class="panel-body card-body">
+												<h2 id="card-text-1"></h2>
+											</div>
+											<div class="panel-footer card-footer">
+												<h3 id="card-vote-1"></h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<div class="panel panel-primary holder-white">
+										<div class="panel card-white" id="card-panel-2">
+											<div class="panel-body card-body">
+												<h2 id="card-text-2"></h2>
+											</div>
+											<div class="panel-footer card-footer">
+												<h3 id="card-vote-2"></h3>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-3">
+									<div class="panel panel-primary holder-white">
+										<div class="panel card-white" id="card-panel-3">
+											<div class="panel-body card-body">
+												<h2 id="card-text-3"></h2>
+											</div>
+											<div class="panel-footer card-footer">
+												<h3 id="card-vote-3"></h3>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-4"> <!-- Spalte für denn Highscore -->
+							<div class="panel panel-primary holder-highscore">
+								<table class="table table-striped table-condensed" id="highscore">
+									<tr id="tr-head-row">
+										<td><h3>Name</h3></td>
+										<td><h3>Punkte</h3></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div><!-- /.container -->
+		
+		<footer class="footer">
+			<div class="container">
+				<p class="pull-right">
+					<img id="logo" src="../img/logohaw.gif" alt="HAW Logo"/>
+				</p>
+				<p>
+					<img id="logo" src="../img/logoCaDSsmall.jpg" alt="CaDS Logo"/>
+				</p>
+			</div>
+		</footer>
+
+        <!-- Bootstrap core JavaScript -->
+		<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+        
+        <!-- Custom JavaScript -->
+		<script type="text/javascript" src="../js/blackCard.js"></script>
+		<script type="text/javascript" src="../js/cardSet.js"></script>
+		<script type="text/javascript" src="../js/socket.js"></script>
+        <script type="text/javascript" src="../js/highscore.js"></script>
+        <script type="text/javascript" src="kioskGlobal.js"></script>
+
+    </body>
+</html>

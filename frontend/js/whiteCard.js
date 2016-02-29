@@ -1,6 +1,18 @@
 /* 
- * Author:  Mike Wuestenberg
+ * Author:  Mike Wüstenberg
  *
+ * Beschreibung:
+ * Modul zuständig für die weißen Karten auf die man Voten kann.
+ *
+ * Methoden:
+ * init();
+ * bindVotePanelOnClick();
+ * bindVotePanelOnMouseOver();
+ * cardHide();
+ * cardShow();
+ * cardUpdate(card);
+ * cardUpdateHelper();
+ * vote(panelID);
 */
 
 var sWhiteCard;  //Variabel für die Settings
@@ -13,15 +25,41 @@ var WhiteCard = {
         text: "#white-card-text-",
         vote: "#white-card-vote-",
         
-        buttonBind: "#vote .btn",
+        panelBind: ".white-card",
+        
+        voteRow: "#vote",
     },
     
     init: function() {
         sWhiteCard = this.settings; //this auf die variable prägen
         
-        WhiteCard.cardHide();
+        $(sWhiteCard.voteRow).hide();
         
-        WhiteCard.bindVoteButtons();
+        WhiteCard.bindVotePanelOnClick();
+        WhiteCard.bindVotePanelOnMouseOver();
+    },
+    
+    //Bindet Vote Panels
+    bindVotePanelOnClick: function () { //bind funktion für die Buttons
+        $(sWhiteCard.panelBind).on("click", function() {
+            var panelID = $(this).attr("data-panelID"); //Erkennt welche karte gedrückt wurde
+
+            WhiteCard.vote(panelID);   
+        });
+    },
+
+    bindVotePanelOnMouseOver: function () {
+        $(sWhiteCard.panelBind).on("mouseover", function() {
+            var panelID = $(this).attr("data-panelID")
+            
+            $(sWhiteCard.panel + panelID).css("border-color", "red");
+        });
+    
+        $(sWhiteCard.panelBind).on("mouseout", function() {
+            var panelID = $(this).attr("data-panelID")
+            
+            $(sWhiteCard.panel + panelID).css("border-color", "black");
+        });
     },
     
     //Verteckt alle Karten zu beginn
@@ -43,51 +81,31 @@ var WhiteCard = {
     cardUpdate: function(card) {
         voteCard = card; //Speichern zum Voten
         
-		for(var i = 0; i < sWhiteCard.maxPanels; i++) {
-            //Durch das aufrufen der Funktion wird Sichergestellt das der Inhalt duchgeführt wird bevor das fadeIn passiert
-			$(sWhiteCard.panel + i).fadeOut(sWhiteCard.fadeTime, WhiteCard.cardUpdateHelper(card, i)).fadeIn(sWhiteCard.fadeTime);
-        }
+        $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
+            for(var i = 0; i < sWhiteCard.maxPanels; i++) {
+                $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
+            }
+        }).fadeIn(sWhiteCard.fadeTime);
     },
     
     //Hilfs Methode zum verändern des Textes der Weißen Karten
     cardUpdateHelper: function (card, i) {
-        //console.log(sWhiteCard.text + i);
-        //console.log(card[i]);
-        $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
-    },
-    
-    //Bindet Vote Buttons 
-    bindVoteButtons: function () { //bind funktion für die Buttons
-        $(sWhiteCard.buttonBind).on("click", function() {
-            var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
-            //console.log("WhiteCard: " + buttonID);
-            WhiteCard.vote(buttonID);   
-        });
+         $(sWhiteCard.text + i).html(card[i]); //Verändert denn Text der Karte
     },
     
     //Helper Funktion um von Gedrückten Button auf die gewählte karte zu schließen
-    vote: function (buttonID) {
-        var card;
-        
-        switch(buttonID) {
-        case "b0":
-            card = voteCard[0];
-        break;
-        case "b1":
-            card = voteCard[1];
-        break;
-        case "b2":
-            card = voteCard[2];
-        break;
-        case "b3":
-            card = voteCard[3];
-        break;
-        default:
-            console.log("ERROR: Button to Vote convert");
+    vote: function (panelID) {
+        if (playerName == "") {
+            alert("Bitte wähle erst einen Namen aus.");
+        } else {
+            var card;
+            
+            card = voteCard[panelID];
+            
+            //WhiteCard.cardHide();
+            $(sWhiteCard.voteRow).fadeOut(sWhiteCard.fadeTime, function() {
+                Socket.emitVote(card); //Sendet die wahl an Server
+            });
         }
-        
-        WhiteCard.cardHide();
-        
-        Socket.emitVote(card); //Sendet die wahl an Server
     },
 };

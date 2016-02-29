@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Die 3 Meta-Tags oben *müssen* zuerst im head stehen;
+    jeglicher sonstiger head-Inhalt muss *nach* diesen Tags kommen -->
+    <meta name="description" content="">
+    <meta name="author" content="Marina Knabbe">
+    <!--<link rel="icon" href="../../favicon.ico">-->
+
+    <title>Modern Browser Communication</title>
+
+    <!-- Bootstrap-CSS -->
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" href="http://rawgit.com/Transport-Protocol/MBC-CorporateDesign/master/main.css">
+  </head>
+
+  <body>
+<!-- HEADER ================================================== -->
+    <div class="page-header">
+      <img class="img-responsive" alt="Logo" src="https://rawgit.com/Transport-Protocol/MBC-CorporateDesign/master/pictures/logoCaDSsmall.jpg">
+      <h1>Modern Browser Communication</h1>
+      <h2>Cards Against University</h2>
+    </div>
+
+<!-- NAVBAR ================================================== -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Navigation ein-/ausblenden</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">CaDS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://rawgit.com/Transport-Protocol/MBC-CorporateDesign/master/index.html">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="http://rawgit.com/Transport-Protocol/MBC-CorporateDesign/master/index.html">Gaming</a></li>
+                <li><a href="#">Tools</a></li>
+                <li><a href="#">Info</a></li>
+                <li><a href="http://141.22.27.233:5900">Lego Mindstorm</a></li>
+              </ul>
+            </li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- APP ===================================================== -->
+    <div class="container app">
+      <!-- Application -->
+      <div class="row">
+			<!--
+			/* 
+			 * Author:  Mike Wüstenberg
+			 *
+			 * Beschreibung:
+			 * Client zum Spiel hier ist die auswahl eines Namens und das Voten auf die Karten Möglich
+			 *
+			 * Abhängigkeiten:
+			 * Es wurden zur erstellen das html, CSS und Javascript Framwork Bootstrap benutzt und
+			 * die Javascript Bibliothekn JQuery und socket.io
+			*/
+			-->
+			
+			<!DOCTYPE html>
+			<html lang="en">
+				<head>			
+					<!-- Custom styles-->
+					<link rel="stylesheet" href="css/client.css">
+					
+					</style>
+				</head>
+			
+				<body>
+					<div class="container-fluid" id="con">					  
+						<!-- Reihe für die schwarze Karte -->
+						<div class="row">									
+							<div class="col-xs-8 col-xs-offset-2">
+								<div class="panel holder-black">
+									<div class="panel panel-primary" id="black-card-panel">
+										<div class="panel-body">
+											<h2 id="black-card-text"></h2>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Reihe für die auswahl eines Namens -->
+						<div class="row" id="name">
+							<div class="panel panel-primary row-white-cards">
+								<div class="row">
+									<div class="col-xs-12">
+										<h3 id="player-name-text">Wähle Spieler Namen</h3>
+										<div class="panel-body" id="player-names"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+				
+						<!--Reihe für die Anzeige der Bereits gevoteten Karte-->
+						<div class="row">
+							<div class="panel panel-primary row-white-cards">
+								<div class="row">
+									<div class="col-xs-12">
+										<h2>Gespielte Karten</h2>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-xs-3">
+										<div class="panel panel-primary holder-white">
+											<div class="panel panel-primary white-card" id="card-panel-0">
+												<div class="panel-body white-card-body">
+													<h2 id="card-text-0"></h2>
+												</div>
+												<div class="panel-footer white-card-footer">
+													<h3 id="card-vote-0"></h3>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3">
+										<div class="panel panel-primary holder-white">
+											<div class="panel panel-primary white-card" id="card-panel-1">
+												<div class="panel-body white-card-body">
+													<h2 id="card-text-1"></h2>
+												</div>
+												<div class="panel-footer white-card-footer">
+													<h3 id="card-vote-1"></h3>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3">
+										<div class="panel panel-primary holder-white">
+											<div class="panel panel-primary white-card" id="card-panel-2">
+												<div class="panel-body white-card-body">
+													<h2 id="card-text-2"></h2>
+												</div>
+												<div class="panel-footer white-card-footer">
+													<h3 id="card-vote-2"></h3>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3">
+										<div class="panel panel-primary holder-white">
+											<div class="panel panel-primary white-card" id="card-panel-3">
+												<div class="panel-body white-card-body">
+													<h2 id="card-text-3"></h2>
+												</div>
+												<div class="panel-footer white-card-footer">
+													<h3 id="card-vote-3"></h3>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!--Reihe für die Karten auf die der Spieler Voten kann-->
+						<div class="row" id="vote">
+							<div class="panel panel-primary row-white-cards">
+			
+								<div class="row">
+									<div class="col-xs-12" id="vote">
+										<h2> Wähle eine Karte</h2>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-xs-3">
+										<div class="panel panel-primary holder-white">
+											<div class="panel panel-primary white-card" id="white-card-panel-0" data-panelID=0>
+												<div class="panel-body">
+													<h2 id="white-card-text-0"></h2>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3">
+										<div class="panel panel-primary holder-white">
+											<div class="panel panel-primary white-card" id="white-card-panel-1" data-panelID=1>
+												<div class="panel-body">
+													<h2 id="white-card-text-1"></h2>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3">
+										<div class="panel panel-primary holder-white">
+											<div class="panel panel-primary white-card" id="white-card-panel-2" data-panelID=2>
+												<div class="panel-body">
+													<h2 id="white-card-text-2"></h2>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-3">
+										<div class="panel panel-primary holder-white">
+											<div class="panel panel-primary white-card" id="white-card-panel-3" data-panelID=3>
+												<div class="panel-body">
+													<h2 id="white-card-text-3"></h2>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-12">
+								<h2>Highscore</h2>
+							</div>
+						</div>
+								
+						<div class="row">
+							<div class="col-xs-12">
+								<table class="table" id="highscore">
+									<tr>
+										<td><h3>Name</h3></td>
+										<td><h3>Votes</h3></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div><!-- /.container -->
+				</body>
+			</html>
+            </div>
+        </div><!-- /.container -->
+      </div>
+      <!-- Link and Info -->
+      <div class="row">
+        <div class="col-md-6">
+          <a href="http://rawgit.com/Transport-Protocol/MBC-CorporateDesign/master/index.html" class="btn btn-link" role="button">&laquo; zurück zu Gaming</a>
+        </div>
+        <div class="col-md-6">
+          <p class="pull-right">
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Info</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cards Against University</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>"Cards Against University" ist ein Karten Spiel basierend auf dem Spiel "Cards Against Humanity"
+                        in dem es darum geht die Satzlücke der gegebenen Karte mit denn gegebenen Handkarten zu füllen.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+                  </div>
+                </div>
+              </div>
+            </div><!-- modal -->
+          </p>
+        </div>
+      </div><!-- /.row -->
+
+      <hr class="featurette-divider">
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right">
+          <img  class="img-responsive" alt="HAW Logo" src="http://rawgit.com/Transport-Protocol/MBC-CorporateDesign/master/pictures/logohaw.gif">
+        </p>
+        <p>
+          <img  class="img-responsive" alt="CaDS Logo" src="http://rawgit.com/Transport-Protocol/MBC-CorporateDesign/master/pictures/logoCaDSsmall.jpg">
+        </p>
+      </footer>
+
+    </div><!-- /.container -->
+
+<!-- Bootstrap-JavaScript ==================================== -->
+    <!-- Am Ende des Dokuments platziert, damit Seiten schneller laden -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+	<!-- Hinzugefügt -->
+	<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+	
+	<!-- Custom JavaScript -->
+	<script type="text/javascript" src="../js/blackCard.js"></script>
+	<script type="text/javascript" src="../js/scoreName.js"></script>
+	<script type="text/javascript" src="../js/cardSet.js"></script>
+	<script type="text/javascript" src="../js/socket.js"></script>
+	<script type="text/javascript" src="../js/whiteCard.js"></script>
+	<script type="text/javascript" src="../js/highscore.js"></script>
+	<script type="text/javascript" src="clientGlobal.js"></script>
+
+    <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
+    <script src="https://rawgit.com/twbs/bootstrap/master/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

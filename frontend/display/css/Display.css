@@ -1,0 +1,143 @@
+/* 
+ * Author:  Mike Wüstenberg
+ *
+ * Beschreibung:
+ * Die CSS datei zu der Display Komponente des Cards Against Universtity Projects
+*/
+
+body {
+    background-color: #ffffff;
+    color: #5a5a5a;
+    /*font*/
+    font-family: Verdana, Geneva, sans-serif;
+    
+    max-width: 100vw;
+    
+    padding-left: 2vw;
+    padding-right: 2vw;
+} 
+
+h1 {
+    font-weight: bold;
+    font-size: 250%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+h3 {
+    font-size: 150%;
+}
+
+p {
+    font-size: 100%;
+}
+
+/*
+ * holder-black ist die Komponente in der die schwarzen Karten und der QR code gehalten wird
+ * und erzeugt einen rahmen zum ein und ausblenden der schwarzen Karte
+ */
+.holder-black { 
+    margin: 1vh;
+    padding: 2vh;
+    
+    min-height: 29vh;
+	max-height: 29vh;
+    
+    border-color: black;
+    background-color: #204d86;
+}
+
+/*
+ * holder-white ist die Komponente in der die weißen Karten gehalten werden
+ * und erzeugt einen rahmen zum ein und ausblenden der weißen Karten
+ */
+.holder-white {
+    margin: 1vh;
+    
+    min-height: 37vh;
+	max-height: 37vh;
+    
+    border-color: black;
+    background-color: #204d86;
+}
+
+/*
+ *  Die weißen Karten
+ */
+.card-white {
+    margin: 1vh;
+    
+    min-height: 35vh;
+	max-height: 35vh;
+    
+    overflow: auto;
+}
+
+/*
+ * Der Körper der weißen Karte. 
+ */
+.card-body {
+    min-height: 27vh;
+	max-height: 27vh;
+}
+
+/*
+ * Der footer der weißen Karte
+ */
+.card-footer {
+    min-height: 7vh;
+	max-height: 7vh;
+}
+
+/*
+ * Rahmen für die Highscore Liste
+ */
+.holder-highscore {    
+    min-height: 68vh;
+	max-height: 68vh;
+    
+    background-color: white;
+}
+
+/*
+ * Größe des QR codes
+ */
+#qr-code {
+    min-height: 25vh;
+	max-height: 25vh;
+    
+    width: auto;
+}
+
+/*
+ * Die Logos im footer
+ */
+#logo {
+	max-height: 15vh;
+    width: auto;
+}
+
+/*
+ * Die Zeile welche die Karten und Highscore Liste umschließt
+ */
+#row-mid {    
+    border: black;
+    background-color: #b5c4d9;
+}
+
+/*
+ * Die schwarze Karte
+ */
+#black-card-panel {    
+    min-height: 25vh;
+	max-height: 25vh;
+    
+    background-color: #080808;
+    
+    border-color: black;
+    color: white;
+    
+    overflow: auto;
+}
