@@ -45,7 +45,7 @@ var Socket = {
         errorConnect: "connect failed",
         errorMSG: "Server Connection failed",
         
-        debugMsg: true,
+        debugMsg: false,
     },
     
     /* Beschreibung:
