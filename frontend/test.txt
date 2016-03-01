@@ -1,0 +1,80 @@
+Testprotokoll Nr.
+Tester: Mike Wustenberg
+Datum: 29.02.2016
+Beginn: 16:13 Ende: 16:25
+Testnummer: 01
+Was wurde gestetet?
+Es wird getestet wie sie die Anzeige des Kiosk Display in unterschiedlichen Aufloesungen verhaelt.
+
+Ergebnisse:
+1920x900, UI OK
+900x1920, Erscheinungs Bild verzehrt QR verschwindet und gespielte Karten nicht mehr lesbar.
+1280x600, Seite ist leicht zu gross und Votes leicht abgeschnitten.
+600x1280, Erscheinungs Bild verzehrt QR verschwindet und gespielte Karten nicht mehr lesbar.
+980x1280, QR Code leicht zu gross.
+1280,980, Erscheinungs Bild verzehrt QR verschwindet und gespielte Karten nicht mehr lesbar.
+800x1280, UI OK
+1280x800, Erscheinungs Bild verzehrt QR verschwindet und gespielte Karten nicht mehr lesbar.
+768x1014, QR-Code leicht zu gross, Votes nicht mehr lesbar.
+
+Mogliche Loesung: 
+Unterschiedliche CSS skalierungen fur die Unterschiedlichen Aufloesungen.
+
+################################################################################################
+
+Testprotokoll Nr.
+Tester: Mike Wustenberg
+Datum: 29.02.2016
+Beginn: 16:28 Ende: 16:29
+Testnummer: 02
+Was wurde gestetet?
+Es wird getestet ob man einen Namem auf dem Client Auswahlen kann und auf eine Karte Voten kann.
+
+Ergebnisse:
+Test erfolgreich die Auswahl eines Namens ist moeglich und die danach gewahlte Karte wird 
+bei denn Gespielten Karten angezeigt sowohl auf der eigenen Anzeige als auch auf der Kiosk 
+anzeige.
+
+################################################################################################
+
+Testprotokoll Nr.
+Tester: Mike Wustenberg
+Datum: 29.02.2016
+Beginn: 16:38 Ende: 16:40
+Testnummer: 03
+Was wurde gestetet?
+Es wird getestet ob der Vote einer Karte korrekt angezeigt wird wenn 3 Clients auf die selbe Karte Voten.
+
+Ergebnisse:
+Es wurde die Korrekte anzahl an Votes(3) auf allen Teihlnemenden Clients angezeigt.
+
+################################################################################################
+
+Testprotokoll Nr.
+Tester: Mike Wustenberg
+Datum: 29.02.2016
+Beginn: 16:51 Ende: 16:53
+Testnummer: 04
+Was wurde gestetet?
+Es wird getestet ob nach beginn einer Runde die Votes in der Highscore aktualisiert werden.
+
+Ergebnisse:
+Es haben 3 Spieler gevotet 2 mit dem Namen "name-a" einer mit dem Namen "name-b" Die votes von 
+Beiden ist jeweils um 1 gestiegen.
+
+################################################################################################
+
+Testprotokoll Nr.
+Tester: Mike Wustenberg
+Datum: 29.02.2016
+Beginn: 16:51 Ende: 16:53
+Testnummer: 05
+Was wurde gestetet?
+Es wird das Anzeigen der Seite mit Unterschiedlichen Geraeten getstet.
+
+Ergebnisse:
+Firefox: OK
+Chrome: OK
+Edge: OK
+
+################################################################################################

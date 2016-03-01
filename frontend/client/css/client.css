@@ -56,6 +56,8 @@ p {
 .holder-white {
     margin: 1vh;
     
+    min-width: 25vh;
+    
     min-height: 37vh;
 	max-height: 37vh;
     
@@ -69,6 +71,8 @@ p {
 .white-card {
     margin: 1vh;
     
+    min-width: 23vh;
+    
     min-height: 35vh;
 	max-height: 35vh;
     
@@ -81,6 +85,8 @@ p {
  * Der Körper der weißen Karte. 
  */
 .white-card-body {
+    min-width: 25vh;
+    
     min-height: 27vh;
 	max-height: 27vh;
 }
@@ -89,6 +95,8 @@ p {
  * Der footer der weißen Karte
  */
 .white-card-footer {
+    min-width: 25vh;
+    
     min-height: 7vh;
 	max-height: 7vh;
 }
@@ -98,6 +106,8 @@ p {
  */
 .row-white-cards {
     padding: 1vh;
+    
+    min-width: 102vh;
     
     border: black;
     background-color: #b5c4d9;

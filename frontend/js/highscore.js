@@ -37,7 +37,7 @@ var Highscore = {
         
         maxHighscoreEntries: 100,
         
-        debugMsg: true,
+        debugMsg: false,
         
         timer: true,
     },
