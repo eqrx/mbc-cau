@@ -125,7 +125,7 @@ module.exports.Link.prototype.connect = function() {
 // Assemble message for turn info
 module.exports.Link.prototype.getTurnData = function() {
   // Take data from game
-  return {"card": this.game.card, "choices": this.game.choices, "duration": this.game.nextTurnTime - (new Date()).getTime()};
+  return {"card": this.game.card, "choices": this.game.choices, "duration": this.game.nextTurnTime - (new Date()).getTime(), "highscore": this.storage.score};
 };
 
 // Fix file permissions of created UNIX-Socket after it has been created

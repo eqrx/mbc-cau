@@ -1,14 +1,23 @@
 /* 
  * Author:  Mike Wuestenberg
  *
+ * Beschreibung:
+ * Modul welches zuständig für die Auswahl eines Spieler namens ist, und Anzeigen der Spielernamen die zur verfügung stehen
+ *
+ * Methoden:
+ * init();
+ * bindVoteButtons();
+ * saveScoreNames(msg);
+ * showScoreName(playerName);
 */
 
 var sScoreName;  //Variabel für die Settings
-var playerName; //Spiechert Spieler Namen
+var playerName = ""; //Spiechert Spieler Namen
    
 var ScoreName = {
     settings: {
         panel: "#player-names",
+        panelText: "#player-name-text",
     },
     
     init: function() {
@@ -17,7 +26,7 @@ var ScoreName = {
     
     //Bindet Namens wahl Buttons 
     bindVoteButtons: function () { //bind funktion für die Buttons
-        console.log("ScoreName: Button Bind");
+        //console.log("ScoreName: Button Bind");
         $(sScoreName.panel + " .btn").on("click", function() {
             var buttonID = $(this).attr("data-ID"); //Erkennt welcher Button gedrückt wurde
             
@@ -25,10 +34,14 @@ var ScoreName = {
             ScoreName.showScoreName(buttonID);
         });
     },
-    
-    //Fügt Buttons zur Namens Auswahl hinzu
+
+    /* Beschreibung:
+     * Zeigt die auswählbaren Spielernamen an und die dazugehörigen Buttons
+     *
+     * Parameter:
+     * msg: Nachricht mit denn Spielernamen vond er Socket schnittstelle
+     */
     saveScoreNames: function (msg) {
-        console.log("ScoreNames: " + msg);
         
         $(sScoreName.panel).empty();
         for(var i = 0; i < msg.length; i++) {
@@ -38,9 +51,15 @@ var ScoreName = {
         ScoreName.bindVoteButtons(); 
     },
     
-    //Verteckt alle Karten zu beginn
+    /* Beschreibung:
+     * Versteckt nach auswahl eines Namens die Auswahl und Zeigt denn eigenen Namen dafür an
+     *
+     * Parameter:
+     * playerName: Der Spielername
+     */
     showScoreName: function (playerName) {
         $(sScoreName.panel).empty();
+        $(sScoreName.panelText).html("Dein Name ist:");
         
         $(sScoreName.panel).append("<h3>" + playerName +"</h3>");
     },
