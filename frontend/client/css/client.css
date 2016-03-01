@@ -71,7 +71,7 @@ p {
 .white-card {
     margin: 1vh;
     
-    min-width: 25vh;
+    min-width: 23vh;
     
     min-height: 35vh;
 	max-height: 35vh;
@@ -85,7 +85,7 @@ p {
  * Der Körper der weißen Karte. 
  */
 .white-card-body {
-    min-width: 27vh;
+    min-width: 25vh;
     
     min-height: 27vh;
 	max-height: 27vh;
@@ -95,7 +95,7 @@ p {
  * Der footer der weißen Karte
  */
 .white-card-footer {
-    min-width: 27vh;
+    min-width: 25vh;
     
     min-height: 7vh;
 	max-height: 7vh;
