@@ -1,4 +1,13 @@
-Testprotokoll Nr.
+Lessond Learned
+
+1. Selbständiges erlernen einer Programmiersprache(Javascript)
+2. Design einer einfachen Webseite.
+3. Präsentieren eines Projekts.
+
+################################################################################################
+    Tests
+################################################################################################
+Testprotokoll Nr.01
 Tester: Mike Wustenberg
 Datum: 29.02.2016
 Beginn: 16:13 Ende: 16:25
@@ -22,7 +31,7 @@ Unterschiedliche CSS skalierungen fur die Unterschiedlichen Aufloesungen.
 
 ################################################################################################
 
-Testprotokoll Nr.
+Testprotokoll Nr.02
 Tester: Mike Wustenberg
 Datum: 29.02.2016
 Beginn: 16:28 Ende: 16:29
@@ -37,7 +46,7 @@ anzeige.
 
 ################################################################################################
 
-Testprotokoll Nr.
+Testprotokoll Nr.03
 Tester: Mike Wustenberg
 Datum: 29.02.2016
 Beginn: 16:38 Ende: 16:40
@@ -50,7 +59,7 @@ Es wurde die Korrekte anzahl an Votes(3) auf allen Teihlnemenden Clients angezei
 
 ################################################################################################
 
-Testprotokoll Nr.
+Testprotokoll Nr.04
 Tester: Mike Wustenberg
 Datum: 29.02.2016
 Beginn: 16:51 Ende: 16:53
@@ -64,7 +73,7 @@ Beiden ist jeweils um 1 gestiegen.
 
 ################################################################################################
 
-Testprotokoll Nr.
+Testprotokoll Nr.05
 Tester: Mike Wustenberg
 Datum: 29.02.2016
 Beginn: 16:51 Ende: 16:53
