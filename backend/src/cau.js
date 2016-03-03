@@ -1,6 +1,7 @@
 var winston = require("winston");
 var argv = require("argv");
 
+// Define program arguments and parse command line
 var args = argv.option([
   {
     name: 'config',
@@ -16,23 +17,26 @@ var args = argv.option([
   }
 ]).run();
 
+// Check if loglevel is valid
 var winstonlevels = ["error", "warn", "info", "verbose", "debug", "silly"];
-
 if (winstonlevels.indexOf(args.options.loglevel) < 0) {
   throw "Passed loglevel is illegal";
 }
-
+// Check if configuration path is present
 if (!args.options.config) {
   throw "Path not specified";
 }
 
+// Set loglevel and add timestamp to output
 winston.remove(winston.transports.Console);
 winston.add(winston.transports.Console, {'timestamp':true});
 winston.level = args.options.loglevel;
+// TODO test this
 //winston.handleExceptions();
 
 winston.debug("Command line arguments are:", args);
 
+// Import submodules
 var storage = require("./storage.js");
 var game = require("./game.js");
 var link = require("./link.js");
