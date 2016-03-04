@@ -31,8 +31,6 @@ if (!args.options.config) {
 winston.remove(winston.transports.Console);
 winston.add(winston.transports.Console, {'timestamp':true});
 winston.level = args.options.loglevel;
-// TODO test this
-//winston.handleExceptions();
 
 winston.debug("Command line arguments are:", args);
 
