@@ -108,7 +108,7 @@ module.exports.Game.prototype.choose = function(card, name) {
   // Add card to choice if has not been played yet
   if(!(card in this.choices)) {
     // Remember the player
-    this.choices[card] = {"player": name, "score": 0};
+    this.choices[card] = {"player": name, "score": 1};
   }
   
   // Give the card a point
