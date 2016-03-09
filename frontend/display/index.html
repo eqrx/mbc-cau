@@ -34,7 +34,38 @@
     <body>		
         <div class="fluid-container">
 			<div class="row" id="row-head"> <!-- Obere Zeile für die Überschrift -->
-				<div class="col-sm-12">
+				<div class="col-sm-2">
+					
+					<!-- Hier hyperlink zum server ändern wenn gewünscht-->
+					<a href="http://rawgit.com/Transport-Protocol/MBC-CorporateDesign/master/index.html"><canvas id="canvasHome" width="150" height="50" style="background-color:#ffffff"></canvas></a>
+					<!-- ###############################################-->
+					
+					<script>
+						// Find the <canvas> element by using the HTML DOM method
+						var canvas = document.getElementById("canvasHome");
+					 
+						// The getContext() is a built-in HTML object, with properties and methods for drawing
+						var ctx = canvas.getContext("2d");
+					 
+						// Set the fill style of the drawing object to the color red:
+						ctx.fillStyle = "#204d86";
+					 
+						// The fillRect(x,y,width,height) method draws a rectangle, filled with the fill style, on the canvas:
+						ctx.fillRect(25, 15, 100, 25);
+					 
+						ctx.beginPath();
+						ctx.moveTo(25,5);
+						ctx.lineTo(0,25);
+						ctx.lineTo(25,50);
+						ctx.closePath();
+						ctx.fill();
+					 
+						ctx.fillStyle = "#ffffff";
+						ctx.font = "20px Ariel"; // Defines the font properties for the text
+						ctx.fillText("Home", 50, 35); // Draws "filled" text on the canvas
+					</script>
+				</div>
+				<div class="col-sm-8">
 					<h1><center>Cards Against University</center></h1>
 				</div>
 			</div>

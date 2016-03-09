@@ -81,29 +81,36 @@
             </div>
    
            <div class="row">
-               <div class="col-md-6">
-
-                 
+               <div class="col-md-6 col-md-offset-3">
                    <div class="panel panel-primary">
                        <div class="panel-body">
-                             <h1><a href="display/index.html">Kiosk Display</a></h1>
-                             <p>Hier gehts zum Display welches den Spielverlauf anzeigt.</p>
+                             <center><h1><a href="display/index.html">Kiosk Display</a></h1>
+                             Hier gehts zum Display welches den Spielverlauf anzeigt.</center>
                              
                              <!-- Hier hyperlink zum server ändern wenn gewünscht-->
-                             <center><a href="display/index.html"><img src="img/display_qr.jpg" alt="Bild" /></a></center>
+                             <center><a href="display/index.html"><canvas id="canvas" width="200" height="125" style="background-color:#ffffff"></canvas></a></center>
                              <!-- ###############################################-->
-                       </div>
-                   </div>
-               </div>
-               <div class="col-md-6">
-                   <div class="panel panel-primary">
-                       <div class="panel-body">
-                             <h1><a href="client/index.html">Spiel Display</a></h1>
-                             <p>Hier gehts zum Display mit dem man am Spiel teilnehmen kann.</p>
                              
-                             <!-- Hier hyperlink zum server ändern wenn gewünscht-->
-                             <center><a href="client/index.html"><img src="img/client_qr.jpg" alt="Bild" /></a></center>
-                             <!-- ###############################################-->
+                             <script>
+                              // Find the <canvas> element by using the HTML DOM method
+                              var canvas = document.getElementById("canvas");
+                              
+                              // The getContext() is a built-in HTML object, with properties and methods for drawing
+                              var ctx = canvas.getContext("2d");
+                              
+                              // Set the fill style of the drawing object to the color red:
+                              ctx.fillStyle = "#204d86";
+                              
+                              // The fillRect(x,y,width,height) method draws a rectangle, filled with the fill style, on the canvas:
+                              ctx.fillRect(0, 50, 130, 50);
+                              
+                              ctx.beginPath();
+                              ctx.moveTo(130,25);
+                              ctx.lineTo(200,75);
+                              ctx.lineTo(130,125);
+                              ctx.closePath();
+                              ctx.fill();
+                             </script>
                        </div>
                    </div>
                </div>
