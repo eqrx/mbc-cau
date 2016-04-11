@@ -6,7 +6,9 @@ This project is based on [Cards Against Humanity](https://cardsagainsthumanity.c
 Cards and gaming principle are under [Creative Commons BY-NC-SA 2.0 license](https://creativecommons.org/licenses/by-nc-sa/2.0/).
 Everything else is licensed as GNU Affero General Public Licence Version 3.0. See LICENCE file or [here](https://www.gnu.org/licenses/agpl-3.0.en.html) for further information.
 
-## Required node.js modules for backend:
+## Backend
+
+### Required node.js
 
 - winston: Logging
 - socketio: WebSockets
@@ -14,5 +16,11 @@ Everything else is licensed as GNU Affero General Public Licence Version 3.0. Se
 - shuffle-array: Randomizing order of lists
 - path-is-absolute: Workaround for older systems
 
-## Authors:
-- backend/ was contributed by Alexander Sowitzki 
+### How to run
+
+ - Clone repository
+ - Enter backend folder
+ - Execute `node src/cau.js -c conf/cau.json -l info`
+
+### Authors
+- backend/ was contributed by Alexander Sowitzki and Katharina Mulack
